@@ -10,6 +10,13 @@ export const Hero = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
+          <div className="mb-8">
+            <img 
+              src="/lovable-uploads/e50be236-f783-4a72-b2fa-46b0ded22aee.png" 
+              alt="MineChain Logo" 
+              className="w-32 h-32 mx-auto"
+            />
+          </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-mine-silver bg-clip-text text-transparent">
             Empowering the Future with Compute Power
           </h1>
