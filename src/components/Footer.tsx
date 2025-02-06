@@ -1,4 +1,4 @@
-import { Github, Twitter, Discord, ExternalLink } from "lucide-react";
+import { Github, Twitter, MessageSquare, ExternalLink } from "lucide-react";
 
 export const Footer = () => {
   return (
@@ -43,7 +43,7 @@ export const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <a href="#" className="text-mine-silver hover:text-white text-sm inline-flex items-center gap-2">
-                  <Discord className="h-4 w-4" /> Discord
+                  <MessageSquare className="h-4 w-4" /> Discord
                 </a>
               </li>
               <li>
