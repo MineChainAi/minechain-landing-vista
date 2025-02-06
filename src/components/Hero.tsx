@@ -17,9 +17,12 @@ export const Hero = () => {
               className="w-32 h-32 mx-auto"
             />
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-mine-silver bg-clip-text text-transparent">
-            Empowering the Future with Compute Power
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-white">
+            MineChain
           </h1>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-mine-silver bg-clip-text text-transparent">
+            Empowering the Future with Compute Power
+          </h2>
           <p className="text-lg md:text-xl text-mine-silver mb-8 max-w-2xl mx-auto">
             A Layer 1 Proof-of-Work blockchain powering AI, Web3 applications, and decentralized compute services
           </p>
