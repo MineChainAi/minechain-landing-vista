@@ -18,7 +18,7 @@ export const Hero = () => {
             />
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-4 text-white">
-            MineChain
+            MineChain.ai
           </h1>
           <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-mine-silver bg-clip-text text-transparent">
             Empowering the Future with Compute Power
