@@ -18,6 +18,9 @@ export const Logo = () => {
       <p className="mt-2 text-mine-silver text-sm">
         MineChain HQ - Jupiter, Florida
       </p>
+      <p className="mt-2 text-mine-silver text-sm font-semibold">
+        Full Stack Miners
+      </p>
     </div>
   );
 };
