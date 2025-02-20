@@ -1,4 +1,3 @@
-
 import { ArrowRight, Cpu, Zap, Server } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -50,16 +49,16 @@ export const Hero = () => {
             />
           </div>
           
-          {/* Main heading with circular dots styling */}
+          {/* Main heading with line styling instead of dots */}
           <h1 className="text-7xl md:text-9xl mb-4 text-white flex items-center justify-center gap-6">
-            <div className="w-6 h-6 rounded-full bg-[#F97316] shadow-lg shadow-[#F97316]/50" /> 
+            <div className="w-12 h-[2px] bg-gradient-to-r from-[#F97316] to-transparent" /> 
             <span 
               className="font-extrabold tracking-wide bg-gradient-to-r from-[#F97316] via-white to-[#0EA5E9] bg-clip-text text-transparent"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               MineChain
             </span>
-            <div className="w-6 h-6 rounded-full bg-[#F97316] shadow-lg shadow-[#F97316]/50" />
+            <div className="w-12 h-[2px] bg-gradient-to-l from-[#F97316] to-transparent" />
           </h1>
           
           {/* Updated headline */}
@@ -89,7 +88,7 @@ export const Hero = () => {
             </span>
           </div>
           
-          {/* CTA buttons with luxury styling */}
+          {/* CTA buttons */}
           <div className="flex gap-4 justify-center">
             <Button 
               size="lg" 
