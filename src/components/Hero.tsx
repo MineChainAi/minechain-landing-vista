@@ -28,7 +28,11 @@ export const Hero = () => {
             Powering decentralized AI mining with high-performance GPUs and real rewards
           </p>
           <div className="flex gap-4 justify-center">
-            <Button size="lg" className="bg-mine-blue hover:bg-mine-blue/90 text-white">
+            <Button 
+              size="lg" 
+              className="bg-mine-blue hover:bg-mine-blue/90 text-white"
+              onClick={() => window.open('https://discord.gg/A2UGvjaV', '_blank')}
+            >
               Join Discord <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button size="lg" variant="outline" className="border-mine-blue text-mine-blue hover:bg-mine-blue hover:text-white">
