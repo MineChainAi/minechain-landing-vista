@@ -28,7 +28,16 @@ export const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="text-mine-silver hover:text-white text-sm inline-flex items-center gap-2">
+                <a 
+                  href="# MineChain Whitepaper  
+
+## **1. Introduction & Vision**  
+### **The Future of AI Compute & Blockchain Mining**  
+MineChain is the world's first decentralized AI-driven **compute power and GPU mining ecosystem**, combining high-performance AI workloads with **blockchain technology**. Built with a **fleet of NVIDIA 5090s, 4090s, and H100s**, MineChain enables **decentralized AI compute power**, enterprise-grade security, and **NFT-backed mining rewards**..." 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-mine-silver hover:text-white text-sm inline-flex items-center gap-2"
+                >
                   Whitepaper <ExternalLink className="h-3 w-3" />
                 </a>
               </li>
