@@ -35,23 +35,19 @@ export const Integration = () => {
               href="https://xrpl.org/docs/tutorials" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="block"
+              className="block group"
             >
-              <div className="glass-card p-8 rounded-lg aspect-video flex flex-col items-center justify-center relative overflow-hidden group hover:opacity-95 transition-opacity">
-                <div className="absolute inset-0 bg-gradient-to-r from-mine-blue/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <a 
-                  href="https://xrpl.org/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="relative z-10"
-                >
-                  <img 
-                    src="/lovable-uploads/e50be236-f783-4a72-b2fa-46b0ded22aee.png" 
-                    alt="Powered by XRP Ledger" 
-                    className="h-16 w-auto mb-4 hover:opacity-90 transition-opacity"
-                  />
-                </a>
-                <span className="text-2xl text-mine-silver relative z-10">XRP Integration Demo</span>
+              <div className="glass-card p-8 rounded-lg aspect-video flex flex-col items-center justify-center relative overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-mine-blue/20">
+                <div className="absolute inset-0 bg-gradient-to-br from-mine-blue/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative z-10 space-y-4">
+                  <span className="text-2xl font-bold bg-gradient-to-r from-white via-mine-silver to-mine-blue bg-clip-text text-transparent">
+                    XRP Integration Demo
+                  </span>
+                  <div className="flex items-center justify-center gap-2 text-mine-silver/80 group-hover:text-white transition-colors">
+                    <span>Explore Tutorials</span>
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
               </div>
             </a>
           </div>
