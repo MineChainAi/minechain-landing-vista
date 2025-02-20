@@ -7,7 +7,7 @@ export const Community = () => {
       <h3 className="font-bold mb-4">Community</h3>
       <ul className="space-y-2">
         <li>
-          <a href="#" className="text-mine-silver hover:text-white text-sm inline-flex items-center gap-2">
+          <a href="https://discord.gg/CmTXH8ejf4" target="_blank" rel="noopener noreferrer" className="text-mine-silver hover:text-white text-sm inline-flex items-center gap-2">
             <MessageSquare className="h-4 w-4" /> Discord
           </a>
         </li>
