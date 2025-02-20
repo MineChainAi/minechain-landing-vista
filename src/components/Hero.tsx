@@ -49,7 +49,7 @@ export const Hero = () => {
             />
           </div>
           
-          {/* Main heading with line styling instead of dots */}
+          {/* Main heading with line styling */}
           <h1 className="text-7xl md:text-9xl mb-4 text-white flex items-center justify-center gap-6">
             <div className="w-12 h-[2px] bg-gradient-to-r from-[#F97316] to-transparent" /> 
             <span 
@@ -88,12 +88,12 @@ export const Hero = () => {
             </span>
           </div>
           
-          {/* CTA buttons */}
+          {/* CTA buttons with updated Discord links */}
           <div className="flex gap-4 justify-center">
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-[#F97316] to-[#0EA5E9] hover:opacity-90 text-white"
-              onClick={() => window.open('https://discord.gg/A2UGvjaV', '_blank')}
+              onClick={() => window.open('https://discord.gg/2Z5xvBSsv7', '_blank')}
             >
               Join the OG Miners on Discord <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
@@ -101,6 +101,7 @@ export const Hero = () => {
               size="lg" 
               variant="outline" 
               className="border-[#F97316] text-[#F97316] hover:bg-[#F97316] hover:text-white"
+              onClick={() => window.open('https://discord.gg/2Z5xvBSsv7', '_blank')}
             >
               Get Started with MineChain
             </Button>
