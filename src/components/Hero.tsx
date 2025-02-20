@@ -69,10 +69,10 @@ export const Hero = () => {
           {/* Updated subheadline */}
           <p className="text-lg md:text-xl text-mine-silver mb-8 max-w-2xl mx-auto">
             Pioneering AI-integrated GPU mining, decentralized AI compute, and NFT-powered rewards—backed by next-gen NVIDIA AI GPUs.
-            <span className="block mt-2 text-[#F97316]">Built by the Caballerz. Powered by Innovation. Owned by the OGs.</span>
+            <span className="block mt-2 text-[#F97316]">Innovate . Collaborate . Earn</span>
           </p>
           
-          {/* Updated feature badges */}
+          {/* Feature badges */}
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <span className="px-4 py-2 rounded-full border border-[#F97316]/30 bg-black/20 text-[#F97316] text-sm">
               <Server className="inline-block w-4 h-4 mr-2" /> Enterprise AI Compute
@@ -88,7 +88,7 @@ export const Hero = () => {
             </span>
           </div>
           
-          {/* CTA buttons with updated Discord links */}
+          {/* CTA buttons */}
           <div className="flex gap-4 justify-center">
             <Button 
               size="lg" 
