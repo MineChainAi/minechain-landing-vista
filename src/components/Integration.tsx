@@ -22,7 +22,10 @@ export const Integration = () => {
               >
                 Read Documentation
               </Button>
-              <Button className="bg-mine-blue hover:bg-mine-blue/90">
+              <Button 
+                className="bg-mine-blue hover:bg-mine-blue/90"
+                onClick={() => window.open('https://ripple.com/developer-resources/', '_blank', 'noopener,noreferrer')}
+              >
                 Start Building <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
