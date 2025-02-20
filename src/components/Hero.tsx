@@ -1,3 +1,4 @@
+
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -21,14 +22,19 @@ export const Hero = () => {
             MineChain
           </h1>
           <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-mine-silver bg-clip-text text-transparent">
-            Empowering the Future with Compute Power
+            The Future of AI Mining
           </h2>
           <p className="text-lg md:text-xl text-mine-silver mb-8 max-w-2xl mx-auto">
-            A Layer 1 Proof-of-Work blockchain powering AI, Web3 applications, and decentralized compute services
+            Powering decentralized AI mining with high-performance GPUs and real rewards
           </p>
-          <Button size="lg" className="bg-mine-blue hover:bg-mine-blue/90 text-white">
-            Join the Network <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
+          <div className="flex gap-4 justify-center">
+            <Button size="lg" className="bg-mine-blue hover:bg-mine-blue/90 text-white">
+              Join Discord <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+            <Button size="lg" variant="outline" className="border-mine-blue text-mine-blue hover:bg-mine-blue hover:text-white">
+              Start Mining
+            </Button>
+          </div>
         </div>
       </div>
     </div>
