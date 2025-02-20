@@ -18,17 +18,44 @@ export const CryptoTicker = () => {
   useEffect(() => {
     const fetchPrices = async () => {
       try {
-        const response = await fetch('https://api.binance.com/api/v3/ticker/24hr?symbols=["BTCUSDT","ETHUSDT","BNBUSDT","XRPUSDT"]');
+        // Using cors-anywhere to bypass CORS issues
+        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,binancecoin,ripple&vs_currencies=usd&include_24hr_change=true');
         const data = await response.json();
         
-        const formattedPrices = data.map((item: any) => ({
-          symbol: item.symbol.replace('USDT', '/USD'),
-          price: parseFloat(item.lastPrice).toLocaleString('en-US', {
-            style: 'currency',
-            currency: 'USD'
-          }),
-          change24h: parseFloat(item.priceChangePercent).toFixed(2)
-        }));
+        const formattedPrices = [
+          {
+            symbol: 'BTC/USD',
+            price: data.bitcoin.usd.toLocaleString('en-US', {
+              style: 'currency',
+              currency: 'USD'
+            }),
+            change24h: data.bitcoin.usd_24h_change.toFixed(2)
+          },
+          {
+            symbol: 'ETH/USD',
+            price: data.ethereum.usd.toLocaleString('en-US', {
+              style: 'currency',
+              currency: 'USD'
+            }),
+            change24h: data.ethereum.usd_24h_change.toFixed(2)
+          },
+          {
+            symbol: 'BNB/USD',
+            price: data.binancecoin.usd.toLocaleString('en-US', {
+              style: 'currency',
+              currency: 'USD'
+            }),
+            change24h: data.binancecoin.usd_24h_change.toFixed(2)
+          },
+          {
+            symbol: 'XRP/USD',
+            price: data.ripple.usd.toLocaleString('en-US', {
+              style: 'currency',
+              currency: 'USD'
+            }),
+            change24h: data.ripple.usd_24h_change.toFixed(2)
+          }
+        ];
         
         setPrices(formattedPrices);
       } catch (error) {
