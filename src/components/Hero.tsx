@@ -1,4 +1,3 @@
-
 import { ArrowRight, Cpu, Zap, Server } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -51,7 +50,7 @@ export const Hero = () => {
           </div>
           
           {/* Main heading with line styling */}
-          <h1 className="text-7xl md:text-9xl mb-4 text-white flex items-center justify-center gap-6">
+          <h1 className="text-5xl md:text-7xl mb-4 text-white flex items-center justify-center gap-6">
             <div className="w-12 h-[2px] bg-gradient-to-r from-[#F97316] to-transparent" /> 
             <span 
               className="font-extrabold tracking-wide bg-gradient-to-r from-[#F97316] via-white to-[#0EA5E9] bg-clip-text text-transparent"
