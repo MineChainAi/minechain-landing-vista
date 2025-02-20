@@ -20,10 +20,7 @@ export const CryptoTicker = () => {
   useEffect(() => {
     const fetchPrices = async () => {
       try {
-        // Using Binance public API with multiple symbols in one request
-        const symbols = ["BTCUSDT", "ETHUSDT", "BNBUSDT", "XRPUSDT"];
-        const symbolsQuery = encodeURIComponent(JSON.stringify(symbols));
-        const response = await fetch(`https://api.binance.us/api/v3/ticker/24hr?symbols=${symbolsQuery}`, {
+        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,binancecoin,ripple&vs_currencies=usd&include_24hr_change=true', {
           headers: {
             'Accept': 'application/json',
           }
@@ -35,17 +32,40 @@ export const CryptoTicker = () => {
 
         const data = await response.json();
         
-        const formattedPrices = data.map((item: any, index: number) => {
-          const symbol = symbols[index].replace('USDT', '/USD');
-          return {
-            symbol,
-            price: parseFloat(item.lastPrice).toLocaleString('en-US', {
+        const formattedPrices = [
+          {
+            symbol: 'BTC/USD',
+            price: data.bitcoin.usd.toLocaleString('en-US', {
               style: 'currency',
               currency: 'USD'
             }),
-            change24h: parseFloat(item.priceChangePercent).toFixed(2)
-          };
-        });
+            change24h: data.bitcoin.usd_24h_change.toFixed(2)
+          },
+          {
+            symbol: 'ETH/USD',
+            price: data.ethereum.usd.toLocaleString('en-US', {
+              style: 'currency',
+              currency: 'USD'
+            }),
+            change24h: data.ethereum.usd_24h_change.toFixed(2)
+          },
+          {
+            symbol: 'BNB/USD',
+            price: data.binancecoin.usd.toLocaleString('en-US', {
+              style: 'currency',
+              currency: 'USD'
+            }),
+            change24h: data.binancecoin.usd_24h_change.toFixed(2)
+          },
+          {
+            symbol: 'XRP/USD',
+            price: data.ripple.usd.toLocaleString('en-US', {
+              style: 'currency',
+              currency: 'USD'
+            }),
+            change24h: data.ripple.usd_24h_change.toFixed(2)
+          }
+        ];
         
         setPrices(formattedPrices);
       } catch (error) {
@@ -59,7 +79,7 @@ export const CryptoTicker = () => {
     };
 
     fetchPrices();
-    const interval = setInterval(fetchPrices, 10000); // Update every 10 seconds
+    const interval = setInterval(fetchPrices, 30000); // Update every 30 seconds to respect API rate limits
 
     return () => clearInterval(interval);
   }, [toast]);
