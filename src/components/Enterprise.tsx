@@ -28,8 +28,13 @@ export const Enterprise = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-[#F97316] via-white to-[#0EA5E9] bg-clip-text text-transparent">
-            Enterprise-Grade AI Compute Power
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <span 
+              className="bg-gradient-to-r from-[#F97316] via-white to-[#0EA5E9] bg-clip-text text-transparent"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              MINE<span className="font-extrabold">CHAIN</span>
+            </span>
           </h2>
           <p className="text-lg text-mine-silver">
             MineChain is built on the most powerful AI infrastructure in Web3. Our high-performance fleet of cutting-edge GPUs powers AI workloads, deep learning, LLM fine-tuning, and blockchain security.
