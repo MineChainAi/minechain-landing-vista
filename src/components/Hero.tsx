@@ -28,9 +28,14 @@ export const Hero = () => {
           </div>
           
           {/* Main heading with circular dots styling */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-white flex items-center justify-center gap-4">
+          <h1 className="text-5xl md:text-7xl mb-4 text-white flex items-center justify-center gap-4">
             <div className="w-4 h-4 rounded-full bg-[#F97316] shadow-lg shadow-[#F97316]/50" /> 
-            MineChain
+            <span 
+              className="font-light tracking-wide bg-gradient-to-r from-[#F97316] via-white to-[#0EA5E9] bg-clip-text text-transparent"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              minechain
+            </span>
             <div className="w-4 h-4 rounded-full bg-[#F97316] shadow-lg shadow-[#F97316]/50" />
           </h1>
           
