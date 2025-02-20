@@ -1,5 +1,5 @@
 
-import { ArrowRight, Diamond, Cpu, Palette } from "lucide-react";
+import { ArrowRight, Diamond, Cpu, Zap, Server } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Hero = () => {
@@ -34,34 +34,34 @@ export const Hero = () => {
             <Diamond className="h-8 w-8 text-[#F97316]" />
           </h1>
           
-          {/* New headline */}
+          {/* Updated headline */}
           <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#F97316] via-white to-[#0EA5E9] bg-clip-text text-transparent">
-            AI Compute Power Meets Web3 Mining & NFT Innovation
+            Where Enterprise AI Compute Meets Blockchain & Digital Creativity
           </h2>
           
-          {/* New subheadline */}
+          {/* Updated subheadline */}
           <p className="text-lg md:text-xl text-mine-silver mb-8 max-w-2xl mx-auto">
-            Enterprise-grade AI, blockchain automation, and NFT-powered mining rewards—built for the OGs.
+            Pioneering AI-integrated GPU mining, decentralized AI compute, and NFT-powered rewards—backed by next-gen NVIDIA AI GPUs.
             <span className="block mt-2 text-[#F97316]">Built by the Caballerz. Powered by Innovation. Owned by the OGs.</span>
           </p>
           
-          {/* Feature badges */}
+          {/* Updated feature badges */}
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <span className="px-4 py-2 rounded-full border border-[#F97316]/30 bg-black/20 text-[#F97316] text-sm">
-              <Cpu className="inline-block w-4 h-4 mr-2" /> AI Compute Power
+              <Server className="inline-block w-4 h-4 mr-2" /> Enterprise AI Compute
             </span>
             <span className="px-4 py-2 rounded-full border border-[#0EA5E9]/30 bg-black/20 text-[#0EA5E9] text-sm">
-              NFT-Backed Rewards
+              ProgPoW Hybrid Mining
             </span>
             <span className="px-4 py-2 rounded-full border border-[#F97316]/30 bg-black/20 text-[#F97316] text-sm">
-              <Palette className="inline-block w-4 h-4 mr-2" /> AI Art Creation
+              <Cpu className="inline-block w-4 h-4 mr-2" /> AI-Enhanced Web3
             </span>
             <span className="px-4 py-2 rounded-full border border-[#0EA5E9]/30 bg-black/20 text-[#0EA5E9] text-sm">
-              Enterprise AI Solutions
+              <Zap className="inline-block w-4 h-4 mr-2" /> NFT-Backed Rewards
             </span>
           </div>
           
-          {/* Updated CTA buttons with luxury styling */}
+          {/* CTA buttons with luxury styling */}
           <div className="flex gap-4 justify-center">
             <Button 
               size="lg" 
