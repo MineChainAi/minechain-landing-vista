@@ -34,21 +34,21 @@ export const Hero = () => {
             <Diamond className="h-8 w-8 text-[#F97316]" />
           </h1>
           
-          {/* Subheading with gradient effect */}
+          {/* New headline */}
           <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#F97316] via-white to-[#0EA5E9] bg-clip-text text-transparent">
-            Where Blockchain Royalty Meets Innovation & Creativity
+            AI Compute Power Meets Web3 Mining & NFT Innovation
           </h2>
           
-          {/* Description with luxury accent */}
+          {/* New subheadline */}
           <p className="text-lg md:text-xl text-mine-silver mb-8 max-w-2xl mx-auto">
-            Pioneering AI-integrated GPU mining and digital artistry in a new era of blockchain technology.
+            Enterprise-grade AI, blockchain automation, and NFT-powered mining rewards—built for the OGs.
             <span className="block mt-2 text-[#F97316]">Built by the Caballerz. Powered by Innovation. Owned by the OGs.</span>
           </p>
           
           {/* Feature badges */}
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <span className="px-4 py-2 rounded-full border border-[#F97316]/30 bg-black/20 text-[#F97316] text-sm">
-              <Cpu className="inline-block w-4 h-4 mr-2" /> AI-Powered Hashrate
+              <Cpu className="inline-block w-4 h-4 mr-2" /> AI Compute Power
             </span>
             <span className="px-4 py-2 rounded-full border border-[#0EA5E9]/30 bg-black/20 text-[#0EA5E9] text-sm">
               NFT-Backed Rewards
@@ -57,25 +57,25 @@ export const Hero = () => {
               <Palette className="inline-block w-4 h-4 mr-2" /> AI Art Creation
             </span>
             <span className="px-4 py-2 rounded-full border border-[#0EA5E9]/30 bg-black/20 text-[#0EA5E9] text-sm">
-              ProgPoW Hybrid Mining
+              Enterprise AI Solutions
             </span>
           </div>
           
-          {/* CTA buttons with luxury styling */}
+          {/* Updated CTA buttons with luxury styling */}
           <div className="flex gap-4 justify-center">
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-[#F97316] to-[#0EA5E9] hover:opacity-90 text-white"
               onClick={() => window.open('https://discord.gg/A2UGvjaV', '_blank')}
             >
-              Join Discord <ArrowRight className="ml-2 h-4 w-4" />
+              Join the OG Miners on Discord <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
               className="border-[#F97316] text-[#F97316] hover:bg-[#F97316] hover:text-white"
             >
-              Start Mining
+              Get Started with MineChain
             </Button>
           </div>
         </div>
