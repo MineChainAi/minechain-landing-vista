@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { useToast } from "@/components/ui/use-toast";
 import { Loader2 } from "lucide-react";
@@ -18,8 +19,7 @@ export const CryptoTicker = () => {
     { symbol: 'XRP/USD', price: '0.00', change24h: '0.00' },
     { symbol: 'DOGE/USD', price: '0.00', change24h: '0.00' },
     { symbol: 'LTC/USD', price: '0.00', change24h: '0.00' },
-    { symbol: 'HBAR/USD', price: '0.00', change24h: '0.00' },
-    { symbol: 'AVAX/USD', price: '0.00', change24h: '0.00' }
+    { symbol: 'HBAR/USD', price: '0.00', change24h: '0.00' }
   ]);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export const CryptoTicker = () => {
         console.log('Fetching crypto prices...'); // Debug log
         
         // Using the Coinbase API which has better CORS support
-        const symbols = ['BTC-USD', 'ETH-USD', 'XRP-USD', 'DOGE-USD', 'LTC-USD', 'HBAR-USD', 'AVAX-USD'];
+        const symbols = ['BTC-USD', 'ETH-USD', 'XRP-USD', 'DOGE-USD', 'LTC-USD', 'HBAR-USD'];
         const responses = await Promise.all(
           symbols.map(symbol => 
             fetch(`https://api.coinbase.com/v2/prices/${symbol}/spot`)
