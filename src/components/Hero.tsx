@@ -1,3 +1,4 @@
+
 import { ArrowRight, Cpu, Zap, Server } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -93,7 +94,7 @@ export const Hero = () => {
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-[#F97316] to-[#0EA5E9] hover:opacity-90 text-white"
-              onClick={() => window.open('https://discord.gg/2Z5xvBSsv7', '_blank')}
+              onClick={() => window.open('https://discord.gg/CmTXH8ejf4', '_blank')}
             >
               Join the OG Miners on Discord <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
@@ -101,7 +102,7 @@ export const Hero = () => {
               size="lg" 
               variant="outline" 
               className="border-[#F97316] text-[#F97316] hover:bg-[#F97316] hover:text-white"
-              onClick={() => window.open('https://discord.gg/2Z5xvBSsv7', '_blank')}
+              onClick={() => window.open('https://discord.gg/CmTXH8ejf4', '_blank')}
             >
               Get Started with MineChain
             </Button>
