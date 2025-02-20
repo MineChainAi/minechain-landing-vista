@@ -6,11 +6,13 @@ import { Roadmap } from "@/components/Roadmap";
 import { Integration } from "@/components/Integration";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
+import { CryptoTicker } from "@/components/CryptoTicker";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-mine-dark">
       <Navbar />
+      <CryptoTicker />
       <Hero />
       <div id="features">
         <Features />
