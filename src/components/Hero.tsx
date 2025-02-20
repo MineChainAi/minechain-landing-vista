@@ -1,3 +1,4 @@
+
 import { ArrowRight, Cpu, Zap, Server } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -69,7 +70,7 @@ export const Hero = () => {
           {/* Updated subheadline */}
           <p className="text-lg md:text-xl text-mine-silver mb-8 max-w-2xl mx-auto">
             Pioneering AI-integrated GPU mining, decentralized AI compute, and NFT-powered rewards—backed by next-gen NVIDIA AI GPUs.
-            <span className="block mt-2 text-[#F97316]">Innovate . Collaborate . Earn</span>
+            <span className="block mt-2 text-[#F97316]">Create . Innovate . Earn</span>
           </p>
           
           {/* Feature badges */}
