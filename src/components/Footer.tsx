@@ -1,3 +1,4 @@
+
 import { Github, Twitter, MessageSquare, ExternalLink } from "lucide-react";
 
 export const Footer = () => {
@@ -52,7 +53,7 @@ export const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="text-mine-silver hover:text-white text-sm inline-flex items-center gap-2">
+                <a href="https://github.com/MineChainAi" target="_blank" rel="noopener noreferrer" className="text-mine-silver hover:text-white text-sm inline-flex items-center gap-2">
                   <Github className="h-4 w-4" /> GitHub
                 </a>
               </li>
