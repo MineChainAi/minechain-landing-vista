@@ -5,16 +5,39 @@ import { Button } from "@/components/ui/button";
 export const Hero = () => {
   return (
     <div className="relative min-h-[90vh] flex items-center justify-center bg-mine-dark">
-      {/* Animated gradient background */}
+      {/* AI Data Center Background Effect */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#F97316]/10 via-transparent to-transparent animate-gradient-y" />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1A1F2C] via-[#0F172A] to-black opacity-90" />
+        
+        {/* Circuit board pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="h-full w-full" style={{
+            backgroundImage: `
+              linear-gradient(90deg, #F97316 1px, transparent 1px),
+              linear-gradient(0deg, #F97316 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px',
+            transform: 'perspective(500px) rotateX(60deg)',
+          }} />
+        </div>
+        
+        {/* Glowing orbs (representing AI nodes) */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-[#F97316] rounded-full blur-3xl opacity-20 animate-pulse" />
+          <div className="absolute top-1/3 right-1/4 w-40 h-40 bg-[#0EA5E9] rounded-full blur-3xl opacity-10 animate-pulse delay-700" />
+          <div className="absolute bottom-1/4 left-1/3 w-36 h-36 bg-[#F97316] rounded-full blur-3xl opacity-15 animate-pulse delay-1000" />
+        </div>
+        
+        {/* Data flow lines */}
+        <div className="absolute inset-0 overflow-hidden opacity-20">
+          <div className="absolute h-full w-[1px] bg-gradient-to-b from-transparent via-[#F97316] to-transparent left-1/4 animate-pulse" style={{ animationDuration: '3s' }} />
+          <div className="absolute h-full w-[1px] bg-gradient-to-b from-transparent via-[#0EA5E9] to-transparent left-2/4 animate-pulse" style={{ animationDuration: '4s' }} />
+          <div className="absolute h-full w-[1px] bg-gradient-to-b from-transparent via-[#F97316] to-transparent left-3/4 animate-pulse" style={{ animationDuration: '3.5s' }} />
+        </div>
       </div>
       
-      {/* Diagonal stripes overlay */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="h-full w-full bg-diagonal-stripes" />
-      </div>
-      
+      {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           {/* Logo with diamond effect */}
