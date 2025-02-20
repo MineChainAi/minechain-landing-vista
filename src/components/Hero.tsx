@@ -1,5 +1,5 @@
 
-import { ArrowRight, Diamond, Cpu } from "lucide-react";
+import { ArrowRight, Diamond, Cpu, Palette } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Hero = () => {
@@ -36,12 +36,12 @@ export const Hero = () => {
           
           {/* Subheading with gradient effect */}
           <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#F97316] via-white to-[#0EA5E9] bg-clip-text text-transparent">
-            Where Blockchain Royalty Meets Innovation
+            Where Blockchain Royalty Meets Innovation & Creativity
           </h2>
           
           {/* Description with luxury accent */}
           <p className="text-lg md:text-xl text-mine-silver mb-8 max-w-2xl mx-auto">
-            Pioneering AI-integrated GPU mining in a new era of blockchain technology.
+            Pioneering AI-integrated GPU mining and digital artistry in a new era of blockchain technology.
             <span className="block mt-2 text-[#F97316]">Built by the Caballerz. Powered by Innovation. Owned by the OGs.</span>
           </p>
           
@@ -54,6 +54,9 @@ export const Hero = () => {
               NFT-Backed Rewards
             </span>
             <span className="px-4 py-2 rounded-full border border-[#F97316]/30 bg-black/20 text-[#F97316] text-sm">
+              <Palette className="inline-block w-4 h-4 mr-2" /> AI Art Creation
+            </span>
+            <span className="px-4 py-2 rounded-full border border-[#0EA5E9]/30 bg-black/20 text-[#0EA5E9] text-sm">
               ProgPoW Hybrid Mining
             </span>
           </div>
