@@ -1,4 +1,3 @@
-
 import { Github, Twitter, MessageSquare, ExternalLink } from "lucide-react";
 
 export const Footer = () => {
@@ -141,7 +140,68 @@ By using MineChain, you acknowledge that you have read and understood this Priva
                 </a>
               </li>
               <li>
-                <a href="#" className="text-mine-silver hover:text-white text-sm">
+                <a 
+                  href="**MineChain Terms of Service**
+
+**Effective Date:** [Insert Date]
+
+## **1. Introduction**
+Welcome to MineChain. These Terms of Service ("Terms") govern your access to and use of our website, services, AI compute platform, blockchain integrations, and related offerings. By accessing or using MineChain, you agree to be bound by these Terms. If you do not agree, you must discontinue use immediately.
+
+## **2. Eligibility**
+You must be at least 18 years old and legally capable of entering into a binding agreement to use our services. By using MineChain, you represent and warrant that you meet these requirements.
+
+## **3. Services Provided**
+MineChain provides AI-powered compute services, GPU mining, blockchain integrations, NFT-backed mining rewards, and enterprise AI solutions. We reserve the right to modify, update, or discontinue any part of our services at any time.
+
+## **4. User Accounts & Security**
+- You may be required to create an account to access certain services.
+- You are responsible for safeguarding your account credentials and ensuring their confidentiality.
+- MineChain is not liable for unauthorized account access or misuse of your credentials.
+
+## **5. Acceptable Use**
+By using MineChain, you agree not to:
+- Engage in illegal, fraudulent, or deceptive activities.
+- Violate intellectual property rights or distribute malicious software.
+- Exploit vulnerabilities or attempt unauthorized access to systems.
+- Misuse AI compute resources in violation of ethical AI guidelines.
+
+## **6. Payments & Transactions**
+- All payments made for services, AI compute power, and blockchain transactions are final and non-refundable unless explicitly stated otherwise.
+- MineChain is not responsible for losses due to user error, unauthorized access, or system downtimes.
+- Transactions involving cryptocurrency or NFTs are subject to blockchain network fees and risks associated with digital asset volatility.
+
+## **7. Data & Privacy**
+- MineChain collects and processes data in accordance with our **Privacy Policy**.
+- Certain blockchain-related data (such as wallet addresses and transaction history) may be publicly visible and immutable.
+- Users are responsible for securing their own private keys and sensitive blockchain information.
+
+## **8. Intellectual Property**
+- All content, trademarks, logos, and technology provided by MineChain are the exclusive property of MineChain or its licensors.
+- You may not reproduce, modify, or distribute any part of our services without prior written consent.
+
+## **9. Limitation of Liability**
+- MineChain provides its services "as-is" and makes no warranties regarding availability, performance, or accuracy.
+- We are not responsible for losses incurred due to service interruptions, blockchain network failures, or external hacking incidents.
+- Our liability is limited to the maximum extent permitted by applicable law.
+
+## **10. Termination & Suspension**
+We reserve the right to terminate or suspend access to MineChain at our discretion, including but not limited to violations of these Terms, suspected fraudulent activity, or security threats.
+
+## **11. Governing Law & Dispute Resolution**
+These Terms shall be governed by and construed in accordance with the laws of [Insert Jurisdiction]. Any disputes shall be resolved through binding arbitration or litigation in the appropriate courts of jurisdiction.
+
+## **12. Changes to These Terms**
+MineChain reserves the right to update or modify these Terms at any time. Changes will be posted on our website with an updated effective date. Continued use of MineChain constitutes acceptance of the revised Terms.
+
+## **13. Contact Information**
+For questions or concerns regarding these Terms, please contact us:
+- **Email:** legal@minechain.ai
+- **Website:** [www.minechain.ai](https://www.minechain.ai)
+
+By using MineChain, you acknowledge that you have read, understood, and agree to these Terms of Service."
+                  className="text-mine-silver hover:text-white text-sm"
+                >
                   Terms of Service
                 </a>
               </li>
