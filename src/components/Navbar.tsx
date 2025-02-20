@@ -1,8 +1,11 @@
 
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 
 export const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-mine-dark/80 backdrop-blur-lg border-b border-white/10">
       <div className="container mx-auto px-4">
@@ -46,10 +49,55 @@ export const Navbar = () => {
             </Button>
           </div>
           
-          <button className="md:hidden p-2">
-            <Menu className="h-6 w-6" />
+          <button 
+            className="md:hidden p-2 hover:bg-white/10 rounded-md transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden">
+            <div className="glass-card px-2 py-4 rounded-lg mt-2 mb-4 flex flex-col gap-4">
+              <a 
+                href="#features" 
+                className="text-mine-silver hover:text-white transition-colors px-4 py-2 rounded-md hover:bg-white/5"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Features
+              </a>
+              <a 
+                href="#integration" 
+                className="text-mine-silver hover:text-white transition-colors px-4 py-2 rounded-md hover:bg-white/5"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Integration
+              </a>
+              <a 
+                href="#" 
+                className="text-mine-silver hover:text-white transition-colors px-4 py-2 rounded-md hover:bg-white/5"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Docs
+              </a>
+              <div className="px-4">
+                <Button 
+                  variant="outline" 
+                  className="border-mine-blue text-mine-blue hover:bg-mine-blue hover:text-white w-full"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Launch App
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
