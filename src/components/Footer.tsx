@@ -1,87 +1,7 @@
 import { Github, Twitter, MessageSquare, ExternalLink } from "lucide-react";
 
 export const Footer = () => {
-  return (
-    <footer className="border-t border-white/10 py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <img 
-                src="/lovable-uploads/e50be236-f783-4a72-b2fa-46b0ded22aee.png" 
-                alt="MineChain Logo" 
-                className="w-8 h-8"
-              />
-              <h3 className="font-bold">MineChain</h3>
-            </div>
-            <p className="text-mine-silver text-sm">
-              Empowering the future of decentralized computing with enterprise-grade infrastructure and AI-powered optimization.
-            </p>
-          </div>
-          <div>
-            <h3 className="font-bold mb-4">Resources</h3>
-            <ul className="space-y-2">
-              <li>
-                <a 
-                  href="# MineChain Whitepaper  
-
-## **1. Introduction & Vision**  
-### **The Future of AI Compute & Blockchain Mining**  
-MineChain is the world's first decentralized AI-driven **compute power and GPU mining ecosystem**, combining high-performance AI workloads with **blockchain technology**. Built with a **fleet of NVIDIA 5090s, 4090s, and H100s**, MineChain enables **decentralized AI compute power**, enterprise-grade security, and **NFT-backed mining rewards**..."
-                  target="_blank"
-                  rel="noopener noreferrer" 
-                  className="text-mine-silver hover:text-white text-sm inline-flex items-center gap-2"
-                >
-                  Documentation <ExternalLink className="h-3 w-3" />
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="# MineChain Whitepaper  
-
-## **1. Introduction & Vision**  
-### **The Future of AI Compute & Blockchain Mining**  
-MineChain is the world's first decentralized AI-driven **compute power and GPU mining ecosystem**, combining high-performance AI workloads with **blockchain technology**. Built with a **fleet of NVIDIA 5090s, 4090s, and H100s**, MineChain enables **decentralized AI compute power**, enterprise-grade security, and **NFT-backed mining rewards**..." 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-mine-silver hover:text-white text-sm inline-flex items-center gap-2"
-                >
-                  Whitepaper <ExternalLink className="h-3 w-3" />
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-mine-silver hover:text-white text-sm inline-flex items-center gap-2">
-                  API Reference <ExternalLink className="h-3 w-3" />
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-bold mb-4">Community</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-mine-silver hover:text-white text-sm inline-flex items-center gap-2">
-                  <MessageSquare className="h-4 w-4" /> Discord
-                </a>
-              </li>
-              <li>
-                <a href="https://x.com/caballerzdev" target="_blank" rel="noopener noreferrer" className="text-mine-silver hover:text-white text-sm inline-flex items-center gap-2">
-                  <Twitter className="h-4 w-4" /> Twitter
-                </a>
-              </li>
-              <li>
-                <a href="https://github.com/MineChainAi" target="_blank" rel="noopener noreferrer" className="text-mine-silver hover:text-white text-sm inline-flex items-center gap-2">
-                  <Github className="h-4 w-4" /> GitHub
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-bold mb-4">Legal</h3>
-            <ul className="space-y-2">
-              <li>
-                <a 
-                  href="**MineChain Privacy Policy**
+  const privacyPolicyDoc = `**MineChain Privacy Policy**
 
 **Effective Date:** [Insert Date]
 
@@ -133,15 +53,9 @@ For questions or concerns about this Privacy Policy, please contact us:
 - **Email:** privacy@minechain.ai
 - **Website:** [www.minechain.ai](https://www.minechain.ai)
 
-By using MineChain, you acknowledge that you have read and understood this Privacy Policy and consent to the practices described herein."
-                  className="text-mine-silver hover:text-white text-sm"
-                >
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="**MineChain Terms of Service**
+By using MineChain, you acknowledge that you have read and understood this Privacy Policy and consent to the practices described herein.`;
+
+  const termsOfServiceDoc = `**MineChain Terms of Service**
 
 **Effective Date:** [Insert Date]
 
@@ -199,7 +113,89 @@ For questions or concerns regarding these Terms, please contact us:
 - **Email:** legal@minechain.ai
 - **Website:** [www.minechain.ai](https://www.minechain.ai)
 
-By using MineChain, you acknowledge that you have read, understood, and agree to these Terms of Service."
+By using MineChain, you acknowledge that you have read, understood, and agree to these Terms of Service.`;
+
+  return (
+    <footer className="border-t border-white/10 py-12">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <img 
+                src="/lovable-uploads/e50be236-f783-4a72-b2fa-46b0ded22aee.png" 
+                alt="MineChain Logo" 
+                className="w-8 h-8"
+              />
+              <h3 className="font-bold">MineChain</h3>
+            </div>
+            <p className="text-mine-silver text-sm">
+              Empowering the future of decentralized computing with enterprise-grade infrastructure and AI-powered optimization.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-bold mb-4">Resources</h3>
+            <ul className="space-y-2">
+              <li>
+                <a 
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer" 
+                  className="text-mine-silver hover:text-white text-sm inline-flex items-center gap-2"
+                >
+                  Documentation <ExternalLink className="h-3 w-3" />
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-mine-silver hover:text-white text-sm inline-flex items-center gap-2"
+                >
+                  Whitepaper <ExternalLink className="h-3 w-3" />
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-mine-silver hover:text-white text-sm inline-flex items-center gap-2">
+                  API Reference <ExternalLink className="h-3 w-3" />
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-bold mb-4">Community</h3>
+            <ul className="space-y-2">
+              <li>
+                <a href="#" className="text-mine-silver hover:text-white text-sm inline-flex items-center gap-2">
+                  <MessageSquare className="h-4 w-4" /> Discord
+                </a>
+              </li>
+              <li>
+                <a href="https://x.com/caballerzdev" target="_blank" rel="noopener noreferrer" className="text-mine-silver hover:text-white text-sm inline-flex items-center gap-2">
+                  <Twitter className="h-4 w-4" /> Twitter
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/MineChainAi" target="_blank" rel="noopener noreferrer" className="text-mine-silver hover:text-white text-sm inline-flex items-center gap-2">
+                  <Github className="h-4 w-4" /> GitHub
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-bold mb-4">Legal</h3>
+            <ul className="space-y-2">
+              <li>
+                <a 
+                  href={`#${privacyPolicyDoc}`}
+                  className="text-mine-silver hover:text-white text-sm"
+                >
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a 
+                  href={`#${termsOfServiceDoc}`}
                   className="text-mine-silver hover:text-white text-sm"
                 >
                   Terms of Service
