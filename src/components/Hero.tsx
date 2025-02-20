@@ -1,5 +1,5 @@
 
-import { ArrowRight, Diamond, Cpu, Zap, Server } from "lucide-react";
+import { ArrowRight, Cpu, Zap, Server } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Hero = () => {
@@ -27,11 +27,11 @@ export const Hero = () => {
             />
           </div>
           
-          {/* Main heading with luxury styling */}
+          {/* Main heading with circular dots styling */}
           <h1 className="text-5xl md:text-7xl font-bold mb-4 text-white flex items-center justify-center gap-4">
-            <Diamond className="h-8 w-8 text-[#F97316]" /> 
+            <div className="w-4 h-4 rounded-full bg-[#F97316] shadow-lg shadow-[#F97316]/50" /> 
             MineChain
-            <Diamond className="h-8 w-8 text-[#F97316]" />
+            <div className="w-4 h-4 rounded-full bg-[#F97316] shadow-lg shadow-[#F97316]/50" />
           </h1>
           
           {/* Updated headline */}
