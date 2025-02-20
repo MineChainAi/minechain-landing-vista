@@ -11,13 +11,14 @@ export const CryptoTicker = () => {
   const [prices, setPrices] = useState<CryptoPrice[]>([
     { symbol: 'BTC/USD', price: '0.00', change24h: '0.00' },
     { symbol: 'ETH/USD', price: '0.00', change24h: '0.00' },
-    { symbol: 'BNB/USD', price: '0.00', change24h: '0.00' }
+    { symbol: 'BNB/USD', price: '0.00', change24h: '0.00' },
+    { symbol: 'XRP/USD', price: '0.00', change24h: '0.00' }
   ]);
 
   useEffect(() => {
     const fetchPrices = async () => {
       try {
-        const response = await fetch('https://api.binance.com/api/v3/ticker/24hr?symbols=["BTCUSDT","ETHUSDT","BNBUSDT"]');
+        const response = await fetch('https://api.binance.com/api/v3/ticker/24hr?symbols=["BTCUSDT","ETHUSDT","BNBUSDT","XRPUSDT"]');
         const data = await response.json();
         
         const formattedPrices = data.map((item: any) => ({
