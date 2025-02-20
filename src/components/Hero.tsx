@@ -34,7 +34,7 @@ export const Hero = () => {
               className="font-extrabold tracking-wide bg-gradient-to-r from-[#F97316] via-white to-[#0EA5E9] bg-clip-text text-transparent"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
-              minechain
+              MineChain
             </span>
             <div className="w-6 h-6 rounded-full bg-[#F97316] shadow-lg shadow-[#F97316]/50" />
           </h1>
