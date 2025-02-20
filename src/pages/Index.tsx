@@ -7,6 +7,8 @@ import { Integration } from "@/components/Integration";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { CryptoTicker } from "@/components/CryptoTicker";
+import { CommunityUpdates } from "@/components/CommunityUpdates";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 
 const Index = () => {
   return (
@@ -26,6 +28,8 @@ const Index = () => {
       <div id="integration">
         <Integration />
       </div>
+      <CommunityUpdates />
+      <NewsletterSignup />
       <Footer />
     </div>
   );
