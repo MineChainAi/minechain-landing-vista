@@ -15,6 +15,9 @@ export const Logo = () => {
           nukeit@minechain.ai
         </a>
       </p>
+      <p className="mt-2 text-mine-silver text-sm">
+        Jupiter, Florida
+      </p>
     </div>
   );
 };
