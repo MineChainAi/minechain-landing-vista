@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
@@ -14,7 +15,11 @@ export const Integration = () => {
               Experience lightning-fast transactions and seamless interoperability with the XRP Ledger integration. Build scalable applications with confidence using our enterprise-grade infrastructure.
             </p>
             <div className="flex gap-4">
-              <Button variant="outline" className="border-mine-blue text-mine-blue hover:bg-mine-blue hover:text-white">
+              <Button 
+                variant="outline" 
+                className="border-mine-blue text-mine-blue hover:bg-mine-blue hover:text-white"
+                onClick={() => window.open('https://xrpl.org/', '_blank', 'noopener,noreferrer')}
+              >
                 Read Documentation
               </Button>
               <Button className="bg-mine-blue hover:bg-mine-blue/90">
