@@ -16,7 +16,7 @@ export const Logo = () => {
         </a>
       </p>
       <p className="mt-2 text-mine-silver text-sm">
-        Jupiter, Florida
+        MineChain HQ - Jupiter, Florida
       </p>
     </div>
   );
