@@ -31,7 +31,9 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-[#1A1F2C] via-[#0F172A] to-black opacity-90 animate-gradient-y" />
         
         {/* Add ThreeScene for Mining Rig */}
-        <ThreeScene />
+        <div className="absolute inset-0 z-0">
+          <ThreeScene />
+        </div>
         
         {/* Animated circuit board pattern */}
         <div className="absolute inset-0 opacity-10">
