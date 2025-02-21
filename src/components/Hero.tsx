@@ -1,5 +1,5 @@
 
-import { ArrowRight, Cpu, Zap, Server, ChevronUp } from "lucide-react";
+import { ArrowRight, Cpu, Server, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -89,7 +89,7 @@ export const Hero = () => {
           
           {/* Enhanced subheadline */}
           <p className="text-lg md:text-xl text-mine-silver mb-8 max-w-2xl mx-auto animate-fade-in">
-            Pioneering AI-integrated GPU mining, decentralized AI compute, and NFT-powered rewards—backed by next-gen NVIDIA AI GPUs.
+            Pioneering AI-integrated GPU mining, decentralized AI compute, and blockchain innovation—backed by next-gen NVIDIA AI GPUs.
             <span className="block mt-2 text-[#F97316] hover:scale-105 transition-transform duration-300">Create . Innovate . Earn</span>
           </p>
           
@@ -103,9 +103,6 @@ export const Hero = () => {
             </span>
             <span className="px-4 py-2 rounded-full border border-[#F97316]/30 bg-black/20 text-[#F97316] text-sm hover:bg-[#F97316]/10 transition-colors duration-300 hover:scale-105 transform cursor-pointer">
               <Cpu className="inline-block w-4 h-4 mr-2" /> AI-Enhanced Web3
-            </span>
-            <span className="px-4 py-2 rounded-full border border-[#0EA5E9]/30 bg-black/20 text-[#0EA5E9] text-sm hover:bg-[#0EA5E9]/10 transition-colors duration-300 hover:scale-105 transform cursor-pointer">
-              <Zap className="inline-block w-4 h-4 mr-2" /> NFT-Backed Rewards
             </span>
           </div>
           
