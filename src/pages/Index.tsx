@@ -2,6 +2,8 @@
 import { Hero } from "@/components/Hero";
 import { Features } from "@/components/Features";
 import { Enterprise } from "@/components/Enterprise";
+import { GPUMarketplace } from "@/components/GPUMarketplace";
+import { MiningRewards } from "@/components/MiningRewards";
 import { Roadmap } from "@/components/Roadmap";
 import { Integration } from "@/components/Integration";
 import { Footer } from "@/components/Footer";
@@ -18,6 +20,12 @@ const Index = () => {
       <Hero />
       <div id="features">
         <Features />
+      </div>
+      <div id="marketplace">
+        <GPUMarketplace />
+      </div>
+      <div id="rewards">
+        <MiningRewards />
       </div>
       <div id="enterprise">
         <Enterprise />
