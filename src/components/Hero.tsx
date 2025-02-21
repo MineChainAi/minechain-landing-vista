@@ -3,7 +3,6 @@ import { ArrowRight, Cpu, Zap, Server, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { ThreeScene } from "./ThreeScene";
 
 export const Hero = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -29,9 +28,6 @@ export const Hero = () => {
       <div className="absolute inset-0 overflow-hidden">
         {/* Enhanced gradient overlay with animation */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#1A1F2C] via-[#0F172A] to-black opacity-90 animate-gradient-y" />
-        
-        {/* Add ThreeScene for Mining Rig */}
-        <ThreeScene />
         
         {/* Animated circuit board pattern */}
         <div className="absolute inset-0 opacity-10">
