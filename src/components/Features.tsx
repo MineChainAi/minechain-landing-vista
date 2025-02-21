@@ -1,7 +1,6 @@
 
 import { Card } from "@/components/ui/card";
 import { Server, Cpu, Palette } from "lucide-react";
-import { ThreeScene } from "./ThreeScene";
 
 export const Features = () => {
   const features = [
@@ -29,10 +28,6 @@ export const Features = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-12 bg-gradient-to-r from-[#F97316] via-white to-[#0EA5E9] bg-clip-text text-transparent">
             The Future of Decentralized AI & Web3
           </h2>
-          
-          <div className="mb-20 rounded-lg overflow-hidden">
-            <ThreeScene />
-          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -51,3 +46,4 @@ export const Features = () => {
     </section>
   );
 };
+
