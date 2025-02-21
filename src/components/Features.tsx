@@ -36,7 +36,7 @@ export const Features = () => {
           </p>
         </div>
 
-        <div className="mb-20 rounded-lg overflow-hidden shadow-2xl bg-black/30 backdrop-blur-sm">
+        <div className="mb-20 rounded-lg overflow-hidden shadow-2xl">
           <ThreeScene />
         </div>
 
