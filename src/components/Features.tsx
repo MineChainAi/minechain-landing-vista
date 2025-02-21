@@ -1,7 +1,6 @@
 
 import { Card } from "@/components/ui/card";
 import { Server, Cpu, Palette } from "lucide-react";
-import { ThreeScene } from "./ThreeScene";
 
 export const Features = () => {
   const features = [
@@ -23,23 +22,11 @@ export const Features = () => {
   ];
 
   return (
-    <section className="py-20 bg-mine-dark relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1A1F2C] via-[#0F172A] to-black opacity-50" />
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-4">
-            Next-Gen Mining Infrastructure
-          </h2>
-          <p className="text-mine-silver text-lg">
-            Powered by Advanced NVIDIA GPUs and AI Technology
-          </p>
-        </div>
-
-        <div className="mb-20 rounded-lg overflow-hidden">
-          <ThreeScene />
-        </div>
-
+    <section className="py-20 bg-gradient-to-b from-transparent to-black/30">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-[#F97316] via-white to-[#0EA5E9] bg-clip-text text-transparent">
+          The Future of Decentralized AI & Web3
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <Card 
