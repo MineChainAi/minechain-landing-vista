@@ -2,7 +2,6 @@
 import React, { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera, SpotLight } from "@react-three/drei";
-import * as THREE from "three";
 
 function GPU({ position }: { position: [number, number, number] }) {
   const gpuRef = useRef<THREE.Group>(null);
