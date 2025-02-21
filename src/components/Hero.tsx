@@ -1,5 +1,4 @@
-
-import { ArrowRight, Cpu, Server, ChevronUp } from "lucide-react";
+import { ArrowRight, Cpu, Server, ChevronUp, Cloud, Shield, Database } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -84,13 +83,13 @@ export const Hero = () => {
           
           {/* Enhanced headline */}
           <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#F97316] via-white to-[#0EA5E9] bg-clip-text text-transparent animate-fade-in">
-            Where Enterprise AI Compute Meets Blockchain & Digital Creativity
+            The Future of Decentralized Infrastructure & AI Compute
           </h2>
           
           {/* Enhanced subheadline */}
           <p className="text-lg md:text-xl text-mine-silver mb-8 max-w-2xl mx-auto animate-fade-in">
-            Pioneering AI-integrated GPU mining, decentralized AI compute, and blockchain innovation—backed by next-gen NVIDIA AI GPUs.
-            <span className="block mt-2 text-[#F97316] hover:scale-105 transition-transform duration-300">Create . Innovate . Earn</span>
+            Powering the next generation of Web3 applications and AI workloads through enterprise-grade infrastructure, Layer 1 blockchain technology, and integrated AI solutions.
+            <span className="block mt-2 text-[#F97316] hover:scale-105 transition-transform duration-300">Infrastructure • Innovation • Intelligence</span>
           </p>
           
           {/* Enhanced feature badges with hover effects */}
@@ -99,21 +98,27 @@ export const Hero = () => {
               <Server className="inline-block w-4 h-4 mr-2" /> Enterprise AI Compute
             </span>
             <span className="px-4 py-2 rounded-full border border-[#0EA5E9]/30 bg-black/20 text-[#0EA5E9] text-sm hover:bg-[#0EA5E9]/10 transition-colors duration-300 hover:scale-105 transform cursor-pointer">
-              ProgPoW Hybrid Mining
+              <Shield className="inline-block w-4 h-4 mr-2" /> ProgPoW Layer 1
             </span>
             <span className="px-4 py-2 rounded-full border border-[#F97316]/30 bg-black/20 text-[#F97316] text-sm hover:bg-[#F97316]/10 transition-colors duration-300 hover:scale-105 transform cursor-pointer">
-              <Cpu className="inline-block w-4 h-4 mr-2" /> AI-Enhanced Web3
+              <Cpu className="inline-block w-4 h-4 mr-2" /> AI Infrastructure
+            </span>
+            <span className="px-4 py-2 rounded-full border border-[#0EA5E9]/30 bg-black/20 text-[#0EA5E9] text-sm hover:bg-[#0EA5E9]/10 transition-colors duration-300 hover:scale-105 transform cursor-pointer">
+              <Cloud className="inline-block w-4 h-4 mr-2" /> IaaS & BaaS
+            </span>
+            <span className="px-4 py-2 rounded-full border border-[#F97316]/30 bg-black/20 text-[#F97316] text-sm hover:bg-[#F97316]/10 transition-colors duration-300 hover:scale-105 transform cursor-pointer">
+              <Database className="inline-block w-4 h-4 mr-2" /> Decentralized Storage
             </span>
           </div>
           
-          {/* Enhanced CTA buttons with better hover effects */}
+          {/* Enhanced CTA buttons */}
           <div className="flex flex-wrap gap-4 justify-center">
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-[#F97316] to-[#0EA5E9] hover:opacity-90 text-white transform hover:scale-105 transition-all duration-300"
               onClick={() => window.open('https://discord.gg/CmTXH8ejf4', '_blank')}
             >
-              Join the OG Miners on Discord <ArrowRight className="ml-2 h-4 w-4" />
+              Join the Innovation Hub <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button 
               size="lg" 
@@ -121,7 +126,7 @@ export const Hero = () => {
               className="border-[#F97316] text-[#F97316] hover:bg-[#F97316] hover:text-white transform hover:scale-105 transition-all duration-300"
               onClick={() => window.open('https://discord.gg/CmTXH8ejf4', '_blank')}
             >
-              Get Started with MineChain
+              Explore MineChain Solutions
             </Button>
           </div>
         </div>
