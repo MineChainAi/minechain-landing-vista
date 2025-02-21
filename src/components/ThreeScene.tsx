@@ -59,7 +59,7 @@ function MiningRig() {
 
 export const ThreeScene = () => {
   return (
-    <div className="absolute inset-0 opacity-40 pointer-events-none" style={{ minHeight: '400px' }}>
+    <div className="h-[500px] w-full relative">
       <Canvas shadows>
         <PerspectiveCamera makeDefault position={[0, 3, 10]} fov={50} />
         <ambientLight intensity={0.5} />
