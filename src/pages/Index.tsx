@@ -12,6 +12,7 @@ import { Navbar } from "@/components/Navbar";
 import { CryptoTicker } from "@/components/CryptoTicker";
 import { CommunityUpdates } from "@/components/CommunityUpdates";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { VideoCallButton } from "@/components/VideoCallButton";
 
 const Index = () => {
   return (
@@ -43,6 +44,7 @@ const Index = () => {
       <CommunityUpdates />
       <NewsletterSignup />
       <Footer />
+      <VideoCallButton />
     </div>
   );
 };
