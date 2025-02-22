@@ -29,8 +29,8 @@ export const VideoCall = ({ onClose }: VideoCallProps) => {
 
     useEffect(() => {
       if (connectionState === ConnectionState.Connected) {
-        const videoTrack = tracks.find(track => track.type === Track.Source.Camera);
-        const audioTrack = tracks.find(track => track.type === Track.Source.Microphone);
+        const videoTrack = tracks.find(track => track.source === Track.Source.Camera);
+        const audioTrack = tracks.find(track => track.source === Track.Source.Microphone);
         
         trackCallMetrics({
           connectionTime: Date.now() - connectionStartTime,
