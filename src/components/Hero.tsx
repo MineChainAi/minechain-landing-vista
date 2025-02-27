@@ -36,13 +36,13 @@ export const Hero = () => {
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
-          {/* Logo with solid styling */}
+          {/* Logo with square styling */}
           <div className="mb-8 flex justify-center">
-            <div className="rounded-full p-2 bg-[#F97316]/10 border border-[#F97316]/20">
+            <div className="p-2 bg-[#F97316]/10 border border-[#F97316]/20 rounded-lg">
               <img 
                 src="/lovable-uploads/bf49290c-2a09-4f24-9ad1-1a2bf454ddbf.png"
                 alt="MineChain AI Logo" 
-                className="w-24 h-24 object-cover rounded-full"
+                className="w-24 h-24 object-cover"
               />
             </div>
           </div>
