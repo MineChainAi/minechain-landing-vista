@@ -12,7 +12,7 @@ export const Community = () => {
           </a>
         </li>
         <li>
-          <a href="https://x.com/caballerzdev" target="_blank" rel="noopener noreferrer" className="text-mine-silver hover:text-white text-sm inline-flex items-center gap-2">
+          <a href="https://x.com/Minechainai" target="_blank" rel="noopener noreferrer" className="text-mine-silver hover:text-white text-sm inline-flex items-center gap-2">
             <Twitter className="h-4 w-4" /> Twitter
           </a>
         </li>
