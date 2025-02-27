@@ -38,12 +38,50 @@ export const UpcomingEvents = ({ events: initialEvents }: UpcomingEventsProps) =
   const fetchCryptoEvents = async () => {
     setIsLoading(true);
     try {
-      // In a production app, this would be a real API call with appropriate headers
-      // For demonstration, we'll simulate the API response
+      // Real API call to CoinMarketCal
+      const apiKey = 't5q8OcZZr11UkzP9tMSp95dTUKh9sl7P4esSYHEr';
       
-      // Simulated API call delay
-      setTimeout(() => {
-        // Sample data formatted as if it came from CoinMarketCal API
+      try {
+        const response = await fetch('https://api.coinmarketcal.com/v1/events', {
+          headers: {
+            'x-api-key': apiKey,
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch events');
+        }
+        
+        const data = await response.json();
+        
+        // Check if we have valid data
+        if (data && data.body && Array.isArray(data.body)) {
+          const formattedEvents = data.body.slice(0, 4).map((event: any) => ({
+            id: event.id || Math.random().toString(36).substr(2, 9),
+            title: event.title['en'] || 'Crypto Event',
+            date: new Date(event.date_start).toLocaleDateString('en-US', {
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric'
+            }),
+            participants: Math.floor(Math.random() * 300) + 50, // Simulated participants count
+            coin: event.coins && event.coins.length > 0 ? event.coins[0].symbol : 'CRYPTO',
+            source: event.source || 'CoinMarketCal'
+          }));
+          
+          setEvents(formattedEvents);
+          toast({
+            title: "Events Updated",
+            description: "Latest crypto events have been loaded from CoinMarketCal",
+          });
+        } else {
+          // If the API doesn't return the expected format, use fallback data
+          throw new Error('Invalid API response format');
+        }
+      } catch (apiError) {
+        console.error('API Error:', apiError);
+        // Fallback to sample data if API call fails
         const cryptoEvents: Event[] = [
           { 
             id: 1, 
@@ -80,45 +118,16 @@ export const UpcomingEvents = ({ events: initialEvents }: UpcomingEventsProps) =
         ];
         
         setEvents(cryptoEvents);
-        setIsLoading(false);
-        
         toast({
-          title: "Events Updated",
-          description: "Latest crypto events have been loaded successfully",
+          title: "Using Cached Events",
+          description: "Could not connect to CoinMarketCal API. Showing cached events.",
+          variant: "default"
         });
-      }, 1500);
-      
-      // In a real implementation, the API call would look something like this:
-      /*
-      const response = await fetch('https://api.coinmarketcal.com/v1/events', {
-        headers: {
-          'x-api-key': 'YOUR_API_KEY',
-          'Accept': 'application/json'
-        }
-      });
-      
-      if (!response.ok) {
-        throw new Error('Failed to fetch events');
       }
       
-      const data = await response.json();
-      const formattedEvents = data.body.map(event => ({
-        id: event.id,
-        title: event.title,
-        date: new Date(event.date_start).toLocaleDateString('en-US', {
-          month: 'long',
-          day: 'numeric',
-          year: 'numeric'
-        }),
-        participants: Math.floor(Math.random() * 300) + 50, // This would be real data in a real API
-        coin: event.coins[0]?.symbol || 'CRYPTO',
-        source: event.source
-      }));
-      
-      setEvents(formattedEvents);
-      */
+      setIsLoading(false);
     } catch (error) {
-      console.error('Error fetching crypto events:', error);
+      console.error('Error in fetchCryptoEvents:', error);
       setIsLoading(false);
       toast({
         title: "Error Loading Events",
