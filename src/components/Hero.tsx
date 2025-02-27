@@ -88,7 +88,7 @@ export const Hero = () => {
           
           {/* Enhanced subheadline */}
           <p className="text-lg md:text-xl text-mine-silver mb-8 max-w-2xl mx-auto animate-fade-in">
-            Powering the next generation of AI-driven compute, decentralized infrastructure, and enterprise-grade data centers through Layer 1 blockchain technology, tokenized real estate, and scalable GPU solutions.
+            Fueling the next evolution of AI-driven compute power, decentralized infrastructure, and enterprise-grade data centers through Layer 1 blockchain technology, scalable GPU solutions, and investment-grade real estate.
             <span className="block mt-2 text-[#F97316] hover:scale-105 transition-transform duration-300">Infrastructure • Innovation • Intelligence</span>
           </p>
           
