@@ -19,7 +19,7 @@ interface VideoCallProps {
 }
 
 // Your LiveKit Cloud credentials
-const LIVEKIT_SERVER_URL = 'wss://minechain.livekit.cloud';
+const LIVEKIT_SERVER_URL = 'wss://minechain-1iuzkm4r.livekit.cloud';
 const LIVEKIT_API_KEY = 'APIs26buG66J5aU';
 const LIVEKIT_API_SECRET = 'S94fr3yLlYNHFOiem7fhnIweiMvceDPy4afl0Z7LG8dD';
 // WARNING: This is just for demo purposes. In production, you should NEVER expose your API secret in client-side code.
@@ -73,7 +73,7 @@ export const VideoCall = ({ onClose }: VideoCallProps) => {
         const createToken = async () => {
           try {
             const resp = await fetch(
-              `https://minechain.livekit.cloud/api/v1/token`, {
+              `https://minechain-1iuzkm4r.livekit.cloud/api/v1/token`, {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
