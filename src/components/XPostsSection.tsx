@@ -30,26 +30,6 @@ const fallbackPosts: XPost[] = [
     imageUrl: "/lovable-uploads/e8b433b3-ecad-4abd-8fbe-442359af2b39.png"
   },
   {
-    id: "2",
-    author: "MineChain",
-    username: "@MineChainAI",
-    content: "💻 Our Innovation Hub is expanding! Join us for weekly developer calls and collaborate on the future of decentralized compute power. Register at minechain.io/hub #DevCommunity",
-    date: "May 10, 2025",
-    likes: 98,
-    reposts: 34,
-    comments: 12
-  },
-  {
-    id: "3",
-    author: "MineChain",
-    username: "@MineChainAI",
-    content: "⚡ GPU mining optimization tip: When training AI models on your mining rigs, use our auto-switching algorithm to maximize both compute efficiency and token rewards. #GPUMining #AITraining",
-    date: "May 5, 2025",
-    likes: 215,
-    reposts: 82,
-    comments: 47
-  },
-  {
     id: "4",
     author: "MineChain",
     username: "@MineChainAI",
