@@ -16,7 +16,7 @@ export const Features = () => {
     },
     {
       icon: <Palette className="h-12 w-12 text-[#F97316]" />,
-      title: "AI-Enhanced Web3 & NFTs",
+      title: "MineChain's Industrial Data Center Acquisition & Disposition Platform",
       description: "GPU-accelerated AI art generation, smart contracts, and blockchain automation."
     }
   ];
@@ -46,4 +46,3 @@ export const Features = () => {
     </section>
   );
 };
-
