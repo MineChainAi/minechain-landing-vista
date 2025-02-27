@@ -11,7 +11,7 @@ export const Features = () => {
     },
     {
       icon: <Cpu className="h-12 w-12 text-[#F97316]" />,
-      title: "ProgPoW Hybrid Mining",
+      title: "Full Stack Mining",
       description: "AI-integrated GPU mining with automated profit optimization and decentralized compute."
     },
     {
