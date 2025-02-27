@@ -24,14 +24,14 @@ const Index = () => {
       <div id="features">
         <Features />
       </div>
+      <div id="marketplace">
+        <GPUMarketplace />
+      </div>
       <div id="workspace">
         <CollaborativeWorkspace />
       </div>
       <div id="community">
         <CommunityEngagement />
-      </div>
-      <div id="marketplace">
-        <GPUMarketplace />
       </div>
       <div id="rewards">
         <MiningRewards />
