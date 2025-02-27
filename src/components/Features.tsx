@@ -17,7 +17,7 @@ export const Features = () => {
     {
       icon: <Building className="h-12 w-12 text-[#F97316]" />,
       title: "MineChain's Industrial Data Center Acquisition & Disposition Platform",
-      description: "GPU-accelerated AI art generation, smart contracts, and blockchain automation."
+      description: ""
     }
   ];
 
