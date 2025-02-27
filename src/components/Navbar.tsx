@@ -46,6 +46,7 @@ export const Navbar = () => {
             <a href="#features" className="text-mine-silver hover:text-[#F97316] transition-colors">Features</a>
             <a href="#integration" className="text-mine-silver hover:text-[#0EA5E9] transition-colors">Integration</a>
             <Link to="/knowledge-hub" className="text-mine-silver hover:text-[#F97316] transition-colors">Knowledge Hub</Link>
+            <Link to="/profile" className="text-mine-silver hover:text-[#0EA5E9] transition-colors">My Profile</Link>
             <a href="#" className="text-mine-silver hover:text-white transition-colors">Docs</a>
           </div>
           
@@ -85,6 +86,13 @@ export const Navbar = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Knowledge Hub
+              </Link>
+              <Link 
+                to="/profile" 
+                className="text-mine-silver hover:text-[#0EA5E9] transition-colors px-4 py-2 rounded-md hover:bg-white/5"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                My Profile
               </Link>
               <a 
                 href="#" 
