@@ -137,13 +137,6 @@ export const UpcomingEvents = ({ events: initialEvents }: UpcomingEventsProps) =
     }
   };
 
-  const handleJoinEvent = (eventId: number) => {
-    toast({
-      title: "RSVP Confirmed!",
-      description: "You've been added to the event. A calendar invite has been sent to your email.",
-    });
-  };
-
   const handleRefreshEvents = () => {
     fetchCryptoEvents();
   };
@@ -197,18 +190,11 @@ export const UpcomingEvents = ({ events: initialEvents }: UpcomingEventsProps) =
                 {event.source && (
                   <p className="text-xs text-mine-silver/70 mb-2">Source: {event.source}</p>
                 )}
-                <div className="flex items-center justify-between">
+                <div className="flex items-center">
                   <div className="flex items-center text-mine-silver text-sm">
                     <Users className="h-4 w-4 mr-1" />
                     <span>{event.participants} participants</span>
                   </div>
-                  <Button 
-                    size="sm" 
-                    className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/80 text-white"
-                    onClick={() => handleJoinEvent(event.id)}
-                  >
-                    RSVP
-                  </Button>
                 </div>
               </div>
             ))}
