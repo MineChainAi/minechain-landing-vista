@@ -11,7 +11,14 @@ export const Logo = () => {
         Pioneering AI-integrated GPU mining, decentralized AI compute, and NFT-powered rewards.
       </p>
       <p className="mt-2 text-mine-silver text-sm">
-        <a href="mailto:dev@minechain.ai" className="hover:text-white transition-colors">
+        <a 
+          href="mailto:dev@minechain.ai" 
+          className="hover:text-white transition-colors cursor-pointer"
+          onClick={(e) => {
+            e.preventDefault();
+            window.location.href = "mailto:dev@minechain.ai?subject=MineChain Inquiry";
+          }}
+        >
           dev@minechain.ai
         </a>
       </p>
