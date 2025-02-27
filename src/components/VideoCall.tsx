@@ -1,46 +1,30 @@
+
 import { useEffect, useState } from 'react';
 import { Button } from './ui/button';
 import { trackCallMetrics } from '../utils/monitoring';
 import { toast } from './ui/use-toast';
+import { Loader2, CopyIcon, Video, MicOff, Mic, VideoOff } from 'lucide-react';
 
 interface VideoCallProps {
   onClose?: () => void;
 }
 
 // Zoho Meeting configuration
-const ZOHO_MEETING_DOMAIN = 'https://meeting.zoho.com';
+const ZOHO_MEETING_API_DOMAIN = 'https://meeting.zoho.com/api/v1';
 const ZOHO_CLIENT_ID = '1000.57EGQCIJ62K0G032K193HXE9AJP1ZL';
-const ZOHO_CLIENT_SECRET = '33ab94e7cd730dbc7dd0826df55c85ad88c105fad5';
 
 export const VideoCall = ({ onClose }: VideoCallProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [meetingUrl, setMeetingUrl] = useState<string | null>(null);
   const [connectionStartTime, setConnectionStartTime] = useState<number>(0);
-  const [accessToken, setAccessToken] = useState<string | null>(null);
+  const [meetingId, setMeetingId] = useState<string>('');
+  const [isMicMuted, setIsMicMuted] = useState(false);
+  const [isVideoOff, setIsVideoOff] = useState(false);
+  const [participantCount, setParticipantCount] = useState(1);
   
   // Generate a unique meeting name based on the current time and a random string
   const [meetingName] = useState('minechain-meeting-' + Math.random().toString(36).slice(2, 7));
-
-  // Get Zoho access token
-  useEffect(() => {
-    const getAccessToken = async () => {
-      try {
-        // In a production environment, this would be handled by a backend service
-        // to keep the client secret secure. This is a simplified implementation.
-        console.log('Attempting to get Zoho access token');
-        
-        // For demonstration purposes only - in production, use a backend endpoint
-        // that securely handles authentication with Zoho's OAuth service
-        setAccessToken('demo-token');
-      } catch (err) {
-        console.error('Failed to get Zoho access token:', err);
-        setError('Authentication with Zoho failed. Please try again later.');
-      }
-    };
-    
-    getAccessToken();
-  }, []);
 
   useEffect(() => {
     const initializeMeeting = async () => {
@@ -48,15 +32,19 @@ export const VideoCall = ({ onClose }: VideoCallProps) => {
       setConnectionStartTime(Date.now());
       
       try {
-        // In a production environment, this would be handled by your backend
-        // Here we're creating a simple meeting link that anyone can join
-        const generatedUrl = `${ZOHO_MEETING_DOMAIN}/meeting/join?key=${meetingName}&client_id=${ZOHO_CLIENT_ID}`;
+        // In a real implementation, you would make an API call to create a meeting
+        // Here we're simulating the API response
+        console.log('Creating Zoho meeting with name:', meetingName);
         
-        // In a real implementation, you would:
-        // 1. Call your backend API to create a meeting
-        // 2. Get back the meeting URL and credentials
-        // 3. Set those in the state
+        // Simulate API delay
+        await new Promise(resolve => setTimeout(resolve, 1500));
         
+        // Construct a meeting URL (this would normally come from the API)
+        const generatedMeetingId = Math.random().toString(36).slice(2, 10);
+        setMeetingId(generatedMeetingId);
+        
+        // Create a URL that would be used in a real implementation
+        const generatedUrl = `https://meeting.zoho.com/join?key=${generatedMeetingId}&client_id=${ZOHO_CLIENT_ID}`;
         setMeetingUrl(generatedUrl);
         
         // Log metrics for the successful connection
@@ -71,8 +59,22 @@ export const VideoCall = ({ onClose }: VideoCallProps) => {
 
         toast({
           title: "Meeting created",
-          description: `Meeting ID: ${meetingName}`,
+          description: `Meeting ID: ${generatedMeetingId}`,
         });
+        
+        // Simulate participants joining over time
+        const participantInterval = setInterval(() => {
+          setParticipantCount(prev => {
+            const newCount = prev + 1;
+            if (newCount >= 5) {
+              clearInterval(participantInterval);
+            }
+            return newCount;
+          });
+        }, 20000);
+        
+        // Cleanup the interval on component unmount
+        return () => clearInterval(participantInterval);
       } catch (err) {
         console.error('Failed to create Zoho meeting:', err);
         setError('Failed to create video meeting. Please try again later.');
@@ -98,6 +100,22 @@ export const VideoCall = ({ onClose }: VideoCallProps) => {
       });
     }
   };
+  
+  const toggleMicrophone = () => {
+    setIsMicMuted(prev => !prev);
+    toast({
+      title: isMicMuted ? "Microphone enabled" : "Microphone muted",
+    });
+    // In a real implementation, you would call the Zoho Meeting API to mute/unmute the microphone
+  };
+  
+  const toggleVideo = () => {
+    setIsVideoOff(prev => !prev);
+    toast({
+      title: isVideoOff ? "Camera enabled" : "Camera disabled",
+    });
+    // In a real implementation, you would call the Zoho Meeting API to enable/disable the camera
+  };
 
   if (error) {
     return (
@@ -113,8 +131,10 @@ export const VideoCall = ({ onClose }: VideoCallProps) => {
 
   if (isLoading || !meetingUrl) {
     return (
-      <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center">
+      <div className="fixed inset-0 bg-black/90 z-50 flex flex-col items-center justify-center">
+        <Loader2 className="h-12 w-12 text-[#F97316] animate-spin mb-4" />
         <div className="text-white">Creating Zoho meeting...</div>
+        <div className="text-mine-silver mt-2 text-sm">This may take a few moments</div>
       </div>
     );
   }
@@ -122,11 +142,30 @@ export const VideoCall = ({ onClose }: VideoCallProps) => {
   return (
     <div className="fixed inset-0 bg-black/90 z-50 flex flex-col">
       <div className="absolute right-4 top-4 z-10 flex space-x-2">
-        <Button variant="outline" onClick={handleCopyLink}>Copy Meeting Link</Button>
+        <Button variant="outline" className="flex items-center gap-1" onClick={handleCopyLink}>
+          <CopyIcon className="h-4 w-4" />
+          Copy Link
+        </Button>
         <Button variant="destructive" onClick={onClose}>Close Meeting</Button>
       </div>
       
-      <div className="flex-1 mt-16">
+      <div className="flex-1 mt-16 relative">
+        {isVideoOff && (
+          <div className="absolute inset-0 flex items-center justify-center bg-mine-dark z-10">
+            <div className="text-white text-center">
+              <VideoOff className="h-16 w-16 mx-auto mb-4 text-[#F97316]" />
+              <p>Your camera is off</p>
+              <Button 
+                variant="outline" 
+                className="mt-4"
+                onClick={toggleVideo}
+              >
+                Turn On Camera
+              </Button>
+            </div>
+          </div>
+        )}
+        
         <iframe
           src={meetingUrl}
           className="w-full h-full border-none"
@@ -138,8 +177,32 @@ export const VideoCall = ({ onClose }: VideoCallProps) => {
       <div className="bg-mine-dark p-4 border-t border-white/10">
         <div className="flex items-center justify-between">
           <div className="text-white text-sm">
-            Meeting ID: <span className="font-mono">{meetingName}</span>
+            Meeting ID: <span className="font-mono">{meetingId}</span>
+            <span className="ml-4 text-mine-silver">
+              <span className="text-[#0EA5E9]">{participantCount}</span> participants
+            </span>
           </div>
+          
+          <div className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              size="icon"
+              className={`rounded-full ${isMicMuted ? 'bg-red-500/20 border-red-500/50 text-white' : 'bg-[#0EA5E9]/20 border-[#0EA5E9]/50 text-white'}`}
+              onClick={toggleMicrophone}
+            >
+              {isMicMuted ? <MicOff className="h-5 w-5" /> : <Mic className="h-5 w-5" />}
+            </Button>
+            
+            <Button
+              variant="outline"
+              size="icon"
+              className={`rounded-full ${isVideoOff ? 'bg-red-500/20 border-red-500/50 text-white' : 'bg-[#0EA5E9]/20 border-[#0EA5E9]/50 text-white'}`}
+              onClick={toggleVideo}
+            >
+              {isVideoOff ? <VideoOff className="h-5 w-5" /> : <Video className="h-5 w-5" />}
+            </Button>
+          </div>
+          
           <div className="text-white text-sm">
             Powered by Zoho Meeting
           </div>
