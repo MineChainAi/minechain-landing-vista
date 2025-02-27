@@ -105,22 +105,14 @@ export const Hero = () => {
             </span>
           </div>
           
-          {/* Enhanced CTA buttons */}
-          <div className="flex flex-wrap gap-4 justify-center">
+          {/* Single centered CTA button */}
+          <div className="flex justify-center">
             <Button 
               size="lg" 
-              className="bg-gradient-to-r from-[#F97316] to-[#0EA5E9] hover:opacity-90 text-white transform hover:scale-105 transition-all duration-300"
+              className="bg-gradient-to-r from-[#F97316] to-[#0EA5E9] hover:opacity-90 text-white transform hover:scale-105 transition-all duration-300 px-8"
               onClick={() => window.open('https://discord.gg/CmTXH8ejf4', '_blank')}
             >
               Join the Innovation Hub <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-[#F97316] text-[#F97316] hover:bg-[#F97316] hover:text-white transform hover:scale-105 transition-all duration-300"
-              onClick={() => window.open('https://discord.gg/CmTXH8ejf4', '_blank')}
-            >
-              Explore MineChain Solutions
             </Button>
           </div>
         </div>
