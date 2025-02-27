@@ -11,10 +11,13 @@ export const NewsletterSignup = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would connect to a newsletter service
+    
+    // Open email client with subscription request
+    window.location.href = `mailto:dev@minechain.ai?subject=Newsletter Subscription Request&body=Please add ${email} to the MineChain newsletter.`;
+    
     toast({
       title: "Thank you for subscribing!",
-      description: "You'll receive our updates at " + email,
+      description: "Your subscription request has been sent to our team.",
     });
     setEmail("");
     
