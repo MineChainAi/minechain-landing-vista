@@ -41,7 +41,7 @@ export const GPUMarketplace = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {gpuProducts.map((product, index) => (
-            <Card key={index} className="glass-card p-8 hover:scale-105 transition-transform duration-300">
+            <Card key={index} className="bg-black/50 border-white/10 border p-8 hover:scale-105 transition-transform duration-300 hover:border-[#F97316]/50 ring-1 ring-[#F97316]/30">
               <h3 className="text-2xl font-bold text-white mb-4">{product.name}</h3>
               <p className="text-mine-silver mb-4">{product.description}</p>
               <ul className="space-y-2 mb-6">
@@ -56,7 +56,7 @@ export const GPUMarketplace = () => {
                 <span className="text-[#F97316] font-semibold">{product.price}</span>
                 <Button 
                   variant="outline"
-                  className="border-[#F97316] text-[#F97316] hover:bg-[#F97316] hover:text-white"
+                  className="border-[#F97316] text-[#F97316] hover:bg-[#F97316]/10"
                   onClick={() => window.open('https://discord.gg/CmTXH8ejf4', '_blank')}
                 >
                   <ShoppingCart className="w-4 h-4 mr-2" />

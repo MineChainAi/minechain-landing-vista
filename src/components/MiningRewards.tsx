@@ -32,7 +32,7 @@ export const MiningRewards = () => {
           {rewards.map((reward, index) => (
             <Card 
               key={index} 
-              className="glass-card p-8 text-center hover:scale-105 transition-transform duration-300"
+              className="bg-black/50 border-white/10 border p-8 text-center hover:scale-105 transition-transform duration-300 hover:border-[#F97316]/50 ring-1 ring-[#F97316]/30"
             >
               <div className="flex justify-center mb-6">{reward.icon}</div>
               <h3 className="text-2xl font-bold mb-4 text-white">{reward.title}</h3>

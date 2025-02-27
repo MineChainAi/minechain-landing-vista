@@ -13,7 +13,7 @@ export const Navbar = () => {
             <div className="relative">
               {/* Refined gradient glow with better contrast */}
               <div 
-                className="absolute inset-0 bg-gradient-to-r from-mine-indigo/20 via-mine-blue/20 to-mine-purple/20 blur-lg opacity-60"
+                className="absolute inset-0 bg-gradient-to-r from-[#F97316]/20 via-[#0EA5E9]/20 to-[#F97316]/20 blur-lg opacity-60"
                 style={{ transform: 'scale(1.2)' }}
               />
               <img
@@ -24,24 +24,24 @@ export const Navbar = () => {
             </div>
             <div className="flex flex-col">
               <h3 
-                className="font-bold text-xl tracking-wider text-gradient-blue" 
-                style={{ fontFamily: "'Playfair Display', serif" }}
+                className="font-bold text-xl tracking-wider bg-gradient-to-r from-[#F97316] via-white to-[#0EA5E9] bg-clip-text text-transparent" 
+                style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 MINE<span className="font-extrabold">CHAIN</span>
               </h3>
               <div className="flex items-center gap-2">
-                <span className="h-[1px] w-3 bg-gradient-to-r from-mine-indigo to-transparent"/>
+                <span className="h-[1px] w-3 bg-gradient-to-r from-[#F97316] to-transparent"/>
                 <span className="text-[10px] tracking-[0.25em] text-mine-silver uppercase font-light">
                   Enterprise Blockchain
                 </span>
-                <span className="h-[1px] w-3 bg-gradient-to-l from-mine-purple to-transparent"/>
+                <span className="h-[1px] w-3 bg-gradient-to-l from-[#0EA5E9] to-transparent"/>
               </div>
             </div>
           </div>
           
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-mine-silver hover:text-white transition-colors">Features</a>
-            <a href="#integration" className="text-mine-silver hover:text-white transition-colors">Integration</a>
+            <a href="#features" className="text-mine-silver hover:text-[#F97316] transition-colors">Features</a>
+            <a href="#integration" className="text-mine-silver hover:text-[#0EA5E9] transition-colors">Integration</a>
             <a href="#" className="text-mine-silver hover:text-white transition-colors">Docs</a>
           </div>
           
@@ -60,17 +60,17 @@ export const Navbar = () => {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden">
-            <div className="glass-card px-2 py-4 rounded-lg mt-2 mb-4 flex flex-col gap-4">
+            <div className="bg-black/50 border border-white/10 px-2 py-4 rounded-lg mt-2 mb-4 flex flex-col gap-4">
               <a 
                 href="#features" 
-                className="text-mine-silver hover:text-white transition-colors px-4 py-2 rounded-md hover:bg-white/5"
+                className="text-mine-silver hover:text-[#F97316] transition-colors px-4 py-2 rounded-md hover:bg-white/5"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Features
               </a>
               <a 
                 href="#integration" 
-                className="text-mine-silver hover:text-white transition-colors px-4 py-2 rounded-md hover:bg-white/5"
+                className="text-mine-silver hover:text-[#0EA5E9] transition-colors px-4 py-2 rounded-md hover:bg-white/5"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Integration

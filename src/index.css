@@ -25,12 +25,12 @@
     --destructive-foreground: 210 40% 98%;
     --border: 217 32% 17%;
     --input: 217 32% 17%;
-    --ring: 224 76% 48%;
+    --ring: 25 95% 53%;
     --radius: 0.75rem;
   }
 
   * {
-    @apply border-border selection:bg-mine-indigo/20;
+    @apply border-border selection:bg-orange-500/20;
   }
 
   body {
@@ -44,18 +44,18 @@
 }
 
 .glass-card {
-  @apply backdrop-blur-xl bg-white/5 border border-white/10 shadow-[0_4px_12px_-2px_rgba(0,0,0,0.3)];
+  @apply backdrop-blur-xl bg-black/50 border border-white/10 shadow-[0_4px_12px_-2px_rgba(0,0,0,0.3)];
 }
 
 .glass-card-hover {
-  @apply glass-card hover:bg-white/10 hover:border-mine-indigo/30 transition-all duration-300;
+  @apply glass-card hover:bg-black/60 hover:border-mine-orange/30 transition-all duration-300;
 }
 
 .bg-diagonal-stripes {
   background-image: repeating-linear-gradient(
     45deg,
-    #6366F1 0,
-    #6366F1 1px,
+    #F97316 0,
+    #F97316 1px,
     transparent 0,
     transparent 50%
   );
@@ -65,17 +65,17 @@
 .bg-grid {
   background-size: 20px 20px;
   background-image: 
-    linear-gradient(to right, rgba(99, 102, 241, 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(99, 102, 241, 0.1) 1px, transparent 1px);
+    linear-gradient(to right, rgba(249, 115, 22, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(249, 115, 22, 0.1) 1px, transparent 1px);
 }
 
 .bg-dots {
-  background-image: radial-gradient(rgba(99, 102, 241, 0.15) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(249, 115, 22, 0.15) 1px, transparent 1px);
   background-size: 20px 20px;
 }
 
 .text-gradient-blue {
-  @apply bg-gradient-to-r from-mine-blue via-mine-indigo to-mine-purple bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-mine-blue via-white to-mine-orange bg-clip-text text-transparent;
 }
 
 .text-gradient-orange {
@@ -83,15 +83,15 @@
 }
 
 .text-gradient {
-  @apply bg-gradient-to-r from-mine-blue via-white to-mine-purple bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-mine-orange via-white to-mine-blue bg-clip-text text-transparent;
 }
 
 .button-gradient {
-  @apply bg-gradient-to-r from-mine-indigo to-mine-purple hover:from-mine-purple hover:to-mine-indigo transition-all duration-300;
+  @apply bg-gradient-to-r from-mine-orange to-mine-blue hover:from-mine-blue hover:to-mine-orange transition-all duration-300;
 }
 
 .button-outline {
-  @apply border border-mine-indigo/50 text-mine-indigo hover:bg-mine-indigo/10 transition-all duration-300;
+  @apply border border-mine-orange/50 text-mine-orange hover:bg-mine-orange/10 transition-all duration-300;
 }
 
 @keyframes gradient-y {
