@@ -1,5 +1,4 @@
 
-import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
@@ -44,9 +43,6 @@ export const Navbar = () => {
             <a href="#features" className="text-mine-silver hover:text-white transition-colors">Features</a>
             <a href="#integration" className="text-mine-silver hover:text-white transition-colors">Integration</a>
             <a href="#" className="text-mine-silver hover:text-white transition-colors">Docs</a>
-            <Button variant="outline" className="border-mine-blue text-mine-blue hover:bg-mine-blue hover:text-white">
-              Launch App
-            </Button>
           </div>
           
           <button 
@@ -86,15 +82,6 @@ export const Navbar = () => {
               >
                 Docs
               </a>
-              <div className="px-4">
-                <Button 
-                  variant="outline" 
-                  className="border-mine-blue text-mine-blue hover:bg-mine-blue hover:text-white w-full"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Launch App
-                </Button>
-              </div>
             </div>
           </div>
         )}
