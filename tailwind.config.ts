@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -56,6 +57,13 @@ export default {
           dark: "#0F172A",
           blue: "#0EA5E9",
           silver: "#94A3B8",
+          purple: "#8B5CF6",
+          indigo: "#6366F1",
+          teal: "#14B8A6",
+          emerald: "#10B981",
+          amber: "#F59E0B",
+          orange: "#F97316",
+          pink: "#EC4899",
         },
       },
       fontFamily: {
@@ -72,10 +80,23 @@ export default {
             "background-position": "center center",
           },
         },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        "slide-up": {
+          "0%": { transform: "translateY(10px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
       },
       animation: {
         "gradient-y": "gradient-y 10s ease infinite",
+        "fade-in": "fade-in 0.5s ease-out forwards",
+        "slide-up": "slide-up 0.5s ease-out forwards",
       },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
