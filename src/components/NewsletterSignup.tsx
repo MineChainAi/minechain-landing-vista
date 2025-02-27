@@ -17,6 +17,12 @@ export const NewsletterSignup = () => {
       description: "You'll receive our updates at " + email,
     });
     setEmail("");
+    
+    // Scroll to the community updates section smoothly
+    const element = document.getElementById('stay-updated');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
