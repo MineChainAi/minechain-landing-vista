@@ -12,7 +12,7 @@ export const MiningRewards = () => {
     {
       icon: <Diamond className="h-12 w-12 text-[#F97316]" />,
       title: "NFT Rewards",
-      description: "Exclusive NFTs for node operators and community contributors"
+      description: "🔥 MineChain NFT Rewards: Backed by AI Compute Power, Fueled by Stable Token Incentives, and Designed for Long-Term Growth. 🔥"
     },
     {
       icon: <Award className="h-12 w-12 text-[#F97316]" />,
