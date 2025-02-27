@@ -11,8 +11,8 @@ export const Logo = () => {
         Pioneering AI-integrated GPU mining, decentralized AI compute, and NFT-powered rewards.
       </p>
       <p className="mt-2 text-mine-silver text-sm">
-        <a href="mailto:nukeit@minechain.ai" className="hover:text-white transition-colors">
-          nukeit@minechain.ai
+        <a href="mailto:dev@minechain.ai" className="hover:text-white transition-colors">
+          dev@minechain.ai
         </a>
       </p>
       <p className="mt-2 text-mine-silver text-sm">
