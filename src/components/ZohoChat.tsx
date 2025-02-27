@@ -16,6 +16,7 @@ import { useToast } from './ui/use-toast';
 
 // Zoho configuration constants
 const ZOHO_TOKEN = '1000.D1MAG6KGV6C6M4433QO7KMAXSEH5EL';
+const ZOHO_CLIENT_SECRET = '1aedde8528e7ca2dbcecc165487dd289178a277bfb';
 const ZOHO_CLIQ_URL = 'https://cliq.zoho.com';
 
 export const ZohoChat = () => {
@@ -36,11 +37,11 @@ export const ZohoChat = () => {
     const checkTokenValidity = () => {
       // In a production environment, this would validate the token with Zoho
       // For now, we'll simulate validation based on token existence
-      if (ZOHO_TOKEN && ZOHO_TOKEN.length > 10) {
-        console.log("Zoho token appears valid");
+      if (ZOHO_TOKEN && ZOHO_TOKEN.length > 10 && ZOHO_CLIENT_SECRET && ZOHO_CLIENT_SECRET.length > 10) {
+        console.log("Zoho credentials appear valid");
         setIsAuthenticated(true);
       } else {
-        console.log("Zoho token appears invalid or missing");
+        console.log("Zoho credentials appear invalid or missing");
         setIsAuthenticated(false);
       }
     };
@@ -70,7 +71,7 @@ export const ZohoChat = () => {
       // For now, we'll simulate a response
       if (isAuthenticated) {
         console.log(`Sending message to Zoho Cliq: ${message}`);
-        // Here you would use the ZOHO_TOKEN to authenticate the API request
+        // Here you would use the ZOHO_TOKEN and ZOHO_CLIENT_SECRET to authenticate the API request
         
         setTimeout(() => {
           const responseMessage = {
@@ -97,13 +98,13 @@ export const ZohoChat = () => {
   };
 
   const handleZohoCliqRedirect = () => {
-    // In a production environment, this would use the token to create a direct session
+    // In a production environment, this would use the token and client secret to create a direct session
     toast({
       title: "Connecting to Zoho Cliq",
       description: "Opening Zoho Cliq with your account credentials",
     });
     
-    // Redirect to Zoho Cliq with token (in a real implementation, this would use proper OAuth flow)
+    // Redirect to Zoho Cliq with token (in a real implementation, this would use proper OAuth flow with the client secret)
     window.open(`${ZOHO_CLIQ_URL}?token=${ZOHO_TOKEN}`, '_blank');
   };
 
