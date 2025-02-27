@@ -32,23 +32,56 @@ export const TrendingTopics = ({ initialTopics }: TrendingTopicsProps) => {
   const fetchTrendingTopics = async () => {
     setIsLoadingTopics(true);
     try {
-      // In a real implementation, this would fetch from an API endpoint
-      // For demonstration, we'll simulate a fetch with setTimeout
-      setTimeout(() => {
-        // Updated trending topics with more current and relevant information
+      // In a real implementation with Newsdata.io API
+      // You would need an API key for production use
+      const apiUrl = 'https://newsdata.io/api/1/news?apikey=pub_30575963ede3c02b7e80ce0e06af0a3d9f9aa&q=cryptocurrency&language=en&category=business';
+      
+      try {
+        const response = await fetch(apiUrl);
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch news data');
+        }
+        
+        const data = await response.json();
+        
+        if (data && data.results && Array.isArray(data.results)) {
+          // Transform news data into the Topic format
+          const newsTopics = data.results.slice(0, 4).map((article: any, index: number) => ({
+            id: index + 1,
+            title: article.title || 'Cryptocurrency News',
+            // Generate random stats for demonstration purposes
+            likes: Math.floor(Math.random() * 100) + 50,
+            comments: Math.floor(Math.random() * 60) + 20
+          }));
+          
+          setTrendingTopics(newsTopics);
+          toast({
+            title: "Topics Updated",
+            description: "Latest trending crypto news has been loaded from Newsdata.io",
+          });
+        } else {
+          throw new Error('Invalid API response format');
+        }
+      } catch (apiError) {
+        console.error('API Error:', apiError);
+        // Fallback to predetermined topics if the API call fails
         const topics = [
           { id: 1, title: 'GPU Mining Optimization Techniques', likes: 124, comments: 47 },
           { id: 2, title: 'AI Training on Distributed GPU Clusters', likes: 98, comments: 36 },
           { id: 3, title: 'XRP Ledger Integration Methods', likes: 84, comments: 52 },
           { id: 4, title: 'Energy-Efficient Mining Solutions', likes: 76, comments: 29 }
         ];
+        
         setTrendingTopics(topics);
-        setIsLoadingTopics(false);
         toast({
-          title: "Topics Updated",
-          description: "Latest trending topics have been loaded from the community",
+          title: "Using Cached Topics",
+          description: "Could not connect to Newsdata API. Showing cached topics.",
+          variant: "default"
         });
-      }, 1500); // Simulate network delay
+      }
+      
+      setIsLoadingTopics(false);
     } catch (error) {
       console.error('Error fetching trending topics:', error);
       setIsLoadingTopics(false);
