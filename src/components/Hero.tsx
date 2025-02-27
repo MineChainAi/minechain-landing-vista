@@ -1,3 +1,4 @@
+
 import { ArrowRight, Cpu, Server, ChevronUp, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
@@ -83,7 +84,7 @@ export const Hero = () => {
           
           {/* Enhanced headline */}
           <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#F97316] via-white to-[#0EA5E9] bg-clip-text text-transparent animate-fade-in">
-            The Future of Decentralized Infrastructure & AI Compute
+            Innovation Hub
           </h2>
           
           {/* Enhanced subheadline */}
