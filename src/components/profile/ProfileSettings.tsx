@@ -31,9 +31,10 @@ interface UserData {
 
 interface ProfileSettingsProps {
   userData: UserData;
+  onProfileUpdate?: (updatedData: Partial<UserData>) => void;
 }
 
-export const ProfileSettings = ({ userData }: ProfileSettingsProps) => {
+export const ProfileSettings = ({ userData, onProfileUpdate }: ProfileSettingsProps) => {
   const { toast } = useToast();
   const fileInputRef = useRef<HTMLInputElement>(null);
   
@@ -88,8 +89,25 @@ export const ProfileSettings = ({ userData }: ProfileSettingsProps) => {
       // In a real app, this would send the data to an API
       console.log("Updated profile data:", formData);
       
-      // Update userData (in a real app this would happen through context or redux)
-      // For now we're just simulating the update
+      // Prepare the updated user data
+      const updatedUserData: Partial<UserData> = {
+        name: formData.name,
+        username: formData.username,
+        bio: formData.bio,
+        avatar: avatarPreview,
+        location: formData.location,
+        website: formData.website,
+        social: {
+          twitter: formData.twitter,
+          discord: formData.discord,
+          github: formData.github
+        }
+      };
+      
+      // Update userData using the callback
+      if (onProfileUpdate) {
+        onProfileUpdate(updatedUserData);
+      }
       
       setIsSaving(false);
       

@@ -35,18 +35,30 @@ const mockUserData = {
 
 const UserProfile = () => {
   const [activeTab, setActiveTab] = useState("overview");
+  const [userData, setUserData] = useState(mockUserData);
+  
+  const handleProfileUpdate = (updatedData: Partial<typeof userData>) => {
+    setUserData(prevData => ({
+      ...prevData,
+      ...updatedData,
+      social: {
+        ...prevData.social,
+        ...(updatedData.social || {})
+      }
+    }));
+  };
   
   return (
     <div className="min-h-screen bg-mine-dark">
       <Navbar />
       <div className="pt-16">
-        <ProfileHeader userData={mockUserData} setActiveTab={setActiveTab} />
+        <ProfileHeader userData={userData} setActiveTab={setActiveTab} />
         
         <div className="container mx-auto px-4 py-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Sidebar - Profile Stats */}
             <div className="lg:col-span-3">
-              <ProfileStats userData={mockUserData} />
+              <ProfileStats userData={userData} />
             </div>
             
             {/* Main Content Area */}
@@ -55,7 +67,12 @@ const UserProfile = () => {
               
               {activeTab === "overview" && <MiningOverview />}
               {activeTab === "contributions" && <ContributionHistory />}
-              {activeTab === "settings" && <ProfileSettings userData={mockUserData} />}
+              {activeTab === "settings" && (
+                <ProfileSettings 
+                  userData={userData} 
+                  onProfileUpdate={handleProfileUpdate}
+                />
+              )}
             </div>
           </div>
         </div>
