@@ -40,7 +40,7 @@ const UserProfile = () => {
     <div className="min-h-screen bg-mine-dark">
       <Navbar />
       <div className="pt-16">
-        <ProfileHeader userData={mockUserData} />
+        <ProfileHeader userData={mockUserData} setActiveTab={setActiveTab} />
         
         <div className="container mx-auto px-4 py-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">

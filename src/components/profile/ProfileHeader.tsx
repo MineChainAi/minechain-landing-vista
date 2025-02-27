@@ -28,9 +28,14 @@ interface UserData {
 
 interface ProfileHeaderProps {
   userData: UserData;
+  setActiveTab: (tab: string) => void;
 }
 
-export const ProfileHeader = ({ userData }: ProfileHeaderProps) => {
+export const ProfileHeader = ({ userData, setActiveTab }: ProfileHeaderProps) => {
+  const handleEditProfile = () => {
+    setActiveTab("settings");
+  };
+
   return (
     <div className="relative">
       {/* Cover Image */}
@@ -50,6 +55,7 @@ export const ProfileHeader = ({ userData }: ProfileHeaderProps) => {
           size="sm" 
           variant="ghost" 
           className="absolute top-4 right-4 bg-black/30 text-white hover:bg-black/50"
+          onClick={handleEditProfile}
         >
           <Edit className="h-4 w-4 mr-1" />
           Edit Cover
@@ -71,6 +77,7 @@ export const ProfileHeader = ({ userData }: ProfileHeaderProps) => {
                 size="sm" 
                 variant="ghost" 
                 className="absolute bottom-0 right-0 rounded-full h-8 w-8 p-0 bg-[#F97316] text-white hover:bg-[#F97316]/90"
+                onClick={handleEditProfile}
               >
                 <Edit className="h-3.5 w-3.5" />
               </Button>
@@ -89,7 +96,10 @@ export const ProfileHeader = ({ userData }: ProfileHeaderProps) => {
               <Share2 className="h-4 w-4 mr-1" />
               Share
             </Button>
-            <Button className="bg-[#F97316] hover:bg-[#F97316]/90 text-white">
+            <Button 
+              className="bg-[#F97316] hover:bg-[#F97316]/90 text-white"
+              onClick={handleEditProfile}
+            >
               <Edit className="h-4 w-4 mr-1" />
               Edit Profile
             </Button>
