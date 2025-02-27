@@ -1,5 +1,5 @@
 
-import { ArrowRight, Cpu, Server, ChevronUp, Shield } from "lucide-react";
+import { ArrowRight, Cpu, Server, ChevronUp, Shield, Building } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -62,11 +62,8 @@ export const Hero = () => {
           {/* Enhanced logo with diamond effect */}
           <div className="mb-8 relative group">
             <div className="absolute inset-0 animate-pulse opacity-50 bg-gradient-to-r from-[#F97316] to-[#0EA5E9] blur-2xl group-hover:opacity-75 transition-opacity duration-300" />
-            <img 
-              src="/lovable-uploads/e50be236-f783-4a72-b2fa-46b0ded22aee.png" 
-              alt="MineChain Logo" 
-              className="w-32 h-32 mx-auto relative transition-transform duration-300 group-hover:scale-105"
-              loading="lazy"
+            <Building 
+              className="w-32 h-32 mx-auto relative transition-transform duration-300 group-hover:scale-105 text-white"
             />
           </div>
           
