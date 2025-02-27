@@ -2,6 +2,8 @@
 import { Button } from "@/components/ui/button";
 import { Edit, MapPin, Globe, Github, Twitter, Share2 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 interface UserData {
   id: string;
@@ -32,8 +34,52 @@ interface ProfileHeaderProps {
 }
 
 export const ProfileHeader = ({ userData, setActiveTab }: ProfileHeaderProps) => {
+  const { toast } = useToast();
+  const [isSharing, setIsSharing] = useState(false);
+  
   const handleEditProfile = () => {
     setActiveTab("settings");
+  };
+
+  const handleShareProfile = async () => {
+    setIsSharing(true);
+    
+    try {
+      // Create the shareable URL (in a real app, this might include a unique token or path)
+      const shareUrl = `${window.location.origin}/profile/${userData.username}`;
+      
+      // Try to use the Web Share API if available
+      if (navigator.share) {
+        await navigator.share({
+          title: `${userData.name}'s Mining Profile`,
+          text: `Check out ${userData.name}'s mining profile on MineChain!`,
+          url: shareUrl,
+        });
+        
+        toast({
+          title: "Profile Shared",
+          description: "Your profile has been shared successfully.",
+        });
+      } else {
+        // Fallback to clipboard copy
+        await navigator.clipboard.writeText(shareUrl);
+        
+        toast({
+          title: "Link Copied",
+          description: "Profile link copied to clipboard!",
+        });
+      }
+    } catch (error) {
+      console.error("Error sharing profile:", error);
+      
+      toast({
+        title: "Sharing Failed",
+        description: "Could not share your profile. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSharing(false);
+    }
   };
 
   return (
@@ -92,9 +138,21 @@ export const ProfileHeader = ({ userData, setActiveTab }: ProfileHeaderProps) =>
           
           {/* Action Buttons */}
           <div className="flex gap-2 mt-4 sm:mt-0">
-            <Button variant="outline" size="sm" className="border-[#1E293B] text-mine-silver hover:text-white">
-              <Share2 className="h-4 w-4 mr-1" />
-              Share
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="border-[#1E293B] text-mine-silver hover:text-white"
+              onClick={handleShareProfile}
+              disabled={isSharing}
+            >
+              {isSharing ? (
+                <>Loading...</>
+              ) : (
+                <>
+                  <Share2 className="h-4 w-4 mr-1" />
+                  Share
+                </>
+              )}
             </Button>
             <Button 
               className="bg-[#F97316] hover:bg-[#F97316]/90 text-white"
