@@ -1,5 +1,5 @@
 
-import { Coins, Diamond, Award } from "lucide-react";
+import { Coins, Award } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 export const MiningRewards = () => {
@@ -8,11 +8,6 @@ export const MiningRewards = () => {
       icon: <Coins className="h-12 w-12 text-[#F97316]" />,
       title: "Mining Rewards",
       description: "Earn passive income through GPU mining and AI compute sharing"
-    },
-    {
-      icon: <Diamond className="h-12 w-12 text-[#F97316]" />,
-      title: "NFT Rewards",
-      description: "🔥 MineChain NFT Rewards: Backed by AI Compute Power, Fueled by Stable Token Incentives, and Designed for Long-Term Growth. 🔥"
     },
     {
       icon: <Award className="h-12 w-12 text-[#F97316]" />,
@@ -33,7 +28,7 @@ export const MiningRewards = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {rewards.map((reward, index) => (
             <Card 
               key={index} 
