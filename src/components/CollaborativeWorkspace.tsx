@@ -84,7 +84,7 @@ export const CollaborativeWorkspace = () => {
                 >
                   Join Space
                 </Button>
-                <VideoCallButton size="sm" variant="outline" />
+                <VideoCallButton className="h-9 px-3" />
               </CardFooter>
             </Card>
           ))}
