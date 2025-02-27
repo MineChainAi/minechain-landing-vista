@@ -12,6 +12,8 @@ import { CommunityUpdates } from "@/components/CommunityUpdates";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { VideoCallButton } from "@/components/VideoCallButton";
 import { CollaborativeWorkspace } from "@/components/CollaborativeWorkspace";
+import { ZohoChat } from "@/components/ZohoChat";
+import { CommunityEngagement } from "@/components/CommunityEngagement";
 
 const Index = () => {
   return (
@@ -24,6 +26,9 @@ const Index = () => {
       </div>
       <div id="workspace">
         <CollaborativeWorkspace />
+      </div>
+      <div id="community">
+        <CommunityEngagement />
       </div>
       <div id="marketplace">
         <GPUMarketplace />
@@ -41,6 +46,7 @@ const Index = () => {
       <NewsletterSignup />
       <Footer />
       <VideoCallButton />
+      <ZohoChat />
     </div>
   );
 };

@@ -3,10 +3,15 @@ import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { VideoCallButton } from './VideoCallButton';
-import { Users, Brain, Lightbulb, Rocket } from 'lucide-react';
+import { MeetingScheduler } from './MeetingScheduler';
+import { Users, Brain, Lightbulb, Rocket, Calendar } from 'lucide-react';
+import { useToast } from './ui/use-toast';
 
 export const CollaborativeWorkspace = () => {
   const [activeSpace, setActiveSpace] = useState<string | null>(null);
+  const [isSchedulerOpen, setIsSchedulerOpen] = useState(false);
+  const [selectedWorkspace, setSelectedWorkspace] = useState<string | undefined>(undefined);
+  const { toast } = useToast();
   
   const workspaces = [
     {
@@ -35,7 +40,16 @@ export const CollaborativeWorkspace = () => {
   const handleJoinSpace = (id: string) => {
     setActiveSpace(id);
     // In a real app, this would connect to the workspace
+    toast({
+      title: "Joining Workspace",
+      description: `You've joined the ${workspaces.find(w => w.id === id)?.title} collaborative space.`,
+    });
     console.log(`Joining workspace: ${id}`);
+  };
+  
+  const openScheduler = (workspaceId: string) => {
+    setSelectedWorkspace(workspaceId);
+    setIsSchedulerOpen(true);
   };
 
   return (
@@ -75,7 +89,7 @@ export const CollaborativeWorkspace = () => {
                   <span>{workspace.members} members active</span>
                 </div>
               </CardContent>
-              <CardFooter className="flex justify-between">
+              <CardFooter className="flex flex-wrap gap-2">
                 <Button 
                   variant="outline" 
                   size="sm"
@@ -83,6 +97,15 @@ export const CollaborativeWorkspace = () => {
                   className="text-[#F97316] border-[#F97316]/30 hover:bg-[#F97316]/10 hover:text-[#F97316]"
                 >
                   Join Space
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => openScheduler(workspace.id)}
+                  className="text-[#0EA5E9] border-[#0EA5E9]/30 hover:bg-[#0EA5E9]/10 hover:text-[#0EA5E9]"
+                >
+                  <Calendar className="mr-1 h-4 w-4" />
+                  Schedule
                 </Button>
                 <VideoCallButton className="h-9 px-3" />
               </CardFooter>
@@ -113,6 +136,13 @@ export const CollaborativeWorkspace = () => {
           </p>
         </div>
       </div>
+      
+      {/* Meeting Scheduler Modal */}
+      <MeetingScheduler 
+        isOpen={isSchedulerOpen} 
+        onClose={() => setIsSchedulerOpen(false)} 
+        workspaceId={selectedWorkspace}
+      />
     </section>
   );
 };
