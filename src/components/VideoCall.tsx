@@ -10,6 +10,7 @@ interface VideoCallProps {
 
 // Zoho Meeting configuration
 const ZOHO_MEETING_DOMAIN = 'https://meeting.zoho.com';
+const ZOHO_CLIENT_ID = '1000.57EGQCIJ62K0G032K193HXE9AJP1ZL';
 
 export const VideoCall = ({ onClose }: VideoCallProps) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -28,7 +29,7 @@ export const VideoCall = ({ onClose }: VideoCallProps) => {
       try {
         // In a production environment, this would be handled by your backend
         // Here we're creating a simple meeting link that anyone can join
-        const generatedUrl = `${ZOHO_MEETING_DOMAIN}/meeting/join?key=${meetingName}`;
+        const generatedUrl = `${ZOHO_MEETING_DOMAIN}/meeting/join?key=${meetingName}&client_id=${ZOHO_CLIENT_ID}`;
         
         // In a real implementation, you would:
         // 1. Call your backend API to create a meeting
