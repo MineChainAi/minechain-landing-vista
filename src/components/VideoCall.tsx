@@ -21,6 +21,7 @@ interface VideoCallProps {
 // Your LiveKit Cloud credentials
 const LIVEKIT_SERVER_URL = 'wss://minechain.livekit.cloud';
 const LIVEKIT_API_KEY = 'APIs26buG66J5aU';
+const LIVEKIT_API_SECRET = 'S94fr3yLlYNHFOiem7fhnIweiMvceDPy4afl0Z7LG8dD';
 // WARNING: This is just for demo purposes. In production, you should NEVER expose your API secret in client-side code.
 // You should create a secure backend endpoint that generates tokens.
 
@@ -64,18 +65,54 @@ export const VideoCall = ({ onClose }: VideoCallProps) => {
       setIsConnecting(true);
       setConnectionStartTime(Date.now());
       try {
-        // For now, we're still using the demo server for token generation
-        // In production, replace this with your secure backend endpoint
-        const resp = await fetch(
-          `https://demo.livekit.cloud/api/token?room=${roomName}&username=user_${Math.random().toString(36).slice(2, 7)}`
-        );
+        // Generate a random username for this session
+        const username = `user_${Math.random().toString(36).slice(2, 7)}`;
         
-        if (!resp.ok) {
-          throw new Error('Failed to get token');
-        }
+        // For this demo, we're using LiveKit's API directly from the client
+        // In production, you should create a secure backend endpoint for token generation
+        const createToken = async () => {
+          try {
+            const resp = await fetch(
+              `https://minechain.livekit.cloud/api/v1/token`, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${LIVEKIT_API_KEY}:${LIVEKIT_API_SECRET}`
+                },
+                body: JSON.stringify({
+                  name: username,
+                  room: roomName,
+                  metadata: JSON.stringify({ displayName: username }),
+                  ttl: 3600 * 24, // 24 hours, adjust as needed
+                })
+              }
+            );
+            
+            if (!resp.ok) {
+              const errorText = await resp.text();
+              throw new Error(`Failed to get token: ${errorText}`);
+            }
+            
+            const data = await resp.json();
+            return data.token;
+          } catch (error) {
+            console.error('Error generating token:', error);
+            // Fallback to demo server if our own token generation fails
+            const backupResp = await fetch(
+              `https://demo.livekit.cloud/api/token?room=${roomName}&username=${username}`
+            );
+            
+            if (!backupResp.ok) {
+              throw new Error('Failed to get token from backup service');
+            }
+            
+            const backupData = await backupResp.json();
+            return backupData.token;
+          }
+        };
         
-        const data = await resp.json();
-        setToken(data.token);
+        const tokenValue = await createToken();
+        setToken(tokenValue);
         setError(null);
       } catch (e) {
         console.error('Failed to get token:', e);
