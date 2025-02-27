@@ -113,18 +113,6 @@ export const CollaborativeWorkspace = () => {
           ))}
         </div>
         
-        <div className="text-center mt-8">
-          <div className="inline-flex items-center justify-center p-1 rounded-md bg-gradient-to-r from-[#F97316] to-[#0EA5E9]">
-            <Button 
-              variant="outline" 
-              className="bg-mine-dark border-0 hover:bg-black/50 text-white"
-              onClick={() => window.open('https://meeting.zoho.com', '_blank')}
-            >
-              Explore All Innovation Spaces with Zoho Meeting
-            </Button>
-          </div>
-        </div>
-        
         {/* Feature highlight */}
         <div className="mt-20 text-center">
           <div className="inline-block p-2 bg-[#F97316]/20 rounded-full mb-4">
