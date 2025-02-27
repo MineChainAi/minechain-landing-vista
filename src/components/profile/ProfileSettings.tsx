@@ -1,9 +1,10 @@
 
-import { useState } from "react";
+import { useState, useRef, ChangeEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { Camera } from "lucide-react";
 
 interface UserData {
   id: string;
@@ -34,6 +35,7 @@ interface ProfileSettingsProps {
 
 export const ProfileSettings = ({ userData }: ProfileSettingsProps) => {
   const { toast } = useToast();
+  const fileInputRef = useRef<HTMLInputElement>(null);
   
   const [formData, setFormData] = useState({
     name: userData.name,
@@ -46,9 +48,34 @@ export const ProfileSettings = ({ userData }: ProfileSettingsProps) => {
     github: userData.social?.github || ""
   });
 
+  const [avatarPreview, setAvatarPreview] = useState<string>(userData.avatar);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleAvatarClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      // In a real app, you would upload this file to a server
+      // For now, we'll just create a local preview
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setAvatarPreview(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+      
+      // Show a success toast
+      toast({
+        title: "Profile Picture Updated",
+        description: "Your new profile picture has been uploaded.",
+      });
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -65,6 +92,33 @@ export const ProfileSettings = ({ userData }: ProfileSettingsProps) => {
   return (
     <div className="bg-[#0F172A] border border-[#1E293B] rounded-lg p-6">
       <h2 className="text-xl font-semibold text-white mb-6">Profile Settings</h2>
+      
+      {/* Profile Picture Upload */}
+      <div className="mb-8 flex flex-col items-center">
+        <div className="relative mb-4">
+          <div 
+            className="w-32 h-32 rounded-lg overflow-hidden border-4 border-[#1E293B] cursor-pointer"
+            onClick={handleAvatarClick}
+          >
+            <img 
+              src={avatarPreview} 
+              alt="Profile Avatar" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+              <Camera className="h-8 w-8 text-white" />
+            </div>
+          </div>
+          <input 
+            type="file" 
+            ref={fileInputRef}
+            className="hidden"
+            accept="image/*"
+            onChange={handleFileChange}
+          />
+        </div>
+        <p className="text-sm text-mine-silver">Click to upload a new profile picture</p>
+      </div>
       
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
