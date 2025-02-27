@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ProfileHeader } from "@/components/profile/ProfileHeader";
@@ -9,8 +9,8 @@ import { ProfileSettings } from "@/components/profile/ProfileSettings";
 import { ContributionHistory } from "@/components/profile/ContributionHistory";
 import { MiningOverview } from "@/components/profile/MiningOverview";
 
-// Mock user data (in a real app, this would come from an API or auth context)
-const mockUserData = {
+// Default mock user data
+const defaultUserData = {
   id: "user123",
   username: "blockchain_miner",
   name: "Alex Johnson",
@@ -33,19 +33,36 @@ const mockUserData = {
   }
 };
 
+// LocalStorage key
+const USER_PROFILE_KEY = "minechain_user_profile";
+
 const UserProfile = () => {
   const [activeTab, setActiveTab] = useState("overview");
-  const [userData, setUserData] = useState(mockUserData);
+  const [userData, setUserData] = useState(() => {
+    // Load data from localStorage on initial render
+    const savedProfile = localStorage.getItem(USER_PROFILE_KEY);
+    return savedProfile ? JSON.parse(savedProfile) : defaultUserData;
+  });
+  
+  // Save to localStorage whenever userData changes
+  useEffect(() => {
+    localStorage.setItem(USER_PROFILE_KEY, JSON.stringify(userData));
+    console.log("Profile data saved to localStorage");
+  }, [userData]);
   
   const handleProfileUpdate = (updatedData: Partial<typeof userData>) => {
-    setUserData(prevData => ({
-      ...prevData,
-      ...updatedData,
-      social: {
-        ...prevData.social,
-        ...(updatedData.social || {})
-      }
-    }));
+    setUserData(prevData => {
+      const newData = {
+        ...prevData,
+        ...updatedData,
+        social: {
+          ...prevData.social,
+          ...(updatedData.social || {})
+        }
+      };
+      
+      return newData;
+    });
   };
   
   return (

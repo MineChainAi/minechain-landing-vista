@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Camera } from "lucide-react";
+import { Camera, RefreshCw } from "lucide-react";
 
 interface UserData {
   id: string;
@@ -34,6 +34,22 @@ interface ProfileSettingsProps {
   onProfileUpdate?: (updatedData: Partial<UserData>) => void;
 }
 
+// Default user data for reset functionality
+const defaultUserData = {
+  id: "user123",
+  username: "blockchain_miner",
+  name: "Alex Johnson",
+  bio: "Blockchain enthusiast and GPU mining expert with 5 years of experience. Contributing to MineChain ecosystem since 2022.",
+  avatar: "/lovable-uploads/bf49290c-2a09-4f24-9ad1-1a2bf454ddbf.png",
+  location: "San Francisco, CA",
+  website: "https://alexjohnson.dev",
+  social: {
+    twitter: "@alex_blockchain",
+    discord: "alexj#1234",
+    github: "alexjohnson-dev"
+  }
+};
+
 export const ProfileSettings = ({ userData, onProfileUpdate }: ProfileSettingsProps) => {
   const { toast } = useToast();
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -51,6 +67,7 @@ export const ProfileSettings = ({ userData, onProfileUpdate }: ProfileSettingsPr
 
   const [avatarPreview, setAvatarPreview] = useState<string>(userData.avatar);
   const [isSaving, setIsSaving] = useState(false);
+  const [isResetting, setIsResetting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -113,7 +130,7 @@ export const ProfileSettings = ({ userData, onProfileUpdate }: ProfileSettingsPr
       
       toast({
         title: "Profile Updated",
-        description: "Your profile information has been successfully updated.",
+        description: "Your profile information has been successfully updated and saved to local storage.",
       });
     }, 800);
   };
@@ -139,9 +156,56 @@ export const ProfileSettings = ({ userData, onProfileUpdate }: ProfileSettingsPr
     });
   };
 
+  const handleResetProfile = () => {
+    setIsResetting(true);
+    
+    // Simulate an API call with a timeout
+    setTimeout(() => {
+      if (onProfileUpdate) {
+        onProfileUpdate(defaultUserData);
+      }
+      
+      // Update local form state
+      setFormData({
+        name: defaultUserData.name,
+        username: defaultUserData.username,
+        bio: defaultUserData.bio,
+        location: defaultUserData.location || "",
+        website: defaultUserData.website || "",
+        twitter: defaultUserData.social?.twitter || "",
+        discord: defaultUserData.social?.discord || "",
+        github: defaultUserData.social?.github || ""
+      });
+      
+      setAvatarPreview(defaultUserData.avatar);
+      setIsResetting(false);
+      
+      toast({
+        title: "Profile Reset",
+        description: "Your profile has been reset to default values.",
+      });
+    }, 800);
+  };
+
   return (
     <div className="bg-[#0F172A] border border-[#1E293B] rounded-lg p-6">
-      <h2 className="text-xl font-semibold text-white mb-6">Profile Settings</h2>
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-xl font-semibold text-white">Profile Settings</h2>
+        <Button 
+          variant="outline" 
+          size="sm"
+          className="border-red-800 text-red-500 hover:bg-red-950 hover:text-red-400"
+          onClick={handleResetProfile}
+          disabled={isResetting}
+        >
+          {isResetting ? "Resetting..." : (
+            <>
+              <RefreshCw className="h-4 w-4 mr-1" />
+              Reset Profile
+            </>
+          )}
+        </Button>
+      </div>
       
       {/* Profile Picture Upload */}
       <div className="mb-8 flex flex-col items-center">
