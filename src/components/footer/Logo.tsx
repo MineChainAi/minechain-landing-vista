@@ -7,9 +7,6 @@ export const Logo = () => {
         alt="MineChain Logo" 
         className="h-12 w-12"
       />
-      <p className="mt-4 text-mine-silver text-sm">
-        Pioneering AI-integrated GPU mining, decentralized AI compute, and NFT-powered rewards.
-      </p>
       <div className="mt-4 border-t border-white/10 pt-4">
         <p className="text-mine-silver text-sm font-semibold">
           🚀 Full Stack Miner | AI Compute | Web3 Infrastructure
