@@ -40,7 +40,7 @@ export const Hero = () => {
           <div className="mb-8 flex justify-center">
             <div className="rounded-full p-2 bg-[#F97316]/10 border border-[#F97316]/20">
               <img 
-                src="/lovable-uploads/b524ff52-9a17-4d6c-98ee-e490e1212d68.png"
+                src="/lovable-uploads/bf49290c-2a09-4f24-9ad1-1a2bf454ddbf.png"
                 alt="MineChain AI Logo" 
                 className="w-24 h-24 object-cover rounded-full"
               />

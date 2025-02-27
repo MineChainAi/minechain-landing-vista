@@ -17,7 +17,7 @@ export const Navbar = () => {
                 style={{ transform: 'scale(1.2)' }}
               />
               <img
-                src="/lovable-uploads/b524ff52-9a17-4d6c-98ee-e490e1212d68.png"
+                src="/lovable-uploads/bf49290c-2a09-4f24-9ad1-1a2bf454ddbf.png"
                 alt="MineChain Logo"
                 className="w-8 h-8 relative z-10 object-cover rounded-full"
               />
