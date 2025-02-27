@@ -27,7 +27,7 @@ const LIVEKIT_API_SECRET = 'S94fr3yLlYNHFOiem7fhnIweiMvceDPy4afl0Z7LG8dD';
 
 export const VideoCall = ({ onClose }: VideoCallProps) => {
   const [token, setToken] = useState('');
-  const [roomName, setRoomName] = useState('minechain-space-' + Math.random().toString(36).slice(2, 7));
+  const [roomName, setRoomName] = useState('minechain-stream-' + Math.random().toString(36).slice(2, 7));
   const [connectionStartTime, setConnectionStartTime] = useState<number>(0);
   const [isConnecting, setIsConnecting] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -51,7 +51,7 @@ export const VideoCall = ({ onClose }: VideoCallProps) => {
         });
 
         toast({
-          title: "Connected to space",
+          title: "Connected to stream",
           description: `Joined room: ${roomName}`,
         });
       }
@@ -116,11 +116,11 @@ export const VideoCall = ({ onClose }: VideoCallProps) => {
         setError(null);
       } catch (e) {
         console.error('Failed to get token:', e);
-        setError('Failed to connect to video space. Please try again later.');
+        setError('Failed to connect to video stream. Please try again later.');
         toast({
           variant: "destructive",
           title: "Connection failed",
-          description: "Could not connect to video space. Please try again.",
+          description: "Could not connect to video stream. Please try again.",
         });
       } finally {
         setIsConnecting(false);
@@ -144,7 +144,7 @@ export const VideoCall = ({ onClose }: VideoCallProps) => {
   if (isConnecting || !token) {
     return (
       <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center">
-        <div className="text-white">Connecting to video space...</div>
+        <div className="text-white">Connecting to stream...</div>
       </div>
     );
   }
@@ -165,7 +165,7 @@ export const VideoCall = ({ onClose }: VideoCallProps) => {
           toast({
             variant: "destructive",
             title: "Connection error",
-            description: error.message || "An error occurred during the video call",
+            description: error.message || "An error occurred during the video stream",
           });
         }}
       >
