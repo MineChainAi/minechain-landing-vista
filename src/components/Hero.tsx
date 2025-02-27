@@ -101,7 +101,7 @@ export const Hero = () => {
               <Shield className="inline-block w-4 h-4 mr-2" /> Full Stack Miners
             </span>
             <span className="px-4 py-2 rounded-full border border-[#F97316]/30 bg-black/20 text-[#F97316] text-sm hover:bg-[#F97316]/10 transition-colors duration-300 hover:scale-105 transform cursor-pointer">
-              <Cpu className="inline-block w-4 h-4 mr-2" /> AI Infrastructure
+              <Cpu className="inline-block w-4 h-4 mr-2" /> Community Driven
             </span>
           </div>
           
