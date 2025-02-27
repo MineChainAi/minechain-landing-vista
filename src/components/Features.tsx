@@ -30,7 +30,7 @@ export const Features = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 bg-gradient-to-r from-[#F97316] via-white to-[#0EA5E9] bg-clip-text text-transparent">
-            The Future of Decentralized AI & Web3
+            Powering the Next Era of AI, Compute Power, and Investment-Grade Real Estate
           </h2>
         </div>
 
