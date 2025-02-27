@@ -20,12 +20,6 @@ export const CommunityEngagement = () => {
     { id: 2, title: 'Decentralized Infrastructure Scaling', likes: 76, comments: 29 },
     { id: 3, title: 'Embedding Quantum Computing in Blockchain', likes: 63, comments: 42 }
   ]);
-  
-  const upcomingEvents = [
-    { id: 1, title: 'AI Compute Architecture Workshop', date: 'June 15, 2025', participants: 78 },
-    { id: 2, title: 'Blockchain Innovation Roundtable', date: 'June 22, 2025', participants: 45 },
-    { id: 3, title: 'Dev Caballerz Community Meetup', date: 'June 30, 2025', participants: 120 }
-  ];
 
   return (
     <section className="py-16 relative overflow-hidden bg-gradient-to-b from-mine-dark to-black/80">
@@ -50,8 +44,8 @@ export const CommunityEngagement = () => {
           {/* Trending Topics */}
           <TrendingTopics initialTopics={initialTopics} />
           
-          {/* Upcoming Events */}
-          <UpcomingEvents events={upcomingEvents} />
+          {/* Upcoming Events - Now connected to CoinMarketCal API */}
+          <UpcomingEvents />
         </div>
         
         {/* Join Community CTA */}
