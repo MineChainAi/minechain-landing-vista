@@ -3,7 +3,7 @@ export const Logo = () => {
   return (
     <div>
       <img 
-        src="/lovable-uploads/e8b433b3-ecad-4abd-8fbe-442359af2b39.png"
+        src="/lovable-uploads/b524ff52-9a17-4d6c-98ee-e490e1212d68.png"
         alt="MineChain AI Logo" 
         className="h-12 w-12 text-white object-cover rounded-full"
       />
