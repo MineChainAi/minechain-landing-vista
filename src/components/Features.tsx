@@ -1,6 +1,6 @@
 
 import { Card } from "@/components/ui/card";
-import { Server, Cpu, Building } from "lucide-react";
+import { Server, Cpu } from "lucide-react";
 
 export const Features = () => {
   const features = [
@@ -15,7 +15,11 @@ export const Features = () => {
       description: "AI-integrated GPU mining with automated profit optimization and decentralized compute."
     },
     {
-      icon: <Building className="h-12 w-12 text-[#F97316]" />,
+      icon: <img 
+        src="/lovable-uploads/e8b433b3-ecad-4abd-8fbe-442359af2b39.png" 
+        alt="MineChain AI" 
+        className="h-12 w-12 object-cover rounded-full"
+      />,
       title: "MineChain's Industrial Data Center Acquisition & Disposition Platform",
       description: ""
     }

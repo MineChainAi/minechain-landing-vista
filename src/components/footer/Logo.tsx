@@ -1,10 +1,12 @@
 
-import { Building } from "lucide-react";
-
 export const Logo = () => {
   return (
     <div>
-      <Building className="h-12 w-12 text-white" />
+      <img 
+        src="/lovable-uploads/e8b433b3-ecad-4abd-8fbe-442359af2b39.png"
+        alt="MineChain AI Logo" 
+        className="h-12 w-12 text-white object-cover rounded-full"
+      />
       <div className="mt-4 border-t border-white/10 pt-4">
         <p className="text-mine-silver text-sm font-semibold">
           🚀 Full Stack Miner | AI Compute | Web3 Infrastructure

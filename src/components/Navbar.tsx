@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Menu, X, Building } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
 export const Navbar = () => {
@@ -17,8 +17,10 @@ export const Navbar = () => {
                 className="absolute inset-0 bg-gradient-to-r from-[#F97316]/20 via-[#0EA5E9]/20 to-[#F97316]/20 blur-lg opacity-60"
                 style={{ transform: 'scale(1.2)' }}
               />
-              <Building
-                className="w-8 h-8 relative z-10 text-white"
+              <img
+                src="/lovable-uploads/e8b433b3-ecad-4abd-8fbe-442359af2b39.png"
+                alt="MineChain Logo"
+                className="w-8 h-8 relative z-10 object-cover rounded-full"
               />
             </div>
             <div className="flex flex-col">
