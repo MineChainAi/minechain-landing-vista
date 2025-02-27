@@ -1,15 +1,5 @@
 
 import { useEffect, useState } from 'react';
-import {
-  LiveKitRoom,
-  VideoConference,
-  ControlBar,
-  useTracks,
-  useParticipants,
-  useConnectionState,
-} from '@livekit/components-react';
-import '@livekit/components-styles';
-import { Track, ConnectionState } from 'livekit-client';
 import { Button } from './ui/button';
 import { trackCallMetrics } from '../utils/monitoring';
 import { toast } from './ui/use-toast';
@@ -18,116 +8,74 @@ interface VideoCallProps {
   onClose?: () => void;
 }
 
-// Your LiveKit Cloud credentials
-const LIVEKIT_SERVER_URL = 'wss://minechain-1iuzkm4r.livekit.cloud';
-const LIVEKIT_API_KEY = 'APIs26buG66J5aU';
-const LIVEKIT_API_SECRET = 'S94fr3yLlYNHFOiem7fhnIweiMvceDPy4afl0Z7LG8dD';
-// WARNING: This is just for demo purposes. In production, you should NEVER expose your API secret in client-side code.
-// You should create a secure backend endpoint that generates tokens.
+// Zoho Meeting configuration
+const ZOHO_MEETING_DOMAIN = 'https://meeting.zoho.com';
 
 export const VideoCall = ({ onClose }: VideoCallProps) => {
-  const [token, setToken] = useState('');
-  const [roomName, setRoomName] = useState('minechain-stream-' + Math.random().toString(36).slice(2, 7));
-  const [connectionStartTime, setConnectionStartTime] = useState<number>(0);
-  const [isConnecting, setIsConnecting] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
-  const CallMetrics = () => {
-    const participants = useParticipants();
-    const connectionState = useConnectionState();
-    const tracks = useTracks();
-
-    useEffect(() => {
-      if (connectionState === ConnectionState.Connected) {
-        const videoTrack = tracks.find(track => track.source === Track.Source.Camera);
-        const audioTrack = tracks.find(track => track.source === Track.Source.Microphone);
-        
-        trackCallMetrics({
-          connectionTime: Date.now() - connectionStartTime,
-          participantCount: participants.length,
-          videoEnabled: !!videoTrack,
-          audioEnabled: !!audioTrack,
-          networkQuality: 1, // This would be dynamic in production
-        });
-
-        toast({
-          title: "Connected to stream",
-          description: `Joined room: ${roomName}`,
-        });
-      }
-    }, [connectionState, participants.length, tracks]);
-
-    return null;
-  };
+  const [meetingUrl, setMeetingUrl] = useState<string | null>(null);
+  const [connectionStartTime, setConnectionStartTime] = useState<number>(0);
+  
+  // Generate a unique meeting name based on the current time and a random string
+  const [meetingName] = useState('minechain-meeting-' + Math.random().toString(36).slice(2, 7));
 
   useEffect(() => {
-    const getToken = async () => {
-      setIsConnecting(true);
+    const initializeMeeting = async () => {
+      setIsLoading(true);
       setConnectionStartTime(Date.now());
+      
       try {
-        // Generate a random username for this session
-        const username = `user_${Math.random().toString(36).slice(2, 7)}`;
+        // In a production environment, this would be handled by your backend
+        // Here we're creating a simple meeting link that anyone can join
+        const generatedUrl = `${ZOHO_MEETING_DOMAIN}/meeting/join?key=${meetingName}`;
         
-        // For this demo, we're using LiveKit's API directly from the client
-        // In production, you should create a secure backend endpoint for token generation
-        const createToken = async () => {
-          try {
-            const resp = await fetch(
-              `https://minechain-1iuzkm4r.livekit.cloud/api/v1/token`, {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                  'Authorization': `Bearer ${LIVEKIT_API_KEY}:${LIVEKIT_API_SECRET}`
-                },
-                body: JSON.stringify({
-                  name: username,
-                  room: roomName,
-                  metadata: JSON.stringify({ displayName: username }),
-                  ttl: 3600 * 24, // 24 hours, adjust as needed
-                })
-              }
-            );
-            
-            if (!resp.ok) {
-              const errorText = await resp.text();
-              throw new Error(`Failed to get token: ${errorText}`);
-            }
-            
-            const data = await resp.json();
-            return data.token;
-          } catch (error) {
-            console.error('Error generating token:', error);
-            // Fallback to demo server if our own token generation fails
-            const backupResp = await fetch(
-              `https://demo.livekit.cloud/api/token?room=${roomName}&username=${username}`
-            );
-            
-            if (!backupResp.ok) {
-              throw new Error('Failed to get token from backup service');
-            }
-            
-            const backupData = await backupResp.json();
-            return backupData.token;
-          }
-        };
+        // In a real implementation, you would:
+        // 1. Call your backend API to create a meeting
+        // 2. Get back the meeting URL and credentials
+        // 3. Set those in the state
         
-        const tokenValue = await createToken();
-        setToken(tokenValue);
-        setError(null);
-      } catch (e) {
-        console.error('Failed to get token:', e);
-        setError('Failed to connect to video stream. Please try again later.');
+        setMeetingUrl(generatedUrl);
+        
+        // Log metrics for the successful connection
+        trackCallMetrics({
+          connectionTime: Date.now() - connectionStartTime,
+          participantCount: 1, // Initial participant (the host)
+          videoEnabled: true,
+          audioEnabled: true,
+          networkQuality: 1,
+          provider: 'zoho'
+        });
+
+        toast({
+          title: "Meeting created",
+          description: `Meeting ID: ${meetingName}`,
+        });
+      } catch (err) {
+        console.error('Failed to create Zoho meeting:', err);
+        setError('Failed to create video meeting. Please try again later.');
         toast({
           variant: "destructive",
-          title: "Connection failed",
-          description: "Could not connect to video stream. Please try again.",
+          title: "Meeting creation failed",
+          description: "Could not create Zoho meeting. Please try again.",
         });
       } finally {
-        setIsConnecting(false);
+        setIsLoading(false);
       }
     };
-    getToken();
-  }, [roomName]);
+    
+    initializeMeeting();
+  }, [meetingName]);
+
+  const handleCopyLink = () => {
+    if (meetingUrl) {
+      navigator.clipboard.writeText(meetingUrl);
+      toast({
+        title: "Meeting link copied",
+        description: "Share this link with participants to join the meeting",
+      });
+    }
+  };
 
   if (error) {
     return (
@@ -141,38 +89,40 @@ export const VideoCall = ({ onClose }: VideoCallProps) => {
     );
   }
 
-  if (isConnecting || !token) {
+  if (isLoading || !meetingUrl) {
     return (
       <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center">
-        <div className="text-white">Connecting to stream...</div>
+        <div className="text-white">Creating Zoho meeting...</div>
       </div>
     );
   }
 
   return (
-    <div className="fixed inset-0 bg-black/90 z-50">
-      <div className="absolute right-4 top-4 z-10">
-        <Button variant="destructive" onClick={onClose}>Close Call</Button>
+    <div className="fixed inset-0 bg-black/90 z-50 flex flex-col">
+      <div className="absolute right-4 top-4 z-10 flex space-x-2">
+        <Button variant="outline" onClick={handleCopyLink}>Copy Meeting Link</Button>
+        <Button variant="destructive" onClick={onClose}>Close Meeting</Button>
       </div>
-      <LiveKitRoom
-        token={token}
-        serverUrl={LIVEKIT_SERVER_URL}
-        connect={true}
-        video={true}
-        audio={true}
-        onError={(error) => {
-          console.error('LiveKit connection error:', error);
-          toast({
-            variant: "destructive",
-            title: "Connection error",
-            description: error.message || "An error occurred during the video stream",
-          });
-        }}
-      >
-        <CallMetrics />
-        <VideoConference />
-        <ControlBar variation="minimal" />
-      </LiveKitRoom>
+      
+      <div className="flex-1 mt-16">
+        <iframe
+          src={meetingUrl}
+          className="w-full h-full border-none"
+          allow="camera; microphone; fullscreen; speaker; display-capture"
+          title="Zoho Meeting"
+        />
+      </div>
+      
+      <div className="bg-mine-dark p-4 border-t border-white/10">
+        <div className="flex items-center justify-between">
+          <div className="text-white text-sm">
+            Meeting ID: <span className="font-mono">{meetingName}</span>
+          </div>
+          <div className="text-white text-sm">
+            Powered by Zoho Meeting
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
