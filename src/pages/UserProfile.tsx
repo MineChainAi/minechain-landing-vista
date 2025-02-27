@@ -6,6 +6,7 @@ import { ProfileHeader } from "@/components/profile/ProfileHeader";
 import { ProfileTabs } from "@/components/profile/ProfileTabs";
 import { ProfileStats } from "@/components/profile/ProfileStats";
 import { ProfileSettings } from "@/components/profile/ProfileSettings";
+import { ProfileCreation } from "@/components/profile/ProfileCreation";
 import { ContributionHistory } from "@/components/profile/ContributionHistory";
 import { MiningOverview } from "@/components/profile/MiningOverview";
 
@@ -36,9 +37,16 @@ const defaultUserData = {
 
 // LocalStorage key
 const USER_PROFILE_KEY = "minechain_user_profile";
+// LocalStorage key for profile existence
+const PROFILE_EXISTS_KEY = "minechain_profile_exists";
 
 const UserProfile = () => {
   const [activeTab, setActiveTab] = useState("overview");
+  const [hasProfile, setHasProfile] = useState(() => {
+    // Check if user has a profile
+    return localStorage.getItem(PROFILE_EXISTS_KEY) === "true";
+  });
+  
   const [userData, setUserData] = useState(() => {
     // Load data from localStorage on initial render
     const savedProfile = localStorage.getItem(USER_PROFILE_KEY);
@@ -66,35 +74,74 @@ const UserProfile = () => {
     });
   };
   
+  const handleProfileCreate = (profileData: typeof userData) => {
+    // Save the new profile
+    setUserData(profileData);
+    // Set that user now has a profile
+    setHasProfile(true);
+    localStorage.setItem(PROFILE_EXISTS_KEY, "true");
+  };
+  
+  // For demo purposes: Add a button to reset profile state
+  const resetProfileState = () => {
+    if (process.env.NODE_ENV === 'development') {
+      localStorage.removeItem(PROFILE_EXISTS_KEY);
+      setHasProfile(false);
+      console.log("Profile state reset for testing purposes");
+    }
+  };
+  
   return (
     <div className="min-h-screen bg-mine-dark">
       <Navbar />
-      <div className="pt-16">
-        <ProfileHeader userData={userData} setActiveTab={setActiveTab} />
-        
-        <div className="container mx-auto px-4 py-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            {/* Sidebar - Profile Stats */}
-            <div className="lg:col-span-3">
-              <ProfileStats userData={userData} />
-            </div>
-            
-            {/* Main Content Area */}
-            <div className="lg:col-span-9">
-              <ProfileTabs activeTab={activeTab} setActiveTab={setActiveTab} />
+      
+      {hasProfile ? (
+        // Show profile if user has one
+        <div className="pt-16">
+          <ProfileHeader userData={userData} setActiveTab={setActiveTab} />
+          
+          <div className="container mx-auto px-4 py-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+              {/* Sidebar - Profile Stats */}
+              <div className="lg:col-span-3">
+                <ProfileStats userData={userData} />
+              </div>
               
-              {activeTab === "overview" && <MiningOverview />}
-              {activeTab === "contributions" && <ContributionHistory />}
-              {activeTab === "settings" && (
-                <ProfileSettings 
-                  userData={userData} 
-                  onProfileUpdate={handleProfileUpdate}
-                />
-              )}
+              {/* Main Content Area */}
+              <div className="lg:col-span-9">
+                <ProfileTabs activeTab={activeTab} setActiveTab={setActiveTab} />
+                
+                {activeTab === "overview" && <MiningOverview />}
+                {activeTab === "contributions" && <ContributionHistory />}
+                {activeTab === "settings" && (
+                  <ProfileSettings 
+                    userData={userData} 
+                    onProfileUpdate={handleProfileUpdate}
+                  />
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      ) : (
+        // Show profile creation form if user doesn't have a profile
+        <div className="pt-16">
+          <ProfileCreation onProfileCreate={handleProfileCreate} />
+        </div>
+      )}
+      
+      {/* Development helper - only visible in development mode */}
+      {process.env.NODE_ENV === 'development' && hasProfile && (
+        <div className="fixed bottom-4 right-4 z-50">
+          <button 
+            onClick={resetProfileState}
+            className="bg-red-600 text-white text-xs px-2 py-1 rounded opacity-50 hover:opacity-100"
+          >
+            Reset Profile (Dev Only)
+          </button>
+        </div>
+      )}
+      
       <Footer />
     </div>
   );
