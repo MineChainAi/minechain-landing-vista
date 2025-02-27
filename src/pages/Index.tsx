@@ -14,6 +14,7 @@ import { VideoCallButton } from "@/components/VideoCallButton";
 import { CollaborativeWorkspace } from "@/components/CollaborativeWorkspace";
 import { ZohoChat } from "@/components/ZohoChat";
 import { CommunityEngagement } from "@/components/CommunityEngagement";
+import { XPostsSection } from "@/components/XPostsSection";
 
 const Index = () => {
   return (
@@ -39,6 +40,7 @@ const Index = () => {
       <div id="integration">
         <Integration />
       </div>
+      <XPostsSection />
       <CommunityUpdates />
       <NewsletterSignup />
       <Footer />
