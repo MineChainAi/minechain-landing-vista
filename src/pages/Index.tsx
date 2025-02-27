@@ -11,6 +11,7 @@ import { CryptoTicker } from "@/components/CryptoTicker";
 import { CommunityUpdates } from "@/components/CommunityUpdates";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { VideoCallButton } from "@/components/VideoCallButton";
+import { CollaborativeWorkspace } from "@/components/CollaborativeWorkspace";
 
 const Index = () => {
   return (
@@ -20,6 +21,9 @@ const Index = () => {
       <Hero />
       <div id="features">
         <Features />
+      </div>
+      <div id="workspace">
+        <CollaborativeWorkspace />
       </div>
       <div id="marketplace">
         <GPUMarketplace />

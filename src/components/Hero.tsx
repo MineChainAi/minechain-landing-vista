@@ -1,5 +1,5 @@
 
-import { ArrowRight, Cpu, Server, ChevronUp, Shield } from "lucide-react";
+import { ArrowRight, Cpu, Server, ChevronUp, Shield, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -103,16 +103,28 @@ export const Hero = () => {
             <span className="px-4 py-2 rounded-full border border-[#F97316]/30 bg-black/20 text-[#F97316] text-sm hover:bg-[#F97316]/10 transition-colors duration-300 hover:scale-105 transform cursor-pointer">
               <Cpu className="inline-block w-4 h-4 mr-2" /> Community Driven
             </span>
+            <span className="px-4 py-2 rounded-full border border-[#0EA5E9]/30 bg-black/20 text-[#0EA5E9] text-sm hover:bg-[#0EA5E9]/10 transition-colors duration-300 hover:scale-105 transform cursor-pointer">
+              <Video className="inline-block w-4 h-4 mr-2" /> Zoho Meeting Integration
+            </span>
           </div>
           
-          {/* Single centered CTA button */}
-          <div className="flex justify-center">
+          {/* Dual CTA buttons */}
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-[#F97316] to-[#0EA5E9] hover:opacity-90 text-white transform hover:scale-105 transition-all duration-300 px-8"
               onClick={() => window.open('https://discord.gg/CmTXH8ejf4', '_blank')}
             >
               Join the Innovation Hub <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+            
+            <Button 
+              size="lg" 
+              variant="outline"
+              className="border-[#F97316] text-[#F97316] hover:bg-[#F97316]/10 hover:text-[#F97316] transform hover:scale-105 transition-all duration-300"
+              onClick={() => document.getElementById('workspace')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Explore Collaboration Spaces
             </Button>
           </div>
         </div>
