@@ -14,6 +14,7 @@ const defaultUserData = {
   id: "user123",
   username: "blockchain_miner",
   name: "Alex Johnson",
+  email: "alex.johnson@example.com",
   bio: "Blockchain enthusiast and GPU mining expert with 5 years of experience. Contributing to MineChain ecosystem since 2022.",
   avatar: "/lovable-uploads/bf49290c-2a09-4f24-9ad1-1a2bf454ddbf.png",
   coverImage: "https://images.unsplash.com/photo-1639762681057-408e52192e55?q=80&w=2070&auto=format&fit=crop",

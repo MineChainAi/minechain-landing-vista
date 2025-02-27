@@ -10,6 +10,7 @@ interface UserData {
   id: string;
   username: string;
   name: string;
+  email?: string;
   bio: string;
   avatar: string;
   coverImage: string;
@@ -39,6 +40,7 @@ const defaultUserData = {
   id: "user123",
   username: "blockchain_miner",
   name: "Alex Johnson",
+  email: "alex.johnson@example.com",
   bio: "Blockchain enthusiast and GPU mining expert with 5 years of experience. Contributing to MineChain ecosystem since 2022.",
   avatar: "/lovable-uploads/bf49290c-2a09-4f24-9ad1-1a2bf454ddbf.png",
   location: "San Francisco, CA",
@@ -57,6 +59,7 @@ export const ProfileSettings = ({ userData, onProfileUpdate }: ProfileSettingsPr
   const [formData, setFormData] = useState({
     name: userData.name,
     username: userData.username,
+    email: userData.email || "",
     bio: userData.bio,
     location: userData.location || "",
     website: userData.website || "",
@@ -110,6 +113,7 @@ export const ProfileSettings = ({ userData, onProfileUpdate }: ProfileSettingsPr
       const updatedUserData: Partial<UserData> = {
         name: formData.name,
         username: formData.username,
+        email: formData.email,
         bio: formData.bio,
         avatar: avatarPreview,
         location: formData.location,
@@ -140,6 +144,7 @@ export const ProfileSettings = ({ userData, onProfileUpdate }: ProfileSettingsPr
     setFormData({
       name: userData.name,
       username: userData.username,
+      email: userData.email || "",
       bio: userData.bio,
       location: userData.location || "",
       website: userData.website || "",
@@ -169,6 +174,7 @@ export const ProfileSettings = ({ userData, onProfileUpdate }: ProfileSettingsPr
       setFormData({
         name: defaultUserData.name,
         username: defaultUserData.username,
+        email: defaultUserData.email || "",
         bio: defaultUserData.bio,
         location: defaultUserData.location || "",
         website: defaultUserData.website || "",
@@ -258,6 +264,20 @@ export const ProfileSettings = ({ userData, onProfileUpdate }: ProfileSettingsPr
             />
             <p className="text-xs text-mine-silver">This will be shown as @{formData.username}</p>
           </div>
+        </div>
+        
+        <div className="space-y-2">
+          <label htmlFor="email" className="text-white">Email Address</label>
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="your.email@example.com"
+            className="bg-[#0A0F1D] border-[#1E293B] text-white"
+          />
+          <p className="text-xs text-mine-silver">Your email will not be displayed publicly</p>
         </div>
         
         <div className="space-y-2">
