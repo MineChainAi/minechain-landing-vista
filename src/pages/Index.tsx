@@ -36,9 +36,6 @@ const Index = () => {
       <div id="rewards">
         <MiningRewards />
       </div>
-      <div id="enterprise">
-        <Enterprise />
-      </div>
       <div id="integration">
         <Integration />
       </div>
