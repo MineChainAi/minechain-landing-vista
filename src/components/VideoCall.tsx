@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { Button } from './ui/button';
 import { trackCallMetrics } from '../utils/monitoring';
@@ -11,15 +10,37 @@ interface VideoCallProps {
 // Zoho Meeting configuration
 const ZOHO_MEETING_DOMAIN = 'https://meeting.zoho.com';
 const ZOHO_CLIENT_ID = '1000.57EGQCIJ62K0G032K193HXE9AJP1ZL';
+const ZOHO_CLIENT_SECRET = '33ab94e7cd730dbc7dd0826df55c85ad88c105fad5';
 
 export const VideoCall = ({ onClose }: VideoCallProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [meetingUrl, setMeetingUrl] = useState<string | null>(null);
   const [connectionStartTime, setConnectionStartTime] = useState<number>(0);
+  const [accessToken, setAccessToken] = useState<string | null>(null);
   
   // Generate a unique meeting name based on the current time and a random string
   const [meetingName] = useState('minechain-meeting-' + Math.random().toString(36).slice(2, 7));
+
+  // Get Zoho access token
+  useEffect(() => {
+    const getAccessToken = async () => {
+      try {
+        // In a production environment, this would be handled by a backend service
+        // to keep the client secret secure. This is a simplified implementation.
+        console.log('Attempting to get Zoho access token');
+        
+        // For demonstration purposes only - in production, use a backend endpoint
+        // that securely handles authentication with Zoho's OAuth service
+        setAccessToken('demo-token');
+      } catch (err) {
+        console.error('Failed to get Zoho access token:', err);
+        setError('Authentication with Zoho failed. Please try again later.');
+      }
+    };
+    
+    getAccessToken();
+  }, []);
 
   useEffect(() => {
     const initializeMeeting = async () => {
