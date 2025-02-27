@@ -22,11 +22,11 @@ const fallbackPosts: XPost[] = [
     id: "1",
     author: "MineChain",
     username: "@MineChainAI",
-    content: "🚀 Today we're excited to announce our partnership with Hive OS, bringing next-level mining automation to the MineChain ecosystem! #Mining #AICompute #Blockchain",
-    date: "May 15, 2025",
-    likes: 142,
-    reposts: 57,
-    comments: 23,
+    content: "Attention $MITA token holders! 🚨 This is for all who swapped $MITA on Uniswap on ETH from our @sifchain pool 🚨 Read this IMPORTANT post to convert your tokens to the MineChain version. #MineChain #Web3 #Blockchain",
+    date: "September 27, 2024",
+    likes: 82,
+    reposts: 43,
+    comments: 19,
     imageUrl: "/lovable-uploads/e8b433b3-ecad-4abd-8fbe-442359af2b39.png"
   },
   {
