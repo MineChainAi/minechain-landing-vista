@@ -49,6 +49,7 @@ export const ProfileSettings = ({ userData }: ProfileSettingsProps) => {
   });
 
   const [avatarPreview, setAvatarPreview] = useState<string>(userData.avatar);
+  const [isSaving, setIsSaving] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -80,12 +81,43 @@ export const ProfileSettings = ({ userData }: ProfileSettingsProps) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would send the data to an API
-    console.log("Updated profile data:", formData);
+    setIsSaving(true);
+    
+    // Simulate an API call with a timeout
+    setTimeout(() => {
+      // In a real app, this would send the data to an API
+      console.log("Updated profile data:", formData);
+      
+      // Update userData (in a real app this would happen through context or redux)
+      // For now we're just simulating the update
+      
+      setIsSaving(false);
+      
+      toast({
+        title: "Profile Updated",
+        description: "Your profile information has been successfully updated.",
+      });
+    }, 800);
+  };
+
+  const handleCancel = () => {
+    // Reset form to original values
+    setFormData({
+      name: userData.name,
+      username: userData.username,
+      bio: userData.bio,
+      location: userData.location || "",
+      website: userData.website || "",
+      twitter: userData.social?.twitter || "",
+      discord: userData.social?.discord || "",
+      github: userData.social?.github || ""
+    });
+    
+    setAvatarPreview(userData.avatar);
     
     toast({
-      title: "Profile Updated",
-      description: "Your profile information has been successfully updated.",
+      title: "Changes Discarded",
+      description: "Your changes have been discarded.",
     });
   };
 
@@ -228,11 +260,21 @@ export const ProfileSettings = ({ userData }: ProfileSettingsProps) => {
         </div>
         
         <div className="flex justify-end gap-3 pt-4">
-          <Button variant="outline" type="button" className="border-[#1E293B] text-mine-silver hover:text-white">
+          <Button 
+            variant="outline" 
+            type="button" 
+            className="border-[#1E293B] text-mine-silver hover:text-white"
+            onClick={handleCancel}
+            disabled={isSaving}
+          >
             Cancel
           </Button>
-          <Button type="submit" className="bg-[#F97316] hover:bg-[#F97316]/90 text-white">
-            Save Changes
+          <Button 
+            type="submit" 
+            className="bg-[#F97316] hover:bg-[#F97316]/90 text-white"
+            disabled={isSaving}
+          >
+            {isSaving ? "Saving..." : "Save Changes"}
           </Button>
         </div>
       </form>
