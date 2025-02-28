@@ -28,10 +28,10 @@ const Index = () => {
       <div id="community">
         <CommunityEngagement />
       </div>
+      <CommunityUpdates />
       <div id="workspace">
         <CollaborativeWorkspace />
       </div>
-      <CommunityUpdates />
       <NewsletterSignup />
       <Footer />
       <VideoCallButton />
