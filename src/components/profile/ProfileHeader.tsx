@@ -40,6 +40,18 @@ export const ProfileHeader = ({ userData, setActiveTab }: ProfileHeaderProps) =>
     setActiveTab("settings");
   };
 
+  const handleEditCover = () => {
+    setActiveTab("settings");
+    // Add a small delay to ensure the settings tab is rendered
+    setTimeout(() => {
+      // Scroll to the cover image section
+      const coverSection = document.querySelector('[data-section="cover-image"]');
+      if (coverSection) {
+        coverSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   return (
     <div className="relative">
       {/* Cover Image */}
@@ -59,7 +71,7 @@ export const ProfileHeader = ({ userData, setActiveTab }: ProfileHeaderProps) =>
           size="sm" 
           variant="ghost" 
           className="absolute top-4 right-4 bg-black/30 text-white hover:bg-black/50"
-          onClick={handleEditProfile}
+          onClick={handleEditCover}
         >
           <Edit className="h-4 w-4 mr-1" />
           Edit Cover

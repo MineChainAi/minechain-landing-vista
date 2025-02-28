@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Camera, RefreshCw } from "lucide-react";
+import { Camera, RefreshCw, ImageIcon } from "lucide-react";
 
 interface UserData {
   id: string;
@@ -43,6 +43,7 @@ const defaultUserData = {
   email: "alex.johnson@example.com",
   bio: "Blockchain enthusiast and GPU mining expert with 5 years of experience. Contributing to MineChain ecosystem since 2022.",
   avatar: "/lovable-uploads/bf49290c-2a09-4f24-9ad1-1a2bf454ddbf.png",
+  coverImage: "https://images.unsplash.com/photo-1639762681057-408e52192e55?q=80&w=2070&auto=format&fit=crop",
   location: "San Francisco, CA",
   website: "https://alexjohnson.dev",
   social: {
@@ -52,9 +53,20 @@ const defaultUserData = {
   }
 };
 
+// Available cover images for selection
+const coverImageOptions = [
+  "https://images.unsplash.com/photo-1639762681057-408e52192e55?q=80&w=2070&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=2070&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?q=80&w=2070&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=2070&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1458668383970-8ddd3927deed?q=80&w=2070&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop"
+];
+
 export const ProfileSettings = ({ userData, onProfileUpdate }: ProfileSettingsProps) => {
   const { toast } = useToast();
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const coverInputRef = useRef<HTMLInputElement>(null);
   
   const [formData, setFormData] = useState({
     name: userData.name,
@@ -69,6 +81,8 @@ export const ProfileSettings = ({ userData, onProfileUpdate }: ProfileSettingsPr
   });
 
   const [avatarPreview, setAvatarPreview] = useState<string>(userData.avatar);
+  const [coverPreview, setCoverPreview] = useState<string>(userData.coverImage);
+  const [showCoverOptions, setShowCoverOptions] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [isResetting, setIsResetting] = useState(false);
 
@@ -79,6 +93,10 @@ export const ProfileSettings = ({ userData, onProfileUpdate }: ProfileSettingsPr
 
   const handleAvatarClick = () => {
     fileInputRef.current?.click();
+  };
+
+  const handleCoverClick = () => {
+    coverInputRef.current?.click();
   };
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -100,6 +118,35 @@ export const ProfileSettings = ({ userData, onProfileUpdate }: ProfileSettingsPr
     }
   };
 
+  const handleCoverFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      // In a real app, you would upload this file to a server
+      // For now, we'll just create a local preview
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setCoverPreview(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+      
+      // Show a success toast
+      toast({
+        title: "Cover Image Updated",
+        description: "Your new cover image has been uploaded.",
+      });
+    }
+  };
+
+  const handleSelectCoverImage = (imageUrl: string) => {
+    setCoverPreview(imageUrl);
+    setShowCoverOptions(false);
+    
+    toast({
+      title: "Cover Image Selected",
+      description: "Your new cover image has been selected.",
+    });
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSaving(true);
@@ -116,6 +163,7 @@ export const ProfileSettings = ({ userData, onProfileUpdate }: ProfileSettingsPr
         email: formData.email,
         bio: formData.bio,
         avatar: avatarPreview,
+        coverImage: coverPreview,
         location: formData.location,
         website: formData.website,
         social: {
@@ -154,6 +202,8 @@ export const ProfileSettings = ({ userData, onProfileUpdate }: ProfileSettingsPr
     });
     
     setAvatarPreview(userData.avatar);
+    setCoverPreview(userData.coverImage);
+    setShowCoverOptions(false);
     
     toast({
       title: "Changes Discarded",
@@ -184,6 +234,7 @@ export const ProfileSettings = ({ userData, onProfileUpdate }: ProfileSettingsPr
       });
       
       setAvatarPreview(defaultUserData.avatar);
+      setCoverPreview(defaultUserData.coverImage);
       setIsResetting(false);
       
       toast({
@@ -211,6 +262,73 @@ export const ProfileSettings = ({ userData, onProfileUpdate }: ProfileSettingsPr
             </>
           )}
         </Button>
+      </div>
+      
+      {/* Cover Image Settings */}
+      <div className="mb-8">
+        <h3 className="text-lg font-medium text-white mb-4">Cover Image</h3>
+        <div className="relative">
+          <div 
+            className="w-full h-40 rounded-lg overflow-hidden border-4 border-[#1E293B] cursor-pointer bg-[#0A0F1D]"
+            onClick={() => setShowCoverOptions(prev => !prev)}
+          >
+            {coverPreview ? (
+              <img 
+                src={coverPreview} 
+                alt="Cover" 
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <div className="flex items-center justify-center h-full">
+                <ImageIcon className="h-12 w-12 text-[#1E293B]" />
+              </div>
+            )}
+            <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+              <div className="text-white text-center">
+                <ImageIcon className="h-8 w-8 mx-auto mb-2" />
+                <span>Click to change cover image</span>
+              </div>
+            </div>
+          </div>
+          <input 
+            type="file" 
+            ref={coverInputRef}
+            className="hidden"
+            accept="image/*"
+            onChange={handleCoverFileChange}
+          />
+        </div>
+        
+        {/* Cover Image Options */}
+        {showCoverOptions && (
+          <div className="mt-4 grid grid-cols-3 gap-2">
+            {coverImageOptions.map((image, index) => (
+              <div 
+                key={index}
+                className="relative cursor-pointer rounded-md overflow-hidden h-24"
+                onClick={() => handleSelectCoverImage(image)}
+              >
+                <img 
+                  src={image} 
+                  alt={`Cover option ${index + 1}`} 
+                  className="w-full h-full object-cover"
+                />
+                {coverPreview === image && (
+                  <div className="absolute inset-0 bg-[#F97316]/30 border-2 border-[#F97316]"></div>
+                )}
+              </div>
+            ))}
+            <div 
+              className="flex items-center justify-center h-24 bg-[#0A0F1D] rounded-md cursor-pointer border border-dashed border-[#1E293B] hover:border-[#F97316] transition-colors"
+              onClick={handleCoverClick}
+            >
+              <div className="text-center">
+                <Camera className="h-6 w-6 text-mine-silver mx-auto mb-1" />
+                <span className="text-xs text-mine-silver">Upload custom</span>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
       
       {/* Profile Picture Upload */}
