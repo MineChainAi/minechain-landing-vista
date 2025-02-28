@@ -72,7 +72,6 @@ export const Navbar = () => {
             <a href="#integration" className="text-mine-silver hover:text-[#0EA5E9] transition-colors">Integration</a>
             <Link to="/knowledge-hub" className="text-mine-silver hover:text-[#F97316] transition-colors">Knowledge Hub</Link>
             <Link to="/profile" className="text-mine-silver hover:text-[#0EA5E9] transition-colors">My Profile</Link>
-            <a href="#" className="text-mine-silver hover:text-white transition-colors">Docs</a>
             
             {isLoggedIn ? <ProfileButton /> : <LoginButton />}
           </div>
@@ -121,13 +120,6 @@ export const Navbar = () => {
               >
                 My Profile
               </Link>
-              <a 
-                href="#" 
-                className="text-mine-silver hover:text-white transition-colors px-4 py-2 rounded-md hover:bg-white/5"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Docs
-              </a>
               <div className="px-4 py-2">
                 {isLoggedIn ? <ProfileButton /> : <LoginButton />}
               </div>
