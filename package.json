@@ -11,6 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.12.1",
     "@hookform/resolvers": "^3.9.0",
     "@livekit/components-react": "^1.5.3",
     "@livekit/components-styles": "^1.0.9",
