@@ -1,10 +1,35 @@
 
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { LoginButton } from "@/components/auth/LoginButton";
+import { ProfileButton } from "@/components/auth/ProfileButton";
 
 export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
+  // Check if user is logged in
+  useEffect(() => {
+    const checkLoginStatus = () => {
+      const profileExists = localStorage.getItem("minechain_profile_exists") === "true";
+      setIsLoggedIn(profileExists);
+    };
+    
+    // Check on initial render
+    checkLoginStatus();
+    
+    // Add event listener for storage changes
+    window.addEventListener('storage', checkLoginStatus);
+    
+    // Create custom event listener for login state changes from our app
+    window.addEventListener('login-state-change', checkLoginStatus);
+    
+    return () => {
+      window.removeEventListener('storage', checkLoginStatus);
+      window.removeEventListener('login-state-change', checkLoginStatus);
+    };
+  }, []);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-mine-dark/80 backdrop-blur-lg border-b border-white/10">
@@ -48,6 +73,8 @@ export const Navbar = () => {
             <Link to="/knowledge-hub" className="text-mine-silver hover:text-[#F97316] transition-colors">Knowledge Hub</Link>
             <Link to="/profile" className="text-mine-silver hover:text-[#0EA5E9] transition-colors">My Profile</Link>
             <a href="#" className="text-mine-silver hover:text-white transition-colors">Docs</a>
+            
+            {isLoggedIn ? <ProfileButton /> : <LoginButton />}
           </div>
           
           <button 
@@ -101,6 +128,9 @@ export const Navbar = () => {
               >
                 Docs
               </a>
+              <div className="px-4 py-2">
+                {isLoggedIn ? <ProfileButton /> : <LoginButton />}
+              </div>
             </div>
           </div>
         )}
