@@ -40,8 +40,8 @@ const Index = () => {
       <div id="integration">
         <Integration />
       </div>
-      <XPostsSection />
       <CommunityUpdates />
+      <XPostsSection />
       <NewsletterSignup />
       <Footer />
       <VideoCallButton />
