@@ -69,7 +69,6 @@ export const Navbar = () => {
           
           <div className="hidden md:flex items-center gap-8">
             <a href="#features" className="text-mine-silver hover:text-[#F97316] transition-colors">Features</a>
-            <a href="#integration" className="text-mine-silver hover:text-[#0EA5E9] transition-colors">Integration</a>
             <Link to="/knowledge-hub" className="text-mine-silver hover:text-[#F97316] transition-colors">Knowledge Hub</Link>
             <Link to="/profile" className="text-mine-silver hover:text-[#0EA5E9] transition-colors">My Profile</Link>
             
@@ -98,13 +97,6 @@ export const Navbar = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Features
-              </a>
-              <a 
-                href="#integration" 
-                className="text-mine-silver hover:text-[#0EA5E9] transition-colors px-4 py-2 rounded-md hover:bg-white/5"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Integration
               </a>
               <Link 
                 to="/knowledge-hub" 
