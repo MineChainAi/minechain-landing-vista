@@ -3,7 +3,6 @@ import { Hero } from "@/components/Hero";
 import { Features } from "@/components/Features";
 import { Enterprise } from "@/components/Enterprise";
 import { GPUMarketplace } from "@/components/GPUMarketplace";
-import { MiningRewards } from "@/components/MiningRewards";
 import { Integration } from "@/components/Integration";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
@@ -33,9 +32,6 @@ const Index = () => {
       </div>
       <div id="community">
         <CommunityEngagement />
-      </div>
-      <div id="rewards">
-        <MiningRewards />
       </div>
       <div id="integration">
         <Integration />
