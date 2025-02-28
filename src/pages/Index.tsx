@@ -25,11 +25,11 @@ const Index = () => {
       <div id="marketplace">
         <GPUMarketplace />
       </div>
-      <div id="workspace">
-        <CollaborativeWorkspace />
-      </div>
       <div id="community">
         <CommunityEngagement />
+      </div>
+      <div id="workspace">
+        <CollaborativeWorkspace />
       </div>
       <CommunityUpdates />
       <NewsletterSignup />
