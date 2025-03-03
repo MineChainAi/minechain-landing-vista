@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { useToast } from "@/components/ui/use-toast";
 import { Loader2 } from "lucide-react";
@@ -88,41 +89,71 @@ export const CryptoTicker = () => {
     return () => clearInterval(interval);
   }, [toast]);
 
+  // Split prices into two rows
+  const firstRow = prices.slice(0, 4);
+  const secondRow = prices.slice(4);
+
   return (
     <div className="w-full bg-mine-dark/80 backdrop-blur border-b border-white/10 mt-16">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-center py-2 overflow-x-auto whitespace-nowrap">
-          {loading ? (
-            <div className="flex items-center gap-2 text-mine-silver">
-              <Loader2 className="h-4 w-4 animate-spin" />
-              <span>Loading prices...</span>
-            </div>
-          ) : error ? (
-            <div className="text-red-500 text-sm">
-              Error loading prices. Please try again later.
-            </div>
-          ) : (
-            prices.map((crypto) => (
-              <div
-                key={crypto.symbol}
-                className="flex items-center mx-6 text-sm"
-              >
-                <span className="text-mine-silver font-medium">{crypto.symbol}</span>
-                <span className="ml-2 text-white font-bold">{crypto.price}</span>
-                <span
-                  className={`ml-2 text-xs font-medium ${
-                    parseFloat(crypto.change24h) >= 0
-                      ? 'text-green-500'
-                      : 'text-red-500'
-                  }`}
+        {loading ? (
+          <div className="flex items-center justify-center py-3 text-mine-silver">
+            <Loader2 className="h-4 w-4 animate-spin mr-2" />
+            <span>Loading prices...</span>
+          </div>
+        ) : error ? (
+          <div className="text-red-500 text-sm py-3 text-center">
+            Error loading prices. Please try again later.
+          </div>
+        ) : (
+          <div className="py-1">
+            {/* First row */}
+            <div className="flex items-center justify-center py-1 overflow-x-auto whitespace-nowrap">
+              {firstRow.map((crypto) => (
+                <div
+                  key={crypto.symbol}
+                  className="flex items-center mx-4 text-xs md:text-sm"
                 >
-                  {parseFloat(crypto.change24h) >= 0 ? '+' : ''}
-                  {crypto.change24h}%
-                </span>
-              </div>
-            ))
-          )}
-        </div>
+                  <span className="text-mine-silver font-medium">{crypto.symbol}</span>
+                  <span className="ml-2 text-white font-bold">{crypto.price}</span>
+                  <span
+                    className={`ml-2 text-xs font-medium ${
+                      parseFloat(crypto.change24h) >= 0
+                        ? 'text-green-500'
+                        : 'text-red-500'
+                    }`}
+                  >
+                    {parseFloat(crypto.change24h) >= 0 ? '+' : ''}
+                    {crypto.change24h}%
+                  </span>
+                </div>
+              ))}
+            </div>
+            
+            {/* Second row */}
+            <div className="flex items-center justify-center py-1 overflow-x-auto whitespace-nowrap">
+              {secondRow.map((crypto) => (
+                <div
+                  key={crypto.symbol}
+                  className="flex items-center mx-4 text-xs md:text-sm"
+                >
+                  <span className="text-mine-silver font-medium">{crypto.symbol}</span>
+                  <span className="ml-2 text-white font-bold">{crypto.price}</span>
+                  <span
+                    className={`ml-2 text-xs font-medium ${
+                      parseFloat(crypto.change24h) >= 0
+                        ? 'text-green-500'
+                        : 'text-red-500'
+                    }`}
+                  >
+                    {parseFloat(crypto.change24h) >= 0 ? '+' : ''}
+                    {crypto.change24h}%
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
