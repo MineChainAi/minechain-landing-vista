@@ -58,8 +58,14 @@ export const CryptoTicker = () => {
         
         const data = await Promise.all(
           responses.map(async (response) => {
-            if (!response.ok && response.json) {
-              throw new Error(`HTTP error! status: ${response.status}`);
+            // Fix: Check if response is not ok before trying to access status
+            if (!response.ok) {
+              // For the native Response object
+              if ('status' in response) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+              }
+              // For our mock response or any other non-standard response
+              throw new Error('HTTP error! Unknown status');
             }
             return response.json();
           })
