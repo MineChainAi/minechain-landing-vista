@@ -29,14 +29,14 @@ export const TokenSupply = () => {
               <div className="flex justify-between items-center mb-2">
                 <span className="text-lg font-medium">Supply Progress</span>
                 <span className="text-sm text-mine-silver">
-                  <span className="text-[#F97316] font-medium">3,450,000</span> / 23,000,000 Mined
+                  <span className="text-[#F97316] font-medium">2,300,000</span> / 23,000,000 Mined
                 </span>
               </div>
-              <Progress value={15} className="h-3 bg-white/5">
+              <Progress value={10} className="h-3 bg-white/5">
                 <div className="h-full bg-gradient-to-r from-[#F97316] to-[#0EA5E9] rounded-full" />
               </Progress>
               <div className="mt-3 text-xs text-mine-silver text-right">
-                15% of total supply in circulation
+                10% of total supply in circulation
               </div>
             </CardContent>
           </Card>
