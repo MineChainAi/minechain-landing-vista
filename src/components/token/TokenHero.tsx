@@ -69,7 +69,7 @@ export const TokenHero = () => {
       
       {/* Glowing accent effects */}
       <motion.div 
-        className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-[#F97316]/10 blur-[100px] z-0"
+        className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-[#F9A826]/10 blur-[100px] z-0"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.5, 0.3],
@@ -82,7 +82,7 @@ export const TokenHero = () => {
       />
       
       <motion.div 
-        className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-[#0EA5E9]/10 blur-[100px] z-0"
+        className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-[#F5D04A]/10 blur-[100px] z-0"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.6, 0.3],
@@ -119,7 +119,7 @@ export const TokenHero = () => {
         >
           {/* Shiny reflective title card */}
           <motion.div 
-            className="relative overflow-hidden rounded-xl p-1 mb-10 inline-block bg-gradient-to-r from-[#F97316]/80 via-[#FBBF24]/50 to-[#0EA5E9]/80"
+            className="relative overflow-hidden rounded-xl p-1 mb-10 inline-block bg-gradient-to-r from-[#F9A826]/80 via-[#F5D04A]/50 to-[#D4AF37]/80"
             animate={{
               backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
             }}
@@ -131,11 +131,11 @@ export const TokenHero = () => {
           >
             <div className="bg-black/80 rounded-lg p-6 backdrop-blur-sm">
               <img 
-                src="/lovable-uploads/87ff58c1-cb4b-4253-b162-d4ab8ef1567a.png" 
+                src="/lovable-uploads/dec93b9a-f787-4d4b-b9e9-0c04150797af.png" 
                 alt="MINE Token Logo" 
-                className="w-32 h-32 mx-auto mb-4 object-cover rounded-lg" 
+                className="w-40 h-40 mx-auto mb-4 object-contain rounded-lg" 
               />
-              <p className="text-[#F97316] font-bold text-xl">$MINE Token</p>
+              <p className="text-[#F9A826] font-bold text-xl">$MINE Token</p>
             </div>
           </motion.div>
           
@@ -147,3 +147,4 @@ export const TokenHero = () => {
     </section>
   );
 };
+
