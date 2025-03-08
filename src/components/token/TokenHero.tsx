@@ -1,10 +1,9 @@
-
 import { motion } from "framer-motion";
 import { TokenDescription } from "./TokenDescription";
 import { TokenActions } from "./TokenActions";
 import { TokenStats } from "./TokenStats";
 import { useEffect, useState } from "react";
-import { Flame, Cpu, Pickaxe, Gem, Zap, Circuit, Lightbulb } from "lucide-react";
+import { Flame, Cpu, Pickaxe, Gem, Zap, Lightbulb } from "lucide-react";
 
 export const TokenHero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -32,7 +31,7 @@ export const TokenHero = () => {
       />
       
       {/* Electric circuit board pattern */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwQTg0RkYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJWNmgydjR6bTAgMzJoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0tNiAwSDJ2LTRoMjh2NHptMC02SDJ2LTRoMjh2NHptMC02SDJ2LTRoMjh2NHptMC02SDJ2LTRoMjh2NHptMC02SDJ2LTRoMjh2NHptMC02SDJ2LTRoMjh2NHptMC02SDJ2LTRoMjh2NHptMC02SDJ2LTRoMjh2NHpNMzAgMzRIMnYtNGgyOHY0em0wLTZIMnYtNGgyOHY0em0wLTZIMnYtNGgyOHY0em0wLTZIMnYtNGgyOHY0em0wLTZIMlY2aDI4djR6bTYgMGgyMlY2SDM2djR6bTAgNmgyMnYtNEgzNnY0em0wIDZoMjJ2LTRIMzZ2NHptMCA2aDIydi00SDM2djR6bTAgNmgyMnYtNEgzNnY0em0wIDZoMjJ2LTRIMzZ2NHptMCA2aDIydi00SDM2djR6bTAgNmgyMnYtNEgzNnY0eiIvPjxwYXRoIGQ9Ik0yIDBoNTh2NjBIMnoiLz48L2c+PC9nPjwvc3ZnPg==')]  opacity-30 z-0">
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwQTg0RkYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJWNmgydjR6bTAgMzJoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0wIDZoLTJ2LTRoMnY0em0tNiAwSDJ2LTRoMjh2NHptMC02SDJ2LTRoMjh2NHptMC02SDJ2LTRoMjh2NHptMC02SDJ2LTRoMjh2NHptMC02SDJ2LTRoMjh2NHptMC02SDJ2LTRoMjh2NHpNMzAgMzRIMnYtNGgyOHY0em0wLTZIMnYtNGgyOHY0em0wLTZIMnYtNGgyOHY0em0wLTZIMnYtNGgyOHY0em0wLTZIMlY2aDI4djR6bTYgMGgyMlY2SDM2djR6bTAgNmgyMnYtNEgzNnY0em0wIDZoMjJ2LTRIMzZ2NHptMCA2aDIydi00SDM2djR6bTAgNmgyMnYtNEgzNnY0em0wIDZoMjJ2LTRIMzZ2NHptMCA2aDIydi00SDM2djR6bTAgNmgyMnYtNEgzNnY0eiIvPjxwYXRoIGQ9Ik0yIDBoNTh2NjBIMnoiLz48L2c+PC9nPjwvc3ZnPg==')]  opacity-30 z-0">
       </div>
       
       {/* Electric energy particles */}
