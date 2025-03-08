@@ -1,8 +1,23 @@
 
 import { Button } from "@/components/ui/button";
 import { FileText, Download, ExternalLink } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 export const WhitepaperHeader = () => {
+  const { toast } = useToast();
+  
+  const handleOpenWhitepaper = () => {
+    toast({
+      title: "Whitepaper Access",
+      description: "Opening the $MINE whitepaper documentation",
+      duration: 3000,
+    });
+    
+    setTimeout(() => {
+      window.open("https://github.com/MineChainAi/minetoken", "_blank");
+    }, 1000);
+  };
+
   return (
     <div className="flex flex-col md:flex-row items-center gap-8">
       {/* Whitepaper Document Icon */}
@@ -23,14 +38,15 @@ export const WhitepaperHeader = () => {
         <div className="flex flex-col sm:flex-row gap-4">
           <Button 
             className="bg-[#F97316] hover:bg-[#F97316]/90 text-white"
-            onClick={() => window.open("https://chatgpt.com/canvas/shared/67cb8f787f9c8191ac72817b5cdd64fb", "_blank")}
+            onClick={handleOpenWhitepaper}
           >
-            <ExternalLink className="mr-2 h-4 w-4" /> View Whitepaper
+            <ExternalLink className="mr-2 h-4 w-4" /> Read Whitepaper
           </Button>
           
           <Button
             variant="outline"
             className="border-[#F97316]/50 text-[#F97316] hover:bg-[#F97316]/10"
+            onClick={() => window.open("https://github.com/MineChainAi/minetoken/raw/main/MineChain_Whitepaper.pdf", "_blank")}
           >
             <Download className="mr-2 h-4 w-4" /> Download PDF
           </Button>
