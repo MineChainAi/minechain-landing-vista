@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 export const TokenCTA = () => {
   const { toast } = useToast();
@@ -19,7 +19,7 @@ export const TokenCTA = () => {
     // Simulate connection process
     setTimeout(() => {
       setIsLoading(false);
-      window.open("https://github.com/MineChainAi", "_blank");
+      window.open("https://github.com/MineChainAi/minetoken", "_blank");
     }, 2000);
   };
   
@@ -31,7 +31,7 @@ export const TokenCTA = () => {
     });
     
     setTimeout(() => {
-      window.open("https://github.com/MineChainAi", "_blank");
+      window.open("https://github.com/MineChainAi/minetoken", "_blank");
     }, 1000);
   };
 
