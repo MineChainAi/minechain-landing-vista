@@ -25,7 +25,7 @@ export const TokenStats = () => {
         />
         <StatItem 
           label="Halving"
-          value="Every 2 Years"
+          value="Every 3 Years"
           description="Deflationary Model"
           delay={1.4}
         />

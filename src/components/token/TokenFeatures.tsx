@@ -13,7 +13,7 @@ export const TokenFeatures = () => {
     {
       icon: <TrendingUp className="w-10 h-10 text-[#F97316]" />,
       title: "Deflationary Model",
-      description: "With a 2-year halving cycle, supply decreases over time, driving long-term value appreciation."
+      description: "With a 3-year halving cycle, supply decreases over time, driving long-term value appreciation."
     },
     {
       icon: <Cpu className="w-10 h-10 text-[#F97316]" />,
