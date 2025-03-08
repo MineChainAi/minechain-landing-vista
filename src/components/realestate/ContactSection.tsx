@@ -24,8 +24,8 @@ export const ContactSection = () => {
             </div>
             <h3 className="text-lg font-semibold text-white mb-2">Email Us</h3>
             <p className="text-mine-silver mb-4">Send us a message anytime</p>
-            <a href="mailto:realestate@minechain.ai" className="text-[#F97316] hover:text-[#F97316]/80">
-              realestate@minechain.ai
+            <a href="mailto:dm@minechain.ai" className="text-[#F97316] hover:text-[#F97316]/80">
+              dm@minechain.ai
             </a>
           </div>
           

@@ -56,7 +56,10 @@ export const PropertyRequestDialog = ({
   const onSubmit = async (data: FormValues) => {
     try {
       // In a real application, this would send data to a backend API
-      console.log("Form submitted:", data);
+      console.log("Form submitted to dm@minechain.ai:", data);
+      
+      // Log the destination email address
+      console.log("Sending request to: dm@minechain.ai");
       
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000));
