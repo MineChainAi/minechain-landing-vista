@@ -3,10 +3,27 @@ import { FileText, FileCode, BookOpen, Video, Download, ExternalLink, Lightbulb,
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
+// Define types for our resources
+type BaseResource = {
+  title: string;
+  type: string;
+  category: string;
+  icon: JSX.Element;
+  link: string;
+};
+
+type RegularResource = BaseResource;
+
+type BeginnerResource = BaseResource & {
+  difficulty: "beginner";
+};
+
+type Resource = RegularResource | BeginnerResource;
+
 export const EducationResources = () => {
   const [activeTab, setActiveTab] = useState("all");
   
-  const resources = [
+  const resources: RegularResource[] = [
     {
       title: "Introduction to $MINE Token Ecosystem",
       type: "document",
@@ -66,7 +83,7 @@ export const EducationResources = () => {
   ];
 
   // New beginner-friendly resources
-  const beginnerResources = [
+  const beginnerResources: BeginnerResource[] = [
     {
       title: "Blockchain 101: Understanding the Basics",
       type: "guide",
@@ -118,11 +135,16 @@ export const EducationResources = () => {
   ];
 
   // Combine all resources
-  const allResources = [...resources, ...beginnerResources];
+  const allResources: Resource[] = [...resources, ...beginnerResources];
 
   const filteredResources = activeTab === "all" 
     ? allResources 
     : allResources.filter(resource => resource.category === activeTab);
+
+  // Function to check if a resource is a beginner resource
+  const isBeginnerResource = (resource: Resource): resource is BeginnerResource => {
+    return 'difficulty' in resource && resource.difficulty === 'beginner';
+  };
 
   return (
     <section className="py-20 bg-gradient-to-b from-black/0 to-black/20">
@@ -179,7 +201,7 @@ export const EducationResources = () => {
               <div className="flex-grow">
                 <h3 className="text-white font-medium group-hover:text-[#F97316] transition-colors duration-300">
                   {resource.title}
-                  {resource.difficulty === "beginner" && (
+                  {isBeginnerResource(resource) && (
                     <span className="ml-2 text-xs bg-[#F97316]/20 text-[#F97316] px-2 py-0.5 rounded-full">
                       Beginner
                     </span>
