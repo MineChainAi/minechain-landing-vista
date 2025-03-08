@@ -20,7 +20,14 @@ export const WalletRecommendations = () => {
         <WalletRecommendationCard 
           name="Tangem"
           description="Hardware wallet with NFC cards"
-          imageUrl="https://tangem.com/media/favicon/favicon.svg"
+          imageContent={
+            <svg width="32" height="32" viewBox="0 0 115 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M57.552 114.932C89.3058 114.932 115 89.1867 115 57.466C115 25.7453 89.3058 0 57.552 0C25.7983 0 0.104004 25.7453 0.104004 57.466C0.104004 89.1867 25.7983 114.932 57.552 114.932Z" fill="#00BF7F"/>
+              <path fillRule="evenodd" clipRule="evenodd" d="M44.2197 58.9309V56.0009C44.2197 53.5409 46.2197 51.5409 48.6797 51.5409H66.4197C68.8797 51.5409 70.8797 53.5409 70.8797 56.0009V58.9309H44.2197Z" fill="white"/>
+              <path fillRule="evenodd" clipRule="evenodd" d="M70.8797 58.9307V83.6507C70.8797 86.1107 68.8797 88.1107 66.4197 88.1107H48.6797C46.2197 88.1107 44.2197 86.1107 44.2197 83.6507V58.9307H70.8797ZM57.5497 75.3507C61.1897 75.3507 64.1097 72.4607 64.1097 68.8507C64.1097 65.2407 61.1897 62.3507 57.5497 62.3507C53.9097 62.3507 50.9897 65.2407 50.9897 68.8507C50.9897 72.4607 53.9097 75.3507 57.5497 75.3507Z" fill="white"/>
+              <path fillRule="evenodd" clipRule="evenodd" d="M57.5499 31.541C48.2299 31.541 40.6899 39.081 40.6899 48.401V51.541H44.2199V48.401C44.2199 41.081 50.2299 35.071 57.5499 35.071C64.8699 35.071 70.8799 41.081 70.8799 48.401V51.541H74.4099V48.401C74.4099 39.081 66.8699 31.541 57.5499 31.541Z" fill="white"/>
+            </svg>
+          }
           link="https://tangem.com/"
         />
         
@@ -38,11 +45,12 @@ export const WalletRecommendations = () => {
 interface WalletRecommendationCardProps {
   name: string;
   description: string;
-  imageUrl: string;
+  imageUrl?: string;
+  imageContent?: React.ReactNode;
   link: string;
 }
 
-const WalletRecommendationCard = ({ name, description, imageUrl, link }: WalletRecommendationCardProps) => {
+const WalletRecommendationCard = ({ name, description, imageUrl, imageContent, link }: WalletRecommendationCardProps) => {
   // Function to handle link click with proper external link handling
   const handleWalletLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.stopPropagation();
@@ -58,13 +66,17 @@ const WalletRecommendationCard = ({ name, description, imageUrl, link }: WalletR
       className="flex items-center p-3 rounded-lg border border-[#1E293B] hover:border-[#F97316] hover:bg-[#0F172A]/50 transition-all duration-200 group"
       aria-label={`Visit ${name} website`}
     >
-      <div className="mr-3 p-2 rounded-md bg-[#0F172A] border border-[#1E293B] shadow-sm flex-shrink-0">
-        <img 
-          src={imageUrl} 
-          alt={name} 
-          className="w-8 h-8"
-          loading="lazy"
-        />
+      <div className="mr-3 p-2 rounded-md bg-[#0F172A] border border-[#1E293B] shadow-sm flex-shrink-0 w-12 h-12 flex items-center justify-center">
+        {imageContent ? (
+          imageContent
+        ) : (
+          <img 
+            src={imageUrl} 
+            alt={name} 
+            className="w-8 h-8 object-contain"
+            loading="lazy"
+          />
+        )}
       </div>
       <div className="flex-1 min-w-0">
         <p className="text-white font-medium group-hover:text-[#F97316] transition-colors truncate">{name}</p>
