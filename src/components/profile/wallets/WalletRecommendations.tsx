@@ -43,26 +43,35 @@ interface WalletRecommendationCardProps {
 }
 
 const WalletRecommendationCard = ({ name, description, imageUrl, link }: WalletRecommendationCardProps) => {
+  // Function to handle link click with proper external link handling
+  const handleWalletLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.stopPropagation();
+    window.open(link, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <a 
       href={link} 
       target="_blank" 
       rel="noopener noreferrer"
+      onClick={handleWalletLinkClick}
       className="flex items-center p-3 rounded-lg border border-[#1E293B] hover:border-[#F97316] hover:bg-[#0F172A]/50 transition-all duration-200 group"
+      aria-label={`Visit ${name} website`}
     >
-      <div className="mr-3 p-2 rounded-md bg-[#0F172A] border border-[#1E293B] shadow-sm">
+      <div className="mr-3 p-2 rounded-md bg-[#0F172A] border border-[#1E293B] shadow-sm flex-shrink-0">
         <img 
           src={imageUrl} 
           alt={name} 
           className="w-8 h-8"
+          loading="lazy"
         />
       </div>
-      <div>
-        <p className="text-white font-medium group-hover:text-[#F97316] transition-colors">{name}</p>
-        <p className="text-xs text-mine-silver flex items-center gap-1">
-          {description}
-          <ExternalLink className="h-3 w-3 group-hover:text-[#F97316] transition-colors mt-0.5" />
-        </p>
+      <div className="flex-1 min-w-0">
+        <p className="text-white font-medium group-hover:text-[#F97316] transition-colors truncate">{name}</p>
+        <div className="text-xs text-mine-silver flex items-center gap-1 truncate">
+          <span className="truncate">{description}</span>
+          <ExternalLink className="h-3 w-3 flex-shrink-0 group-hover:text-[#F97316] transition-colors mt-0.5" />
+        </div>
       </div>
     </a>
   );

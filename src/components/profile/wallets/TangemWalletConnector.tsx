@@ -65,6 +65,7 @@ export const TangemWalletConnector = ({ onWalletsImport }: TangemWalletConnector
             ? "bg-green-600 hover:bg-green-700" 
             : "bg-[#F97316] hover:bg-[#F97316]/90"} text-white transition-colors`}
           disabled={isLinking || tangemLinked}
+          aria-label={tangemLinked ? "Tangem wallet connected" : "Link Tangem wallet"}
         >
           {isLinking ? (
             <span className="flex items-center">
