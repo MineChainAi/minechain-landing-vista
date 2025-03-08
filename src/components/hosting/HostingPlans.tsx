@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Check, Zap } from "lucide-react";
 import { useState } from "react";
 import { PropertyRequestDialog } from "@/components/realestate/PropertyRequestDialog";
 import { motion } from "framer-motion";
@@ -20,7 +20,8 @@ export const HostingPlans = () => {
         "Dedicated Cooling",
         "Remote Management",
         "Basic Monitoring",
-        "99.9% Uptime SLA"
+        "99.9% Uptime SLA",
+        "$0.08 per kWh Power Rate"
       ]
     },
     {
@@ -35,7 +36,8 @@ export const HostingPlans = () => {
         "24/7 Technical Support",
         "Performance Optimization",
         "99.99% Uptime SLA",
-        "Dedicated Network"
+        "Dedicated Network",
+        "$0.08 per kWh Power Rate"
       ]
     },
     {
@@ -49,7 +51,8 @@ export const HostingPlans = () => {
         "On-site Technical Team",
         "Advanced Security",
         "Custom Power Contracts",
-        "Expansion Options"
+        "Expansion Options",
+        "$0.08 per kWh Base Power Rate"
       ]
     }
   ];
@@ -78,7 +81,32 @@ export const HostingPlans = () => {
     <section className="py-20 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-[#0F172A]/50 via-transparent to-[#0F172A]/50" />
       
-      <div className="container mx-auto px-4 relative z-10">
+      {/* Power rate highlight banner */}
+      <div className="absolute top-0 inset-x-0 bg-gradient-to-r from-[#F97316]/20 via-[#0EA5E9]/20 to-[#F97316]/20 h-12 flex items-center justify-center z-10">
+        <motion.div 
+          className="flex items-center gap-2 text-white"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
+          <Zap className="h-5 w-5 text-[#0EA5E9]" />
+          <span className="font-semibold">Industry-Leading Power Rate:</span>
+          <span className="text-[#F97316] font-bold">$0.08 per kWh</span>
+          <motion.div 
+            className="ml-1 h-2 w-2 rounded-full bg-[#0EA5E9]"
+            animate={{ 
+              scale: [1, 1.5, 1],
+              opacity: [0.5, 1, 0.5]
+            }}
+            transition={{ 
+              duration: 2,
+              repeat: Infinity
+            }}
+          />
+        </motion.div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10 pt-12">
         <motion.div 
           className="text-center max-w-3xl mx-auto mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -103,6 +131,36 @@ export const HostingPlans = () => {
           >
             Choose the hosting package that best fits your needs, or contact us for a customized solution.
           </motion.p>
+          
+          {/* Power Rate Value Proposition */}
+          <motion.div 
+            className="mt-4 p-3 bg-gradient-to-r from-[#0F172A] to-[#0F172A] border border-[#0EA5E9]/30 rounded-lg inline-block"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
+            <div className="flex items-center gap-3">
+              <div className="relative">
+                <Zap className="h-6 w-6 text-[#0EA5E9]" />
+                <motion.div 
+                  className="absolute inset-0 rounded-full"
+                  animate={{ 
+                    boxShadow: [
+                      "0 0 0 rgba(14, 165, 233, 0)", 
+                      "0 0 8px rgba(14, 165, 233, 0.8)", 
+                      "0 0 0 rgba(14, 165, 233, 0)"
+                    ]
+                  }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
+              </div>
+              <div>
+                <p className="font-medium text-[#0EA5E9]">Optimized for Mining Profitability</p>
+                <p className="text-sm text-mine-silver">Our $0.08/kWh rate offers a competitive advantage in today's market</p>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
