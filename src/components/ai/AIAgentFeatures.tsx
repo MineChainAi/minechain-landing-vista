@@ -1,8 +1,11 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Brain, Bot, Cpu, Shield, Zap, Network } from "lucide-react";
+import { useState } from "react";
 
 export const AIAgentFeatures = () => {
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+
   const features = [
     {
       icon: <Brain className="h-12 w-12 text-[#F97316]" />,
@@ -39,7 +42,7 @@ export const AIAgentFeatures = () => {
   return (
     <section className="py-20 bg-gradient-to-b from-black/0 to-black/20">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Custom <span className="text-gradient-orange">AI Agent</span> Solutions
           </h2>
@@ -53,10 +56,17 @@ export const AIAgentFeatures = () => {
           {features.map((feature, index) => (
             <Card 
               key={index} 
-              className="bg-black/30 border-white/10 hover:border-[#F97316]/30 transition-all duration-300 hover:shadow-lg hover:shadow-[#F97316]/5"
+              className={`bg-black/30 border-white/10 transition-all duration-500 hover:border-[#F97316]/30 hover:shadow-lg hover:shadow-[#F97316]/5 ${
+                index % 2 === 0 ? 'hover:translate-y-[-5px]' : 'hover:translate-y-[-5px]'
+              } animate-fade-in`}
+              style={{ animationDelay: `${0.1 * index}s` }}
+              onMouseEnter={() => setHoveredCard(index)}
+              onMouseLeave={() => setHoveredCard(null)}
             >
               <CardContent className="p-6">
-                <div className="mb-6 transform group-hover:scale-110 transition-transform duration-300">{feature.icon}</div>
+                <div className={`mb-6 transition-transform duration-300 ${
+                  hoveredCard === index ? 'scale-110' : ''
+                }`}>{feature.icon}</div>
                 <h3 className="text-xl font-bold mb-4 text-white">{feature.title}</h3>
                 <p className="text-mine-silver">{feature.description}</p>
               </CardContent>
