@@ -1,3 +1,4 @@
+
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -65,7 +66,7 @@ export const Navbar = () => {
             <Link to="/hosting" className="text-mine-silver hover:text-[#F97316] transition-colors">Hosting</Link>
             <Link to="/token" className="text-mine-silver hover:text-[#F97316] transition-colors">$MINE Token</Link>
             <Link to="/ai-agent" className="text-mine-silver hover:text-[#F97316] transition-colors">AI Agents</Link>
-            <Link to="/realestate" className="text-mine-silver hover:text-[#F97316] transition-colors">Real Estate Hub</Link>
+            <Link to="/realestate" className="text-mine-silver hover:text-[#F97316] transition-colors">Real Estate Mine</Link>
             <Link to="/education" className="text-mine-silver hover:text-[#F97316] transition-colors">Education Hub</Link>
             <Link to="/profile" className="text-mine-silver hover:text-[#F97316] transition-colors">My Profile</Link>
             
@@ -120,7 +121,7 @@ export const Navbar = () => {
                 className="text-mine-silver hover:text-[#F97316] transition-colors px-4 py-2 rounded-md hover:bg-white/5"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Real Estate Hub
+                Real Estate Mine
               </Link>
               <Link 
                 to="/education" 

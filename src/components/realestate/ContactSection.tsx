@@ -13,7 +13,7 @@ export const ContactSection = () => {
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-white mb-4">Get in Touch</h2>
           <p className="text-mine-silver max-w-2xl mx-auto">
-            Looking for the perfect site for your AI or blockchain project? Let MineChain Real Estate Hub secure your next high-value industrial site.
+            Looking for the perfect site for your AI or blockchain project? Let MineChain Real Estate Mine secure your next high-value industrial site.
           </p>
         </div>
         

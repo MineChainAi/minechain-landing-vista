@@ -14,7 +14,7 @@ export const RealEstateHero = () => {
         </div>
         
         <h1 className="text-4xl md:text-5xl font-bold text-white text-center mb-4">
-          Real Estate<span className="text-[#F97316]">Hub</span>
+          Real Estate<span className="text-[#F97316]">Mine</span>
         </h1>
         
         <p className="text-lg text-mine-silver max-w-2xl mx-auto text-center mb-8">
