@@ -39,6 +39,8 @@ const defaultUserData = {
     mine: "",
     ethereum: "",
     bitcoin: "",
+    ravencoin: "",
+    usdc: "",
     donation: ""
   }
 };

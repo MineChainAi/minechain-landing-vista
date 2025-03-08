@@ -10,6 +10,8 @@ interface WalletsData {
   mine: string;
   ethereum: string;
   bitcoin: string;
+  ravencoin: string;
+  usdc: string;
   donation: string;
 }
 
@@ -26,6 +28,8 @@ export const WalletAddresses = ({ wallets, onWalletsUpdate }: WalletAddressesPro
     mine: false,
     ethereum: false,
     bitcoin: false,
+    ravencoin: false,
+    usdc: false,
     donation: false
   });
 
@@ -183,6 +187,68 @@ export const WalletAddresses = ({ wallets, onWalletsUpdate }: WalletAddressesPro
                         onClick={() => handleCopy('bitcoin')}
                       >
                         {copiedStates.bitcoin ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4" />}
+                      </Button>
+                    )}
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-white text-sm flex items-center gap-1">
+                    Ravencoin Address
+                    <span className="relative group cursor-help">
+                      <Info className="h-3.5 w-3.5 text-mine-silver" />
+                      <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-1 px-2 py-1 bg-gray-800 text-xs text-white rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                        Your Ravencoin (RVN) wallet address
+                      </span>
+                    </span>
+                  </label>
+                  <div className="flex gap-2">
+                    <Input
+                      name="ravencoin"
+                      value={walletData.ravencoin}
+                      onChange={handleChange}
+                      placeholder="Enter your Ravencoin wallet address"
+                      className="bg-[#0A0F1D] border-[#1E293B] text-white flex-1"
+                    />
+                    {walletData.ravencoin && (
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        className="border-[#1E293B] text-mine-silver"
+                        onClick={() => handleCopy('ravencoin')}
+                      >
+                        {copiedStates.ravencoin ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4" />}
+                      </Button>
+                    )}
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-white text-sm flex items-center gap-1">
+                    USDC Address
+                    <span className="relative group cursor-help">
+                      <Info className="h-3.5 w-3.5 text-mine-silver" />
+                      <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-1 px-2 py-1 bg-gray-800 text-xs text-white rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                        Your USDC stablecoin wallet address
+                      </span>
+                    </span>
+                  </label>
+                  <div className="flex gap-2">
+                    <Input
+                      name="usdc"
+                      value={walletData.usdc}
+                      onChange={handleChange}
+                      placeholder="Enter your USDC wallet address"
+                      className="bg-[#0A0F1D] border-[#1E293B] text-white flex-1"
+                    />
+                    {walletData.usdc && (
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        className="border-[#1E293B] text-mine-silver"
+                        onClick={() => handleCopy('usdc')}
+                      >
+                        {copiedStates.usdc ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4" />}
                       </Button>
                     )}
                   </div>
