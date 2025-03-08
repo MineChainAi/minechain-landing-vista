@@ -40,9 +40,9 @@ export const TangemWalletConnector = ({ onWalletsImport }: TangemWalletConnector
 
   return (
     <div className="p-4 rounded-lg border border-[#1E293B] bg-[#0A0F1D] mb-6">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="p-2 rounded-md bg-[#0F172A]">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex items-center gap-3 mb-3 sm:mb-0">
+          <div className="p-2 rounded-md bg-[#0F172A] border border-[#1E293B]">
             <img 
               src="https://tangem.com/media/favicon/favicon.svg" 
               alt="Tangem Wallet" 
@@ -51,7 +51,7 @@ export const TangemWalletConnector = ({ onWalletsImport }: TangemWalletConnector
           </div>
           <div>
             <h3 className="text-white font-medium">Tangem Hardware Wallet</h3>
-            <p className="text-xs text-mine-silver mt-1">
+            <p className="text-xs text-mine-silver mt-1 max-w-md">
               {tangemLinked 
                 ? "Your Tangem wallet is connected. All relevant addresses have been imported." 
                 : "Connect your Tangem hardware wallet to auto-fill your blockchain addresses"}
@@ -63,21 +63,38 @@ export const TangemWalletConnector = ({ onWalletsImport }: TangemWalletConnector
           onClick={handleLinkTangem}
           className={`${tangemLinked 
             ? "bg-green-600 hover:bg-green-700" 
-            : "bg-[#F97316] hover:bg-[#F97316]/90"} text-white`}
+            : "bg-[#F97316] hover:bg-[#F97316]/90"} text-white transition-colors`}
           disabled={isLinking || tangemLinked}
         >
-          <Link className="h-4 w-4 mr-2" />
-          {isLinking 
-            ? "Connecting..." 
-            : tangemLinked 
-              ? "Connected" 
-              : "Link Tangem Wallet"}
+          {isLinking ? (
+            <span className="flex items-center">
+              <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Connecting...
+            </span>
+          ) : (
+            <span className="flex items-center">
+              {tangemLinked ? (
+                <>
+                  <Check className="h-4 w-4 mr-2" />
+                  Connected
+                </>
+              ) : (
+                <>
+                  <Link className="h-4 w-4 mr-2" />
+                  Link Tangem Wallet
+                </>
+              )}
+            </span>
+          )}
         </Button>
       </div>
       
       {tangemLinked && (
-        <div className="mt-4 pt-4 border-t border-[#1E293B]">
-          <p className="text-xs text-green-400 flex items-center gap-1">
+        <div className="mt-4 pt-3 border-t border-[#1E293B]">
+          <p className="text-xs text-green-400 flex items-center gap-1.5">
             <Check className="h-3.5 w-3.5" />
             Tangem wallet addresses have been successfully imported to the fields below
           </p>
