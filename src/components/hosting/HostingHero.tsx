@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Server, Cpu } from "lucide-react";
 import { useState } from "react";
@@ -61,13 +60,13 @@ export const HostingHero = () => {
         </div>
       </div>
       
-      {/* Data center image - Updated to a more modern web3-style */}
+      {/* Modern GPU mining rig image */}
       <div className="mt-16 max-w-6xl mx-auto px-4">
         <div className="relative rounded-lg overflow-hidden border border-[#1E293B] shadow-xl">
           <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10" />
           <img 
-            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80" 
-            alt="MineChain Modern Data Center" 
+            src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80" 
+            alt="GPU Mining Rig Setup" 
             className="w-full h-auto object-cover" 
           />
           <div className="absolute bottom-0 left-0 right-0 p-6 z-20">

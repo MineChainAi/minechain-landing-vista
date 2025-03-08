@@ -74,8 +74,8 @@ export const HostingFacilities = () => {
           <div className="relative">
             <div className="relative rounded-xl overflow-hidden border border-[#1E293B]">
               <img 
-                src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80" 
-                alt="MineChain GPU Mining Facility" 
+                src="https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                alt="FPGA Mining Operation" 
                 className="w-full h-auto object-cover"
               />
             </div>
