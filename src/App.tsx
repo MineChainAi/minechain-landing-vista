@@ -1,38 +1,39 @@
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Index from "@/pages";
+import NotFound from "@/pages/404";
+import TokenPage from "@/pages/TokenPage";
+import AIAgentPage from "@/pages/AIAgentPage";
+import HostingPage from "@/pages/HostingPage";
+import RealEstateHub from "@/pages/RealEstateHub";
+import UserProfile from "@/pages/UserProfile";
+import MineBlocksPage from "@/pages/MineBlocksPage";
 
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-import RealEstateHub from "./pages/RealEstateHub";
-import UserProfile from "./pages/UserProfile";
-import HostingPage from "./pages/HostingPage";
-import TokenPage from "./pages/TokenPage";
-import AIAgentPage from "./pages/AIAgentPage";
+function App() {
+  const [hydrated, setHydrated] = React.useState(false);
 
-const queryClient = new QueryClient();
+  React.useEffect(() => {
+    setHydrated(true);
+  }, []);
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/real-estate-hub" element={<RealEstateHub />} />
-          <Route path="/profile" element={<UserProfile />} />
-          <Route path="/hosting" element={<HostingPage />} />
-          <Route path="/token" element={<TokenPage />} />
-          <Route path="/ai-agents" element={<AIAgentPage />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+  if (!hydrated) {
+    return null;
+  }
+
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/token" element={<TokenPage />} />
+        <Route path="/mineblocks" element={<MineBlocksPage />} />
+        <Route path="/ai-agent" element={<AIAgentPage />} />
+        <Route path="/hosting" element={<HostingPage />} />
+        <Route path="/realestate" element={<RealEstateHub />} />
+        <Route path="/profile" element={<UserProfile />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
+  );
+}
 
 export default App;
