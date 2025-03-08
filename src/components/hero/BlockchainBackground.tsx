@@ -1,5 +1,4 @@
 
-import { Hexagon } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -26,44 +25,6 @@ export const BlockchainBackground = () => {
       
       {/* Animated blockchain grid overlay */}
       <div className="absolute inset-0 bg-grid opacity-20" />
-      
-      {/* Blockchain nodes - floating hexagons */}
-      <div className="absolute inset-0">
-        {[...Array(25)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute"
-            initial={{
-              x: Math.random() * 100 + "%",
-              y: Math.random() * 100 + "%",
-              opacity: Math.random() * 0.5 + 0.1,
-              scale: Math.random() * 0.5 + 0.5,
-            }}
-            animate={{
-              y: [
-                `${Math.random() * 10 + 45}%`,
-                `${Math.random() * 10 + 55}%`,
-                `${Math.random() * 10 + 45}%`,
-              ],
-            }}
-            transition={{
-              duration: Math.random() * 10 + 20,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            style={{
-              x: `calc(${Math.random() * 100}% + ${mousePosition.x * 20}px)`,
-              y: `calc(${Math.random() * 100}% + ${mousePosition.y * 20}px)`,
-            }}
-          >
-            <Hexagon
-              className={`text-${
-                i % 3 === 0 ? "[#F97316]" : i % 3 === 1 ? "[#0EA5E9]" : "[#8B5CF6]"
-              }/10 h-12 w-12 md:h-16 md:w-16`}
-            />
-          </motion.div>
-        ))}
-      </div>
       
       {/* Blockchain connection lines */}
       <svg className="absolute inset-0 w-full h-full opacity-10">
@@ -112,7 +73,7 @@ export const BlockchainBackground = () => {
       
       {/* Digital data particles */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(30)].map((_, i) => (
+        {[...Array(50)].map((_, i) => (
           <motion.div
             key={`particle-${i}`}
             className={`absolute h-1 w-1 rounded-full bg-${
