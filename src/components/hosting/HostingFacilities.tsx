@@ -7,18 +7,18 @@ export const HostingFacilities = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-[#F97316] to-[#0EA5E9] bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 bg-gradient-to-r from-[#F97316] to-[#0EA5E9] bg-clip-text text-transparent animate-fade-in">
               State-of-the-Art Hosting Facilities
             </h2>
             
-            <p className="text-lg text-mine-silver mb-8">
+            <p className="text-lg text-mine-silver mb-10 animate-fade-in" style={{animationDelay: "0.1s"}}>
               Our purpose-built data centers are designed specifically for high-density GPU workloads 
               and mining operations, providing the optimal environment for your hardware to thrive.
             </p>
             
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-[#F97316]/10 border border-[#F97316]/20 rounded-lg">
+            <div className="space-y-8">
+              <div className="flex items-start gap-4 animate-fade-in" style={{animationDelay: "0.2s"}}>
+                <div className="p-3 bg-[#F97316]/10 border border-[#F97316]/20 rounded-lg transform transition-all duration-300 hover:scale-110 hover:bg-[#F97316]/20">
                   <Server className="h-6 w-6 text-[#F97316]" />
                 </div>
                 <div>
@@ -30,8 +30,8 @@ export const HostingFacilities = () => {
                 </div>
               </div>
               
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-[#F97316]/10 border border-[#F97316]/20 rounded-lg">
+              <div className="flex items-start gap-4 animate-fade-in" style={{animationDelay: "0.3s"}}>
+                <div className="p-3 bg-[#F97316]/10 border border-[#F97316]/20 rounded-lg transform transition-all duration-300 hover:scale-110 hover:bg-[#F97316]/20">
                   <Zap className="h-6 w-6 text-[#F97316]" />
                 </div>
                 <div>
@@ -43,8 +43,8 @@ export const HostingFacilities = () => {
                 </div>
               </div>
               
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-[#F97316]/10 border border-[#F97316]/20 rounded-lg">
+              <div className="flex items-start gap-4 animate-fade-in" style={{animationDelay: "0.4s"}}>
+                <div className="p-3 bg-[#F97316]/10 border border-[#F97316]/20 rounded-lg transform transition-all duration-300 hover:scale-110 hover:bg-[#F97316]/20">
                   <Cpu className="h-6 w-6 text-[#F97316]" />
                 </div>
                 <div>
@@ -56,8 +56,8 @@ export const HostingFacilities = () => {
                 </div>
               </div>
               
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-[#F97316]/10 border border-[#F97316]/20 rounded-lg">
+              <div className="flex items-start gap-4 animate-fade-in" style={{animationDelay: "0.5s"}}>
+                <div className="p-3 bg-[#F97316]/10 border border-[#F97316]/20 rounded-lg transform transition-all duration-300 hover:scale-110 hover:bg-[#F97316]/20">
                   <Shield className="h-6 w-6 text-[#F97316]" />
                 </div>
                 <div>
@@ -71,16 +71,16 @@ export const HostingFacilities = () => {
             </div>
           </div>
           
-          <div className="relative">
-            <div className="relative rounded-xl overflow-hidden border border-[#1E293B]">
+          <div className="relative animate-fade-in" style={{animationDelay: "0.6s"}}>
+            <div className="relative rounded-xl overflow-hidden border border-[#1E293B] transform transition-transform duration-700 hover:scale-[1.02]">
               <img 
-                src="https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                alt="FPGA Mining Operation" 
-                className="w-full h-auto object-cover"
+                src="https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                alt="Modern GPU Data Center" 
+                className="w-full h-auto object-cover transition-all duration-700"
               />
             </div>
             
-            <div className="absolute -bottom-6 -right-6 p-6 bg-[#0F172A] border border-[#1E293B] rounded-xl">
+            <div className="absolute -bottom-6 -right-6 p-6 bg-[#0F172A] border border-[#1E293B] rounded-xl shadow-xl transform transition-all duration-500 hover:shadow-2xl">
               <div className="flex items-center justify-between gap-6 mb-4">
                 <div className="text-center">
                   <h4 className="text-3xl font-bold text-white">99.99%</h4>
