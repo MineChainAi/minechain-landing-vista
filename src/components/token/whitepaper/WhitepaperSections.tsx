@@ -5,6 +5,8 @@ import { IntroductionSection } from "./sections/IntroductionSection";
 import { ValuePropositionSection } from "./sections/ValuePropositionSection";
 import { TokenomicsSection } from "./sections/TokenomicsSection";
 import { MiningSecuritySection } from "./sections/MiningSecuritySection";
+import { RavencoinReserveSection } from "./sections/RavencoinReserveSection";
+import { PresaleSection } from "./sections/PresaleSection"; 
 import { EconomicModelSection } from "./sections/EconomicModelSection";
 import { GovernanceSection } from "./sections/GovernanceSection";
 import { RoadmapSection } from "./sections/RoadmapSection";
@@ -24,7 +26,7 @@ export const WhitepaperSections = () => {
   return (
     <div className="mt-8 space-y-4">
       <WhitepaperSection 
-        title="1. Introduction" 
+        title="1. Introduction: Why Hardware Matters" 
         sectionId="introduction"
         expandedSection={expandedSection}
         toggleSection={toggleSection}
@@ -60,21 +62,21 @@ export const WhitepaperSections = () => {
       </WhitepaperSection>
       
       <WhitepaperSection 
-        title="5. Economic Model" 
-        sectionId="economic"
+        title="5. Ravencoin Reserve Fund" 
+        sectionId="reserve"
         expandedSection={expandedSection}
         toggleSection={toggleSection}
       >
-        <EconomicModelSection />
+        <RavencoinReserveSection />
       </WhitepaperSection>
       
       <WhitepaperSection 
-        title="6. Governance & Future Development" 
-        sectionId="governance"
+        title="6. $MINE Token Presale" 
+        sectionId="presale"
         expandedSection={expandedSection}
         toggleSection={toggleSection}
       >
-        <GovernanceSection />
+        <PresaleSection />
       </WhitepaperSection>
       
       <WhitepaperSection 
@@ -87,7 +89,7 @@ export const WhitepaperSections = () => {
       </WhitepaperSection>
       
       <WhitepaperSection 
-        title="8. Conclusion" 
+        title="8. Conclusion: Why $MINE is Different" 
         sectionId="conclusion"
         expandedSection={expandedSection}
         toggleSection={toggleSection}

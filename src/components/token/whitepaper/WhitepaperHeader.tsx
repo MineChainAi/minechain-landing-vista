@@ -17,7 +17,7 @@ export const WhitepaperHeader = () => {
         </h2>
         
         <p className="text-mine-silver mb-6">
-          Our comprehensive whitepaper details the tokenomics, utility, and technical architecture of the $MINE token ecosystem. Learn how $MINE powers decentralized GPU compute, AI infrastructure, and provides incentives for network participants.
+          Our comprehensive whitepaper details the tokenomics, hardware infrastructure, and technical architecture of the $MINE token ecosystem. Learn how $MINE powers decentralized GPU compute, AI infrastructure, and provides incentives for network participants.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4">

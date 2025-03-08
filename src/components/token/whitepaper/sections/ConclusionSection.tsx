@@ -3,10 +3,15 @@ export const ConclusionSection = () => {
   return (
     <>
       <p className="text-mine-silver mb-4">
-        The $MINE token is a <strong>next-generation PoW asset</strong>, combining <strong>compute power, AI workloads, and decentralized mining rewards</strong>. Backed by <strong>real-world GPU infrastructure</strong>, $MINE provides <strong>a tangible value proposition</strong>, ensuring a <strong>long-term, sustainable ecosystem</strong> in the AI and blockchain computing space.
+        Unlike speculative tokens, <strong>$MINE is backed by real, high-performance GPU infrastructure</strong>.
       </p>
+      <ul className="text-mine-silver space-y-2 list-disc pl-5 mb-4">
+        <li><strong>Owning the hardware</strong> means MineChain is self-sufficient, profitable, and sustainable.</li>
+        <li><strong>AI compute & mining revenue</strong> supports continuous buybacks, reducing token supply.</li>
+        <li><strong>Building on Ravencoin</strong> ensures long-term PoW security, decentralization, and real adoption.</li>
+      </ul>
       <p className="text-center text-xl font-bold text-gradient-orange">
-        🚀 Power the Future. Mine the Revolution. 🚀
+        🚀 Power the Future. Own the Compute. Mine the Revolution. 🚀
       </p>
     </>
   );

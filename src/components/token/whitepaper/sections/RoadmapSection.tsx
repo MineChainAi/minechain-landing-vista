@@ -14,11 +14,11 @@ export const RoadmapSection = () => {
       </li>
       <li className="flex items-center">
         <Badge variant="outline" className="mr-2 bg-green-500/20 text-green-400 border-green-500/30">✓</Badge>
-        <span><strong>Phase 3</strong> – Decentralized Compute Marketplace & Expansion</span>
+        <span><strong>Phase 3</strong> – <strong>Integration with Ravencoin's Asset Tokenization</strong> & Decentralized Compute Marketplace</span>
       </li>
       <li className="flex items-center">
         <Badge variant="outline" className="mr-2 bg-green-500/20 text-green-400 border-green-500/30">✓</Badge>
-        <span><strong>Phase 4</strong> – Cross-Chain Deployment & Smart Contract Integrations</span>
+        <span><strong>Phase 4</strong> – Smart Contract Deployment for Compute Power & NFT-Based Access</span>
       </li>
     </ul>
   );
