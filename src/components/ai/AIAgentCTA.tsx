@@ -3,9 +3,20 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Bot } from "lucide-react";
 import { useState } from "react";
 import { PropertyRequestDialog } from "@/components/realestate/PropertyRequestDialog";
+import { useToast } from "@/components/ui/use-toast";
 
 export const AIAgentCTA = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
+  const { toast } = useToast();
+  
+  const handleStartProject = () => {
+    setDialogOpen(true);
+    toast({
+      title: "AI Project Request",
+      description: "Fill out the form to get started with your custom AI agent project!",
+      duration: 5000,
+    });
+  };
   
   return (
     <section className="py-20">
@@ -32,10 +43,13 @@ export const AIAgentCTA = () => {
             
             <Button 
               size="lg" 
-              className="bg-[#F97316] hover:bg-[#F97316]/90 text-white"
-              onClick={() => setDialogOpen(true)}
+              className="bg-[#F97316] hover:bg-[#F97316]/90 text-white relative group overflow-hidden"
+              onClick={handleStartProject}
             >
-              Start Your AI Project Today <ArrowRight className="ml-2 h-5 w-5" />
+              <span className="relative z-10 flex items-center">
+                Start Your AI Project Today <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </span>
+              <span className="absolute inset-0 bg-gradient-to-r from-[#F97316] to-[#0EA5E9] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             </Button>
             
             <p className="mt-6 text-sm text-mine-silver">
