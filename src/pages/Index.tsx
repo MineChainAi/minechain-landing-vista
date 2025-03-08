@@ -1,4 +1,5 @@
 
+import { Helmet } from "react-helmet";
 import { Hero } from "@/components/Hero";
 import { Features } from "@/components/Features";
 import { Enterprise } from "@/components/Enterprise";
@@ -15,28 +16,51 @@ import { CommunityEngagement } from "@/components/CommunityEngagement";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-mine-dark">
-      <Navbar />
-      <CryptoTicker />
-      <Hero />
-      <div id="features">
-        <Features />
+    <>
+      <Helmet>
+        <title>MineChain - Enterprise GPU, AI Computing & Blockchain Network</title>
+        <meta name="description" content="Decentralized GPU marketplace for AI computing, blockchain mining, and enterprise solutions. Access next-gen computing power through our network of trusted validators." />
+        <meta name="keywords" content="GPU marketplace, AI computing, blockchain, crypto mining, node validators, enterprise GPU, decentralized computing" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "MineChain",
+              "url": "https://minechain.ai",
+              "logo": "https://minechain.ai/lovable-uploads/bf49290c-2a09-4f24-9ad1-1a2bf454ddbf.png",
+              "description": "Decentralized GPU marketplace for AI computing, blockchain mining, and enterprise solutions.",
+              "sameAs": [
+                "https://twitter.com/MineChainAI",
+                "https://discord.gg/CmTXH8ejf4"
+              ]
+            }
+          `}
+        </script>
+      </Helmet>
+      <div className="min-h-screen bg-mine-dark">
+        <Navbar />
+        <CryptoTicker />
+        <Hero />
+        <div id="features">
+          <Features />
+        </div>
+        <div id="marketplace">
+          <GPUMarketplace />
+        </div>
+        <div id="community">
+          <CommunityEngagement />
+        </div>
+        <CommunityUpdates />
+        <div id="workspace">
+          <CollaborativeWorkspace />
+        </div>
+        <NewsletterSignup />
+        <Footer />
+        <VideoCallButton />
+        <ZohoChat />
       </div>
-      <div id="marketplace">
-        <GPUMarketplace />
-      </div>
-      <div id="community">
-        <CommunityEngagement />
-      </div>
-      <CommunityUpdates />
-      <div id="workspace">
-        <CollaborativeWorkspace />
-      </div>
-      <NewsletterSignup />
-      <Footer />
-      <VideoCallButton />
-      <ZohoChat />
-    </div>
+    </>
   );
 };
 

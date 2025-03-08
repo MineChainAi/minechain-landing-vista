@@ -19,7 +19,7 @@ export const BlockchainBackground = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 overflow-hidden">
+    <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
       {/* Gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0F172A] to-[#0A0F1D]" />
       
@@ -27,7 +27,7 @@ export const BlockchainBackground = () => {
       <div className="absolute inset-0 bg-grid opacity-20" />
       
       {/* Blockchain connection lines */}
-      <svg className="absolute inset-0 w-full h-full opacity-10">
+      <svg className="absolute inset-0 w-full h-full opacity-10" aria-hidden="true">
         {/* Horizontal connections */}
         <motion.path
           d="M0,100 Q300,200 600,100 T1200,100"

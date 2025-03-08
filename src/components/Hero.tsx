@@ -5,7 +5,11 @@ import { ScrollToTopButton } from "./hero/ScrollToTopButton";
 
 export const Hero = () => {
   return (
-    <div className="relative min-h-[90vh] flex items-center justify-center bg-[#0F172A] overflow-hidden">
+    <section 
+      className="relative min-h-[90vh] flex items-center justify-center bg-[#0F172A] overflow-hidden"
+      aria-label="MineChain Introduction"
+      id="hero-section"
+    >
       {/* Blockchain-themed background */}
       <BlockchainBackground />
       
@@ -16,6 +20,6 @@ export const Hero = () => {
 
       {/* Scroll to top button */}
       <ScrollToTopButton />
-    </div>
+    </section>
   );
 };
