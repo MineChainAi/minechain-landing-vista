@@ -1,8 +1,16 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Github, Terminal, FileText } from "lucide-react";
+import { ArrowRight, Github, Terminal, FileText, Calendar } from "lucide-react";
+import { useState } from "react";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 export const MineBlocksCTA = () => {
+  const [showComingSoonDialog, setShowComingSoonDialog] = useState(false);
+  
+  const handleStartMining = () => {
+    setShowComingSoonDialog(true);
+  };
+
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
@@ -22,6 +30,7 @@ export const MineBlocksCTA = () => {
               <Button 
                 size="lg" 
                 className="bg-[#F97316] hover:bg-[#F97316]/90 text-white"
+                onClick={handleStartMining}
               >
                 Mine Now <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -50,6 +59,28 @@ export const MineBlocksCTA = () => {
           </div>
         </div>
       </div>
+
+      <Dialog open={showComingSoonDialog} onOpenChange={setShowComingSoonDialog}>
+        <DialogContent className="bg-mine-dark border-[#F97316]/20 text-white">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold flex items-center gap-2">
+              <Calendar className="h-6 w-6 text-[#F97316]" /> 
+              Coming Soon - Q3 Release
+            </DialogTitle>
+            <DialogDescription className="text-mine-silver mt-2">
+              The $MINE mining functionality is scheduled for release in Q3. Join our community to stay updated and be the first to start mining when it launches!
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex justify-end mt-4">
+            <Button 
+              className="bg-[#F97316] hover:bg-[#F97316]/90 text-white"
+              onClick={() => setShowComingSoonDialog(false)}
+            >
+              Got it
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
