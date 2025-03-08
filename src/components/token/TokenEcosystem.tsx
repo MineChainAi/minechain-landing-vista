@@ -62,21 +62,21 @@ export const TokenEcosystem = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
               <div>
                 <div className="bg-white/10 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-[#F97316] font-bold text-lg">Q3 2023</span>
+                  <span className="text-[#F97316] font-bold text-lg">Q3 2025</span>
                 </div>
                 <h4 className="font-bold mb-2">Mining Launch</h4>
                 <p className="text-sm text-mine-silver">Fair launch mining begins, token distribution starts</p>
               </div>
               <div>
                 <div className="bg-white/10 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-[#F97316] font-bold text-lg">Q1 2024</span>
+                  <span className="text-[#F97316] font-bold text-lg">Q1 2026</span>
                 </div>
                 <h4 className="font-bold mb-2">Marketplace Launch</h4>
                 <p className="text-sm text-mine-silver">GPU marketplace with $MINE as payment currency</p>
               </div>
               <div>
                 <div className="bg-white/10 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-[#F97316] font-bold text-lg">Q3 2024</span>
+                  <span className="text-[#F97316] font-bold text-lg">Q3 2026</span>
                 </div>
                 <h4 className="font-bold mb-2">DAO Governance</h4>
                 <p className="text-sm text-mine-silver">Full decentralized governance for protocol decisions</p>
