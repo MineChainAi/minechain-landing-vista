@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { WalletAddressField } from "./WalletAddressField";
 import { WalletsData, CopiedStates } from "../types/wallet.types";
+import { Save } from "lucide-react";
 
 interface WalletAddressFormProps {
   wallets: WalletsData;
@@ -112,7 +113,14 @@ export const WalletAddressForm = ({ wallets, onSave }: WalletAddressFormProps) =
             onClick={handleSave}
             disabled={isSaving}
           >
-            {isSaving ? "Saving..." : "Save Wallet Addresses"}
+            {isSaving ? (
+              "Saving..."
+            ) : (
+              <>
+                <Save className="h-4 w-4 mr-2" />
+                Save Wallet Addresses
+              </>
+            )}
           </Button>
         </div>
       </div>
