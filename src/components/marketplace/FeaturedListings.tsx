@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { ShoppingCart, Server, Cpu, Zap } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -75,8 +76,13 @@ export const FeaturedListings = () => {
     }
   ];
 
+  const handleViewDeal = (productId: number) => {
+    console.log(`Viewing deal for product ${productId}`);
+    // In a real application, this would navigate to the product detail page
+  };
+
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section id="featured-listings" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-[#0F172A] opacity-50" />
       
       <div className="container mx-auto px-4 relative z-10">
@@ -101,7 +107,11 @@ export const FeaturedListings = () => {
             <TabsContent value="all" className="mt-0">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {featuredProducts.map((product) => (
-                  <ProductCard key={product.id} product={product} />
+                  <ProductCard 
+                    key={product.id} 
+                    product={product} 
+                    onViewDeal={() => handleViewDeal(product.id)} 
+                  />
                 ))}
               </div>
             </TabsContent>
@@ -112,7 +122,11 @@ export const FeaturedListings = () => {
                   {featuredProducts
                     .filter((product) => product.category === category)
                     .map((product) => (
-                      <ProductCard key={product.id} product={product} />
+                      <ProductCard 
+                        key={product.id} 
+                        product={product} 
+                        onViewDeal={() => handleViewDeal(product.id)} 
+                      />
                     ))}
                 </div>
               </TabsContent>
@@ -136,7 +150,12 @@ interface Product {
   hot: boolean;
 }
 
-const ProductCard = ({ product }: { product: Product }) => {
+interface ProductCardProps {
+  product: Product;
+  onViewDeal: () => void;
+}
+
+const ProductCard = ({ product, onViewDeal }: ProductCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -176,6 +195,7 @@ const ProductCard = ({ product }: { product: Product }) => {
             <Button 
               variant="outline"
               className="border-[#F97316] text-[#F97316] hover:bg-[#F97316]/10"
+              onClick={onViewDeal}
             >
               <ShoppingCart className="h-4 w-4 mr-2" />
               View Deal

@@ -1,8 +1,19 @@
+
 import { motion } from "framer-motion";
 import { ShoppingCart, Server, Cpu, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 export const MarketplaceHero = () => {
+  const navigate = useNavigate();
+
+  const handleBrowseHardware = () => {
+    const featuredListingsElement = document.getElementById('featured-listings');
+    if (featuredListingsElement) {
+      featuredListingsElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative py-24 overflow-hidden">
       {/* Animated background with gradients */}
@@ -77,6 +88,7 @@ export const MarketplaceHero = () => {
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-[#F97316] to-[#F97316]/80 hover:from-[#F97316]/90 hover:to-[#F97316]/70 text-white"
+              onClick={handleBrowseHardware}
             >
               <ShoppingCart className="mr-2 h-5 w-5" />
               Browse Hardware
@@ -85,6 +97,7 @@ export const MarketplaceHero = () => {
               size="lg" 
               variant="outline"
               className="border-[#F97316] text-[#F97316] hover:bg-[#F97316]/10"
+              onClick={() => window.open('https://discord.gg/CmTXH8ejf4', '_blank')}
             >
               <Server className="mr-2 h-5 w-5" />
               Sell Equipment
