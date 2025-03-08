@@ -98,7 +98,12 @@ export const WalletAddresses = ({ wallets, onWalletsUpdate }: WalletAddressesPro
                 <div className="space-y-2">
                   <label className="text-white text-sm flex items-center gap-1">
                     MineChain Address
-                    <Info className="h-3.5 w-3.5 text-mine-silver cursor-help" title="Your primary MineChain wallet address" />
+                    <span className="relative group cursor-help">
+                      <Info className="h-3.5 w-3.5 text-mine-silver" />
+                      <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-1 px-2 py-1 bg-gray-800 text-xs text-white rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                        Your primary MineChain wallet address
+                      </span>
+                    </span>
                   </label>
                   <div className="flex gap-2">
                     <Input
@@ -124,7 +129,12 @@ export const WalletAddresses = ({ wallets, onWalletsUpdate }: WalletAddressesPro
                 <div className="space-y-2">
                   <label className="text-white text-sm flex items-center gap-1">
                     Ethereum Address
-                    <Info className="h-3.5 w-3.5 text-mine-silver cursor-help" title="Your Ethereum wallet address for ETH and ERC-20 tokens" />
+                    <span className="relative group cursor-help">
+                      <Info className="h-3.5 w-3.5 text-mine-silver" />
+                      <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-1 px-2 py-1 bg-gray-800 text-xs text-white rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                        Your Ethereum wallet address for ETH and ERC-20 tokens
+                      </span>
+                    </span>
                   </label>
                   <div className="flex gap-2">
                     <Input
@@ -150,7 +160,12 @@ export const WalletAddresses = ({ wallets, onWalletsUpdate }: WalletAddressesPro
                 <div className="space-y-2">
                   <label className="text-white text-sm flex items-center gap-1">
                     Bitcoin Address
-                    <Info className="h-3.5 w-3.5 text-mine-silver cursor-help" title="Your Bitcoin wallet address for BTC payments" />
+                    <span className="relative group cursor-help">
+                      <Info className="h-3.5 w-3.5 text-mine-silver" />
+                      <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-1 px-2 py-1 bg-gray-800 text-xs text-white rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                        Your Bitcoin wallet address for BTC payments
+                      </span>
+                    </span>
                   </label>
                   <div className="flex gap-2">
                     <Input
@@ -177,7 +192,12 @@ export const WalletAddresses = ({ wallets, onWalletsUpdate }: WalletAddressesPro
                   <div className="space-y-2">
                     <label className="text-white text-sm flex items-center gap-1">
                       Donation Address
-                      <Info className="h-3.5 w-3.5 text-mine-silver cursor-help" title="This address will be shown publicly for donations" />
+                      <span className="relative group cursor-help">
+                        <Info className="h-3.5 w-3.5 text-mine-silver" />
+                        <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-1 px-2 py-1 bg-gray-800 text-xs text-white rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                          This address will be shown publicly for donations
+                        </span>
+                      </span>
                     </label>
                     <div className="flex gap-2">
                       <Input
