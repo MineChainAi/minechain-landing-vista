@@ -82,13 +82,39 @@ export const TokenWhitepaper = () => {
               )}
             </div>
             
-            {/* Section 2: Tokenomics */}
+            {/* Section 2: Value Proposition - New section replacing the old Tokenomics section */}
+            <div className="border border-white/10 rounded-lg overflow-hidden">
+              <button 
+                className="w-full p-4 flex justify-between items-center bg-black/20 hover:bg-black/30 transition-all text-left"
+                onClick={() => toggleSection('value')}
+              >
+                <h3 className="text-lg font-semibold">2. Value Proposition</h3>
+                {expandedSection === 'value' ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+              </button>
+              
+              {expandedSection === 'value' && (
+                <div className="p-4 bg-black/10">
+                  <p className="text-mine-silver mb-3">$MINE is not just another mining token—it's a <strong>real-world compute asset</strong> designed to provide value through multiple utilities:</p>
+                  <ul className="text-mine-silver space-y-2 list-disc pl-5">
+                    <li><strong>Mining Power & Security</strong> – $MINE is mined through <strong>KawPow PoW</strong>, ensuring decentralized security with GPU-optimized mining.</li>
+                    <li><strong>AI Compute Leasing</strong> – Token holders can stake $MINE to access <strong>GPU leasing for AI training, inference, and compute-intensive workloads</strong>.</li>
+                    <li><strong>Deflationary Burn Model</strong> – AI-generated revenue is used for <strong>constant buybacks & burns</strong>, reducing supply and increasing token value over time.</li>
+                    <li><strong>Decentralized Compute Marketplace</strong> – Users can lease and rent GPU power via smart contracts.</li>
+                    <li><strong>Hybrid Economic Model</strong> – <strong>60% of block rewards go to miners, while 40% funds hardware expansion & AI revenue burns.</strong></li>
+                    <li><strong>Mining & Yield Farming</strong> – Miners earn $MINE and can reinvest in high-performance compute nodes.</li>
+                    <li><strong>Cross-Chain Flexibility</strong> – $MINE will integrate into <strong>multiple PoW ecosystems and AI compute platforms</strong>.</li>
+                  </ul>
+                </div>
+              )}
+            </div>
+            
+            {/* Section 3: Tokenomics - Updated from old position */}
             <div className="border border-white/10 rounded-lg overflow-hidden">
               <button 
                 className="w-full p-4 flex justify-between items-center bg-black/20 hover:bg-black/30 transition-all text-left"
                 onClick={() => toggleSection('tokenomics')}
               >
-                <h3 className="text-lg font-semibold">2. Tokenomics</h3>
+                <h3 className="text-lg font-semibold">3. Tokenomics</h3>
                 {expandedSection === 'tokenomics' ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
               </button>
               
@@ -99,24 +125,25 @@ export const TokenWhitepaper = () => {
                     <li><strong>Consensus Mechanism</strong>: KawPow Proof-of-Work (PoW)</li>
                     <li><strong>Block Reward Distribution</strong>:
                       <ul className="pl-5 mt-1 list-disc">
-                        <li><strong>50%</strong> – Miners (Securing the Network)</li>
-                        <li><strong>50%</strong> – Ecosystem & Compute Power Expansion</li>
+                        <li><strong>60%</strong> – Miners (Securing the Network)</li>
+                        <li><strong>40%</strong> – Ecosystem Growth (Hardware Expansion + AI Revenue Burns)</li>
                       </ul>
                     </li>
                     <li><strong>Halving Schedule</strong>: Every <strong>2 years</strong> to increase scarcity and value.</li>
                     <li><strong>Initial Distribution</strong>: No pre-mine, no VC allocation – <strong>100% mined by the community</strong>.</li>
+                    <li><strong>AI Revenue Burns</strong>: <strong>100% of AI leasing revenue is used to buy back & burn $MINE.</strong></li>
                   </ul>
                 </div>
               )}
             </div>
             
-            {/* Section 3: Mining & Security */}
+            {/* Section 4: Mining & Security */}
             <div className="border border-white/10 rounded-lg overflow-hidden">
               <button 
                 className="w-full p-4 flex justify-between items-center bg-black/20 hover:bg-black/30 transition-all text-left"
                 onClick={() => toggleSection('mining')}
               >
-                <h3 className="text-lg font-semibold">3. Mining & Security</h3>
+                <h3 className="text-lg font-semibold">4. Mining & Security</h3>
                 {expandedSection === 'mining' ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
               </button>
               
@@ -132,31 +159,7 @@ export const TokenWhitepaper = () => {
               )}
             </div>
             
-            {/* Section 4: Utility & Use Cases */}
-            <div className="border border-white/10 rounded-lg overflow-hidden">
-              <button 
-                className="w-full p-4 flex justify-between items-center bg-black/20 hover:bg-black/30 transition-all text-left"
-                onClick={() => toggleSection('utility')}
-              >
-                <h3 className="text-lg font-semibold">4. Utility & Use Cases</h3>
-                {expandedSection === 'utility' ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-              </button>
-              
-              {expandedSection === 'utility' && (
-                <div className="p-4 bg-black/10">
-                  <p className="text-mine-silver mb-3">$MINE is more than just a mining token—it's a <strong>real-world compute asset</strong>:</p>
-                  <ul className="text-mine-silver space-y-2 list-disc pl-5">
-                    <li><strong>GPU Compute Leasing</strong> – Users can stake $MINE to access <strong>AI inference & GPU compute power</strong>.</li>
-                    <li><strong>Tokenized Compute Rewards</strong> – AI models running on MineChain pay fees in $MINE.</li>
-                    <li><strong>Decentralized Compute Marketplace</strong> – Users can lease and rent GPU power via smart contracts.</li>
-                    <li><strong>Mining & Yield Farming</strong> – Miners earn $MINE and can reinvest in high-performance compute nodes.</li>
-                    <li><strong>Ecosystem Growth & Partnerships</strong> – $MINE is integrated into <strong>AI projects, Web3 applications, and compute-intensive workloads</strong>.</li>
-                  </ul>
-                </div>
-              )}
-            </div>
-            
-            {/* Section 5: Economic Model */}
+            {/* Section 5: Economic Model - Updated content */}
             <div className="border border-white/10 rounded-lg overflow-hidden">
               <button 
                 className="w-full p-4 flex justify-between items-center bg-black/20 hover:bg-black/30 transition-all text-left"
@@ -168,7 +171,15 @@ export const TokenWhitepaper = () => {
               
               {expandedSection === 'economic' && (
                 <div className="p-4 bg-black/10">
-                  <p className="text-mine-silver mb-3"><strong>Deflationary Mechanism</strong>: With halving every <strong>2 years</strong>, the emission rate decreases, creating scarcity and <strong>increasing long-term value</strong>.</p>
+                  <p className="text-mine-silver mb-3"><strong>Hybrid Incentive Model</strong>:</p>
+                  <ul className="text-mine-silver space-y-2 list-disc pl-5">
+                    <li><strong>60% Miner Rewards</strong> – Keeps GPU miners engaged and network security strong.</li>
+                    <li><strong>40% Ecosystem Growth</strong> – Funds AI compute expansion, hardware scaling, and token burns.</li>
+                    <li><strong>AI Revenue Buybacks</strong> – <strong>AI-generated revenue is used to burn $MINE tokens</strong>, increasing scarcity over time.</li>
+                  </ul>
+                  
+                  <p className="text-mine-silver mt-3 mb-3"><strong>Deflationary Mechanism</strong>: With halving every <strong>2 years</strong>, the emission rate decreases, creating scarcity and <strong>increasing long-term value</strong>.</p>
+                  
                   <p className="text-mine-silver mb-2"><strong>Revenue Model</strong>:</p>
                   <ul className="text-mine-silver space-y-2 list-disc pl-5">
                     <li>Compute power is leased in <strong>stablecoins</strong>, ensuring a <strong>non-volatile income stream</strong>.</li>

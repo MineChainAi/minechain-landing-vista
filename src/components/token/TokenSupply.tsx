@@ -3,11 +3,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 
 export const TokenSupply = () => {
-  // Sample distribution data
+  // Updated distribution data to match the new whitepaper (60/40 split)
   const distribution = [
-    { name: "Mining Rewards", percentage: 80, color: "bg-[#F97316]" },
-    { name: "Ecosystem Development", percentage: 15, color: "bg-[#0EA5E9]" },
-    { name: "Community Incentives", percentage: 5, color: "bg-purple-500" },
+    { name: "Mining Rewards", percentage: 60, color: "bg-[#F97316]" },
+    { name: "Ecosystem Development", percentage: 25, color: "bg-[#0EA5E9]" },
+    { name: "AI Revenue Burns", percentage: 15, color: "bg-purple-500" },
   ];
 
   return (
