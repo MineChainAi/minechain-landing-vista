@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -11,6 +10,7 @@ import { ContributionHistory } from "@/components/profile/ContributionHistory";
 import { MiningOverview } from "@/components/profile/MiningOverview";
 import { TokenHoldings } from "@/components/profile/TokenHoldings";
 import { WalletAddresses } from "@/components/profile/WalletAddresses";
+import { getStorageItem, setStorageItem, removeStorageItem, STORAGE_KEYS } from "@/utils/storage/vercelKVStorage";
 
 // Default mock user data
 const defaultUserData = {
@@ -45,29 +45,49 @@ const defaultUserData = {
   }
 };
 
-// LocalStorage key
-const USER_PROFILE_KEY = "minechain_user_profile";
-// LocalStorage key for profile existence
-const PROFILE_EXISTS_KEY = "minechain_profile_exists";
-
 const UserProfile = () => {
   const [activeTab, setActiveTab] = useState("overview");
-  const [hasProfile, setHasProfile] = useState(() => {
-    // Check if user has a profile
-    return localStorage.getItem(PROFILE_EXISTS_KEY) === "true";
-  });
+  const [hasProfile, setHasProfile] = useState(false);
+  const [userData, setUserData] = useState(defaultUserData);
+  const [isLoading, setIsLoading] = useState(true);
   
-  const [userData, setUserData] = useState(() => {
-    // Load data from localStorage on initial render
-    const savedProfile = localStorage.getItem(USER_PROFILE_KEY);
-    return savedProfile ? JSON.parse(savedProfile) : defaultUserData;
-  });
-  
-  // Save to localStorage whenever userData changes
+  // Load data from storage on initial render
   useEffect(() => {
-    localStorage.setItem(USER_PROFILE_KEY, JSON.stringify(userData));
-    console.log("Profile data saved to localStorage");
-  }, [userData]);
+    const loadUserProfile = async () => {
+      try {
+        // Check if user has a profile
+        const profileExists = await getStorageItem<boolean>(STORAGE_KEYS.PROFILE_EXISTS, false);
+        setHasProfile(profileExists || false);
+        
+        if (profileExists) {
+          // Load profile data
+          const savedProfile = await getStorageItem(STORAGE_KEYS.USER_PROFILE, defaultUserData);
+          setUserData(savedProfile || defaultUserData);
+        }
+      } catch (error) {
+        console.error("Error loading user profile:", error);
+        // Fallback to default values
+        setHasProfile(false);
+        setUserData(defaultUserData);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    loadUserProfile();
+  }, []);
+  
+  // Save to storage whenever userData changes
+  useEffect(() => {
+    const saveUserProfile = async () => {
+      if (!isLoading) {
+        await setStorageItem(STORAGE_KEYS.USER_PROFILE, userData);
+        console.log("Profile data saved to storage");
+      }
+    };
+    
+    saveUserProfile();
+  }, [userData, isLoading]);
   
   const handleProfileUpdate = (updatedData: Partial<typeof userData>) => {
     setUserData(prevData => {
@@ -88,40 +108,53 @@ const UserProfile = () => {
     });
   };
   
-  const handleProfileCreate = (profileData: typeof userData) => {
+  const handleProfileCreate = async (profileData: typeof userData) => {
     // Save the new profile
     setUserData(profileData);
     // Set that user now has a profile
     setHasProfile(true);
-    localStorage.setItem(PROFILE_EXISTS_KEY, "true");
+    await setStorageItem(STORAGE_KEYS.PROFILE_EXISTS, true);
   };
   
   // For demo purposes: Add a button to reset profile state
-  const resetProfileState = () => {
+  const resetProfileState = async () => {
     if (process.env.NODE_ENV === 'development') {
-      localStorage.removeItem(PROFILE_EXISTS_KEY);
+      await removeStorageItem(STORAGE_KEYS.PROFILE_EXISTS);
       setHasProfile(false);
       console.log("Profile state reset for testing purposes");
     }
   };
+  
+  // Show loading state while fetching data
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-mine-dark">
+        <Navbar />
+        <div className="pt-16 flex items-center justify-center h-[80vh]">
+          <div className="text-center">
+            <div className="w-12 h-12 border-4 border-t-[#F97316] border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <p className="text-mine-silver">Loading profile...</p>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
   
   return (
     <div className="min-h-screen bg-mine-dark">
       <Navbar />
       
       {hasProfile ? (
-        // Show profile if user has one
         <div className="pt-16">
           <ProfileHeader userData={userData} setActiveTab={setActiveTab} />
           
           <div className="container mx-auto px-4 py-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-              {/* Sidebar - Profile Stats */}
               <div className="lg:col-span-3">
                 <ProfileStats userData={userData} />
               </div>
               
-              {/* Main Content Area */}
               <div className="lg:col-span-9">
                 <ProfileTabs activeTab={activeTab} setActiveTab={setActiveTab} />
                 
@@ -147,13 +180,11 @@ const UserProfile = () => {
           </div>
         </div>
       ) : (
-        // Show profile creation form if user doesn't have a profile
         <div className="pt-16">
           <ProfileCreation onProfileCreate={handleProfileCreate} />
         </div>
       )}
       
-      {/* Development helper - only visible in development mode */}
       {process.env.NODE_ENV === 'development' && hasProfile && (
         <div className="fixed bottom-4 right-4 z-50">
           <button 
