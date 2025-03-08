@@ -1,6 +1,7 @@
 
-import { FileText, FileCode, BookOpen, Video, Download, ExternalLink } from "lucide-react";
+import { FileText, FileCode, BookOpen, Video, Download, ExternalLink, Lightbulb, GraduationCap, Brain, MessageSquareText } from "lucide-react";
 import { useState } from "react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export const EducationResources = () => {
   const [activeTab, setActiveTab] = useState("all");
@@ -64,9 +65,64 @@ export const EducationResources = () => {
     }
   ];
 
+  // New beginner-friendly resources
+  const beginnerResources = [
+    {
+      title: "Blockchain 101: Understanding the Basics",
+      type: "guide",
+      category: "blockchain",
+      icon: <Lightbulb className="h-5 w-5 text-[#F97316]" />,
+      link: "#",
+      difficulty: "beginner"
+    },
+    {
+      title: "What is Proof of Work? Simple Explanation",
+      type: "guide",
+      category: "blockchain",
+      icon: <Lightbulb className="h-5 w-5 text-[#F97316]" />,
+      link: "#",
+      difficulty: "beginner"
+    },
+    {
+      title: "AI Fundamentals: Machine Learning vs Deep Learning",
+      type: "guide",
+      category: "ai",
+      icon: <Brain className="h-5 w-5 text-[#0EA5E9]" />,
+      link: "#",
+      difficulty: "beginner"
+    },
+    {
+      title: "Crypto Mining for Complete Beginners",
+      type: "video",
+      category: "mining",
+      icon: <GraduationCap className="h-5 w-5 text-[#F97316]" />,
+      link: "#",
+      difficulty: "beginner"
+    },
+    {
+      title: "How AI and Blockchain Work Together",
+      type: "document",
+      category: "ai",
+      icon: <MessageSquareText className="h-5 w-5 text-[#0EA5E9]" />,
+      link: "#",
+      difficulty: "beginner"
+    },
+    {
+      title: "GPU Mining vs CPU Mining Explained",
+      type: "guide",
+      category: "mining",
+      icon: <Lightbulb className="h-5 w-5 text-[#F97316]" />,
+      link: "#",
+      difficulty: "beginner"
+    }
+  ];
+
+  // Combine all resources
+  const allResources = [...resources, ...beginnerResources];
+
   const filteredResources = activeTab === "all" 
-    ? resources 
-    : resources.filter(resource => resource.category === activeTab);
+    ? allResources 
+    : allResources.filter(resource => resource.category === activeTab);
 
   return (
     <section className="py-20 bg-gradient-to-b from-black/0 to-black/20">
@@ -79,20 +135,34 @@ export const EducationResources = () => {
             Access our library of documents, guides, code samples, and videos to support your learning journey.
           </p>
           
-          <div className="flex flex-wrap justify-center gap-2 mb-10">
-            {["all", "ai", "blockchain", "mining", "hosting"].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  activeTab === tab 
-                    ? 'bg-gradient-to-r from-[#F97316] to-[#0EA5E9] text-white' 
-                    : 'bg-black/30 border border-white/10 text-mine-silver hover:border-[#F97316]/30'
-                }`}
-              >
-                {tab.charAt(0).toUpperCase() + tab.slice(1)}
-              </button>
-            ))}
+          <div className="mb-10">
+            <Tabs defaultValue="all" className="w-full">
+              <TabsList className="grid grid-cols-5 max-w-xl mx-auto bg-black/30">
+                {["all", "ai", "blockchain", "mining", "hosting"].map((tab) => (
+                  <TabsTrigger 
+                    key={tab}
+                    value={tab}
+                    onClick={() => setActiveTab(tab)}
+                    className="text-sm font-medium"
+                  >
+                    {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </Tabs>
+          </div>
+          
+          <div className="flex justify-center mb-8">
+            <div className="bg-[#F97316]/10 border border-[#F97316]/30 rounded-lg p-4 max-w-2xl">
+              <h3 className="text-xl font-semibold mb-2 flex items-center">
+                <Lightbulb className="h-5 w-5 text-[#F97316] mr-2" /> 
+                New to Blockchain & AI?
+              </h3>
+              <p className="text-mine-silver text-md">
+                We've curated beginner-friendly resources to help you understand the fundamentals. 
+                Look for the <span className="text-[#F97316] font-semibold">Beginner</span> tag on resources designed for newcomers.
+              </p>
+            </div>
           </div>
         </div>
         
@@ -107,7 +177,14 @@ export const EducationResources = () => {
                 {resource.icon}
               </div>
               <div className="flex-grow">
-                <h3 className="text-white font-medium group-hover:text-[#F97316] transition-colors duration-300">{resource.title}</h3>
+                <h3 className="text-white font-medium group-hover:text-[#F97316] transition-colors duration-300">
+                  {resource.title}
+                  {resource.difficulty === "beginner" && (
+                    <span className="ml-2 text-xs bg-[#F97316]/20 text-[#F97316] px-2 py-0.5 rounded-full">
+                      Beginner
+                    </span>
+                  )}
+                </h3>
                 <p className="text-mine-silver text-sm capitalize">{resource.type}</p>
               </div>
               {resource.type === "document" && (
@@ -118,6 +195,56 @@ export const EducationResources = () => {
               )}
             </a>
           ))}
+        </div>
+        
+        <div className="mt-16 max-w-3xl mx-auto">
+          <div className="bg-black/30 border border-white/10 p-6 rounded-xl">
+            <h3 className="text-2xl font-bold mb-4 text-center">Learning Pathways</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="border border-[#F97316]/20 rounded-lg p-4 hover:border-[#F97316]/50 transition-all duration-300 hover:bg-[#F97316]/5">
+                <h4 className="font-bold mb-2 text-[#F97316]">Blockchain Basics to Advanced</h4>
+                <ul className="text-mine-silver space-y-2">
+                  <li className="flex items-center">
+                    <span className="bg-[#F97316]/10 text-[#F97316] text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center mr-2">1</span>
+                    <span>Blockchain Fundamentals</span>
+                  </li>
+                  <li className="flex items-center">
+                    <span className="bg-[#F97316]/10 text-[#F97316] text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center mr-2">2</span>
+                    <span>Mining Algorithms</span>
+                  </li>
+                  <li className="flex items-center">
+                    <span className="bg-[#F97316]/10 text-[#F97316] text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center mr-2">3</span>
+                    <span>Smart Contracts</span>
+                  </li>
+                  <li className="flex items-center">
+                    <span className="bg-[#F97316]/10 text-[#F97316] text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center mr-2">4</span>
+                    <span>Decentralized Applications</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="border border-[#0EA5E9]/20 rounded-lg p-4 hover:border-[#0EA5E9]/50 transition-all duration-300 hover:bg-[#0EA5E9]/5">
+                <h4 className="font-bold mb-2 text-[#0EA5E9]">AI & Machine Learning Path</h4>
+                <ul className="text-mine-silver space-y-2">
+                  <li className="flex items-center">
+                    <span className="bg-[#0EA5E9]/10 text-[#0EA5E9] text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center mr-2">1</span>
+                    <span>AI Fundamentals</span>
+                  </li>
+                  <li className="flex items-center">
+                    <span className="bg-[#0EA5E9]/10 text-[#0EA5E9] text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center mr-2">2</span>
+                    <span>Machine Learning Basics</span>
+                  </li>
+                  <li className="flex items-center">
+                    <span className="bg-[#0EA5E9]/10 text-[#0EA5E9] text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center mr-2">3</span>
+                    <span>Neural Networks</span>
+                  </li>
+                  <li className="flex items-center">
+                    <span className="bg-[#0EA5E9]/10 text-[#0EA5E9] text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center mr-2">4</span>
+                    <span>Advanced AI Applications</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
