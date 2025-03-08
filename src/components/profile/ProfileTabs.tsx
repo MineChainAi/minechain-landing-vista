@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Activity, Settings, Terminal, Coins } from "lucide-react";
+import { Activity, Settings, Terminal, Coins, Wallet } from "lucide-react";
 
 interface ProfileTabsProps {
   activeTab: string;
@@ -23,6 +23,11 @@ export const ProfileTabs = ({ activeTab, setActiveTab }: ProfileTabsProps) => {
       id: "tokens",
       label: "Token Holdings",
       icon: <Coins className="h-4 w-4" />
+    },
+    {
+      id: "wallets",
+      label: "Wallet Addresses",
+      icon: <Wallet className="h-4 w-4" />
     },
     {
       id: "settings",

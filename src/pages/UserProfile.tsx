@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -9,6 +10,7 @@ import { ProfileCreation } from "@/components/profile/ProfileCreation";
 import { ContributionHistory } from "@/components/profile/ContributionHistory";
 import { MiningOverview } from "@/components/profile/MiningOverview";
 import { TokenHoldings } from "@/components/profile/TokenHoldings";
+import { WalletAddresses } from "@/components/profile/WalletAddresses";
 
 // Default mock user data
 const defaultUserData = {
@@ -32,6 +34,12 @@ const defaultUserData = {
     stakeAmount: "12,500 MINE",
     miningRewards: "1,250 MINE",
     validatorStatus: "Active"
+  },
+  wallets: {
+    mine: "",
+    ethereum: "",
+    bitcoin: "",
+    donation: ""
   }
 };
 
@@ -67,6 +75,10 @@ const UserProfile = () => {
         social: {
           ...prevData.social,
           ...(updatedData.social || {})
+        },
+        wallets: {
+          ...prevData.wallets,
+          ...(updatedData.wallets || {})
         }
       };
       
@@ -114,6 +126,14 @@ const UserProfile = () => {
                 {activeTab === "overview" && <MiningOverview />}
                 {activeTab === "contributions" && <ContributionHistory />}
                 {activeTab === "tokens" && <TokenHoldings />}
+                {activeTab === "wallets" && (
+                  <WalletAddresses 
+                    wallets={userData.wallets} 
+                    onWalletsUpdate={(wallets) => 
+                      handleProfileUpdate({ wallets })
+                    }
+                  />
+                )}
                 {activeTab === "settings" && (
                   <ProfileSettings 
                     userData={userData} 
