@@ -71,9 +71,9 @@ export const Navbar = () => {
             <a href="#features" className="text-mine-silver hover:text-[#F97316] transition-colors">Features</a>
             <Link to="/hosting" className="text-mine-silver hover:text-[#F97316] transition-colors">Hosting</Link>
             <Link to="/token" className="text-mine-silver hover:text-[#F97316] transition-colors">$MINE Token</Link>
-            <Link to="/ai-agents" className="text-mine-silver hover:text-[#F97316] transition-colors">AI Agents</Link>
-            <Link to="/real-estate-hub" className="text-mine-silver hover:text-[#F97316] transition-colors">Real Estate Hub</Link>
-            <Link to="/profile" className="text-mine-silver hover:text-[#0EA5E9] transition-colors">My Profile</Link>
+            <Link to="/ai-agent" className="text-mine-silver hover:text-[#F97316] transition-colors">AI Agents</Link>
+            <Link to="/realestate" className="text-mine-silver hover:text-[#F97316] transition-colors">Real Estate Hub</Link>
+            <Link to="/profile" className="text-mine-silver hover:text-[#F97316] transition-colors">My Profile</Link>
             
             {isLoggedIn ? <ProfileButton /> : <LoginButton />}
           </div>
@@ -116,14 +116,14 @@ export const Navbar = () => {
                 $MINE Token
               </Link>
               <Link 
-                to="/ai-agents" 
+                to="/ai-agent" 
                 className="text-mine-silver hover:text-[#F97316] transition-colors px-4 py-2 rounded-md hover:bg-white/5"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 AI Agents
               </Link>
               <Link 
-                to="/real-estate-hub" 
+                to="/realestate" 
                 className="text-mine-silver hover:text-[#F97316] transition-colors px-4 py-2 rounded-md hover:bg-white/5"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -131,7 +131,7 @@ export const Navbar = () => {
               </Link>
               <Link 
                 to="/profile" 
-                className="text-mine-silver hover:text-[#0EA5E9] transition-colors px-4 py-2 rounded-md hover:bg-white/5"
+                className="text-mine-silver hover:text-[#F97316] transition-colors px-4 py-2 rounded-md hover:bg-white/5"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 My Profile
