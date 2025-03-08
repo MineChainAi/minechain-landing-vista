@@ -10,7 +10,7 @@ export const PropertyShowcase = () => {
       power: "25 MW",
       size: "150,000 sq ft",
       description: "Tier 3+ data center with renewable energy access, fiber connectivity, and expansion capabilities.",
-      image: "/image/photo-1518770660439-4636190af475.jpg"
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475"
     },
     {
       title: "Industrial Power Site - Saratoga, NY",
@@ -18,7 +18,7 @@ export const PropertyShowcase = () => {
       power: "100 MW",
       size: "40 acres",
       description: "Former manufacturing facility with robust power infrastructure, situated near hydroelectric generation.",
-      image: "/image/photo-1605810230434-7631ac76ec81.jpg"
+      image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81"
     },
     {
       title: "AI Compute Facility - Austin, TX",
@@ -26,7 +26,7 @@ export const PropertyShowcase = () => {
       power: "15 MW",
       size: "80,000 sq ft",
       description: "Purpose-built for high-performance computing with liquid cooling and green energy contracts in place.",
-      image: null
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
     }
   ];
 
