@@ -1,4 +1,3 @@
-
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -9,20 +8,15 @@ export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   
-  // Check if user is logged in
   useEffect(() => {
     const checkLoginStatus = () => {
       const profileExists = localStorage.getItem("minechain_profile_exists") === "true";
       setIsLoggedIn(profileExists);
     };
     
-    // Check on initial render
     checkLoginStatus();
     
-    // Add event listener for storage changes
     window.addEventListener('storage', checkLoginStatus);
-    
-    // Create custom event listener for login state changes from our app
     window.addEventListener('login-state-change', checkLoginStatus);
     
     return () => {
@@ -38,7 +32,6 @@ export const Navbar = () => {
           <div className="flex items-center gap-4">
             <Link to="/" className="flex items-center gap-4">
               <div className="relative">
-                {/* Refined gradient glow with better contrast */}
                 <div 
                   className="absolute inset-0 bg-gradient-to-r from-[#F97316]/20 via-[#0EA5E9]/20 to-[#F97316]/20 blur-lg opacity-60"
                   style={{ transform: 'scale(1.2)' }}
@@ -73,6 +66,7 @@ export const Navbar = () => {
             <Link to="/token" className="text-mine-silver hover:text-[#F97316] transition-colors">$MINE Token</Link>
             <Link to="/ai-agent" className="text-mine-silver hover:text-[#F97316] transition-colors">AI Agents</Link>
             <Link to="/realestate" className="text-mine-silver hover:text-[#F97316] transition-colors">Real Estate Hub</Link>
+            <Link to="/education" className="text-mine-silver hover:text-[#F97316] transition-colors">Education Hub</Link>
             <Link to="/profile" className="text-mine-silver hover:text-[#F97316] transition-colors">My Profile</Link>
             
             {isLoggedIn ? <ProfileButton /> : <LoginButton />}
@@ -90,7 +84,6 @@ export const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden">
             <div className="bg-black/50 border border-white/10 px-2 py-4 rounded-lg mt-2 mb-4 flex flex-col gap-4">
@@ -128,6 +121,13 @@ export const Navbar = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Real Estate Hub
+              </Link>
+              <Link 
+                to="/education" 
+                className="text-mine-silver hover:text-[#F97316] transition-colors px-4 py-2 rounded-md hover:bg-white/5"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Education Hub
               </Link>
               <Link 
                 to="/profile" 
