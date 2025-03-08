@@ -7,6 +7,7 @@ import { EducationCourses } from "@/components/education/EducationCourses";
 import { EducationResources } from "@/components/education/EducationResources";
 import { EducationGuides } from "@/components/education/EducationGuides";
 import { EducationCTA } from "@/components/education/EducationCTA";
+import { EducationDownloads } from "@/components/education/EducationDownloads";
 
 const EducationHub = () => {
   return (
@@ -20,6 +21,7 @@ const EducationHub = () => {
         <EducationHero />
         <EducationCourses />
         <EducationResources />
+        <EducationDownloads />
         <EducationGuides />
         <EducationCTA />
         <Footer />

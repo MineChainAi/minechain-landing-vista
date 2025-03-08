@@ -19,6 +19,11 @@ export type BeginnerResource = BaseResource & {
 
 export type Resource = RegularResource | BeginnerResource;
 
+export type DownloadableResource = BaseResource & {
+  fileType: "pdf" | "infographic" | "cheatsheet";
+  fileSize?: string;
+};
+
 // Type guard for beginner resources
 export const isBeginnerResource = (resource: Resource): resource is BeginnerResource => {
   return 'difficulty' in resource && resource.difficulty === 'beginner';
@@ -27,4 +32,9 @@ export const isBeginnerResource = (resource: Resource): resource is BeginnerReso
 // Type guard for advanced resources
 export const isAdvancedResource = (resource: Resource): resource is RegularResource => {
   return !('difficulty' in resource) || resource.difficulty === "advanced";
+};
+
+// Type guard for downloadable resources
+export const isDownloadableResource = (resource: any): resource is DownloadableResource => {
+  return 'fileType' in resource;
 };
