@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Cpu, Flame, Pickaxe } from "lucide-react";
+import { Cpu, Flame, Pickaxe, Zap } from "lucide-react";
 
 export const TokenStats = () => {
   return (
@@ -34,6 +34,52 @@ export const TokenStats = () => {
           icon={<Pickaxe className="w-6 h-6 text-[#F97316]" />}
         />
       </div>
+      
+      {/* Power Rate Indicator */}
+      <motion.div 
+        className="mt-6 p-4 rounded-lg border border-[#F97316]/30 bg-black/40"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.6, duration: 0.6 }}
+      >
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <motion.div 
+              className="p-2 rounded-full bg-[#F97316]/20"
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              <Zap className="w-5 h-5 text-[#F97316]" />
+            </motion.div>
+            <div>
+              <p className="text-sm text-[#F97316]/80 uppercase tracking-wider">Current Power Rate</p>
+              <div className="flex items-end gap-2">
+                <motion.span 
+                  className="text-2xl font-bold text-white"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1.8, duration: 0.8 }}
+                >
+                  $0.08
+                </motion.span>
+                <span className="text-sm text-gray-400">per kWh</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="hidden md:block">
+            <div className="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+              <motion.div 
+                className="h-full bg-gradient-to-r from-[#F97316] to-[#F5D04A] rounded-full"
+                initial={{ width: "0%" }}
+                animate={{ width: "40%" }}
+                transition={{ delay: 2, duration: 1.5, ease: "easeOut" }}
+              />
+            </div>
+            <p className="text-xs text-gray-400 mt-1">Competitive mining advantage</p>
+          </div>
+        </div>
+      </motion.div>
     </motion.div>
   );
 };
