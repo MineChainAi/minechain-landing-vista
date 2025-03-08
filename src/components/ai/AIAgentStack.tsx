@@ -1,6 +1,6 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Layers, Server, Cpu, Code } from "lucide-react";
+import { Layers, Server, Cpu, Code, Brain } from "lucide-react";
 
 export const AIAgentStack = () => {
   return (
