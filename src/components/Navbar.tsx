@@ -62,7 +62,7 @@ export const Navbar = () => {
           </div>
           
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-mine-silver hover:text-[#F97316] transition-colors">Features</a>
+            <Link to="/marketplace" className="text-mine-silver hover:text-[#F97316] transition-colors">Marketplace</Link>
             <Link to="/hosting" className="text-mine-silver hover:text-[#F97316] transition-colors">Hosting</Link>
             <Link to="/token" className="text-mine-silver hover:text-[#F97316] transition-colors">$MINE Token</Link>
             <Link to="/ai-agent" className="text-mine-silver hover:text-[#F97316] transition-colors">AI Agents</Link>
@@ -88,13 +88,13 @@ export const Navbar = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden">
             <div className="bg-black/50 border border-white/10 px-2 py-4 rounded-lg mt-2 mb-4 flex flex-col gap-4">
-              <a 
-                href="#features" 
+              <Link 
+                to="/marketplace"
                 className="text-mine-silver hover:text-[#F97316] transition-colors px-4 py-2 rounded-md hover:bg-white/5"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Features
-              </a>
+                Marketplace
+              </Link>
               <Link 
                 to="/hosting" 
                 className="text-mine-silver hover:text-[#F97316] transition-colors px-4 py-2 rounded-md hover:bg-white/5"
