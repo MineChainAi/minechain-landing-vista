@@ -49,21 +49,21 @@ export const TokenSupply = () => {
                   <li className="flex items-center gap-3">
                     <div className="h-2 w-2 rounded-full bg-[#F97316]"></div>
                     <div>
-                      <p className="font-medium">Years 1-2: <span className="text-[#F97316]">4M $MINE annually</span></p>
+                      <p className="font-medium">Years 1-3: <span className="text-[#F97316]">4M $MINE annually</span></p>
                       <p className="text-sm text-mine-silver">Initial mining phase</p>
                     </div>
                   </li>
                   <li className="flex items-center gap-3">
                     <div className="h-2 w-2 rounded-full bg-[#F97316]"></div>
                     <div>
-                      <p className="font-medium">Years 3-4: <span className="text-[#F97316]">2M $MINE annually</span></p>
+                      <p className="font-medium">Years 4-6: <span className="text-[#F97316]">2M $MINE annually</span></p>
                       <p className="text-sm text-mine-silver">First halving</p>
                     </div>
                   </li>
                   <li className="flex items-center gap-3">
                     <div className="h-2 w-2 rounded-full bg-[#F97316]"></div>
                     <div>
-                      <p className="font-medium">Years 5-6: <span className="text-[#F97316]">1M $MINE annually</span></p>
+                      <p className="font-medium">Years 7-9: <span className="text-[#F97316]">1M $MINE annually</span></p>
                       <p className="text-sm text-mine-silver">Second halving</p>
                     </div>
                   </li>
