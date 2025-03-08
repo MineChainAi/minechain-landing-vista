@@ -71,6 +71,7 @@ export const Navbar = () => {
             <a href="#features" className="text-mine-silver hover:text-[#F97316] transition-colors">Features</a>
             <Link to="/hosting" className="text-mine-silver hover:text-[#F97316] transition-colors">Hosting</Link>
             <Link to="/token" className="text-mine-silver hover:text-[#F97316] transition-colors">$MINE Token</Link>
+            <Link to="/ai-agents" className="text-mine-silver hover:text-[#F97316] transition-colors">AI Agents</Link>
             <Link to="/real-estate-hub" className="text-mine-silver hover:text-[#F97316] transition-colors">Real Estate Hub</Link>
             <Link to="/profile" className="text-mine-silver hover:text-[#0EA5E9] transition-colors">My Profile</Link>
             
@@ -113,6 +114,13 @@ export const Navbar = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 $MINE Token
+              </Link>
+              <Link 
+                to="/ai-agents" 
+                className="text-mine-silver hover:text-[#F97316] transition-colors px-4 py-2 rounded-md hover:bg-white/5"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                AI Agents
               </Link>
               <Link 
                 to="/real-estate-hub" 
