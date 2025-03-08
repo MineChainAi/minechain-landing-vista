@@ -131,7 +131,7 @@ export const TokenHero = () => {
           >
             <div className="bg-black/80 rounded-lg p-6 backdrop-blur-sm">
               <img 
-                src="/lovable-uploads/dec93b9a-f787-4d4b-b9e9-0c04150797af.png" 
+                src="/lovable-uploads/2cb1aa6f-2ada-4cd8-b897-ede9ee87d8e3.png" 
                 alt="MINE Token Logo" 
                 className="w-40 h-40 mx-auto mb-4 object-contain rounded-lg" 
               />
@@ -147,4 +147,3 @@ export const TokenHero = () => {
     </section>
   );
 };
-
