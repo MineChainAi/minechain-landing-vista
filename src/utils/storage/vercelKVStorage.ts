@@ -14,6 +14,10 @@ export const STORAGE_KEYS = {
   USER_WALLETS: "minechain_user_wallets",
   USER_SETTINGS: "minechain_user_settings",
   AUTH_TOKEN: "minechain_auth_token",
+  TOKEN_PRICE_HISTORY: "minechain_token_price_history",
+  TOKEN_HOLDINGS: "minechain_token_holdings",
+  TOKEN_TRANSACTIONS: "minechain_token_transactions",
+  TOKEN_STAKING: "minechain_token_staking",
 };
 
 /**
@@ -87,4 +91,40 @@ export const clearStorage = async (): Promise<void> => {
     console.error("Error clearing storage:", error);
     throw error;
   }
+};
+
+/**
+ * Get token price history (mock data for now)
+ */
+export const getTokenPriceHistory = async (): Promise<{date: string, price: number}[]> => {
+  const storedData = await getStorageItem<{date: string, price: number}[]>(
+    STORAGE_KEYS.TOKEN_PRICE_HISTORY, 
+    generateMockPriceHistory()
+  );
+  return storedData || [];
+};
+
+/**
+ * Generate mock price history data
+ */
+const generateMockPriceHistory = (): {date: string, price: number}[] => {
+  const today = new Date();
+  const data = [];
+  let price = 0.02; // Starting price
+  
+  for (let i = 30; i >= 0; i--) {
+    const date = new Date(today);
+    date.setDate(today.getDate() - i);
+    
+    // Add some randomness to the price movements
+    const changePercent = (Math.random() * 0.1) - 0.03; // -3% to +7%
+    price = price * (1 + changePercent);
+    
+    data.push({
+      date: date.toISOString().split('T')[0],
+      price: parseFloat(price.toFixed(4))
+    });
+  }
+  
+  return data;
 };

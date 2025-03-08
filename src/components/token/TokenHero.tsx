@@ -131,11 +131,11 @@ export const TokenHero = () => {
           >
             <div className="bg-black/80 rounded-lg p-6 backdrop-blur-sm">
               <img 
-                src="/lovable-uploads/bf49290c-2a09-4f24-9ad1-1a2bf454ddbf.png" 
+                src="/lovable-uploads/87ff58c1-cb4b-4253-b162-d4ab8ef1567a.png" 
                 alt="MINE Token Logo" 
-                className="w-16 h-16 mx-auto mb-4" 
+                className="w-32 h-32 mx-auto mb-4 object-cover rounded-lg" 
               />
-              <p className="text-[#F97316] font-bold">$MINE Token</p>
+              <p className="text-[#F97316] font-bold text-xl">$MINE Token</p>
             </div>
           </motion.div>
           

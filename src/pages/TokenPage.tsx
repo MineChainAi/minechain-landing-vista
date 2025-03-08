@@ -13,15 +13,15 @@ const TokenPage = () => {
   return (
     <>
       <Helmet>
-        <title>$MINE Token | The Backbone of Decentralized Compute | MineChain</title>
-        <meta name="description" content="$MINE is a real asset-backed cryptocurrency designed to power AI workloads, decentralized mining, and compute infrastructure. Built on KawPow PoW." />
+        <title>$MINE Token | Premium Crypto Asset | MineChain</title>
+        <meta name="description" content="$MINE is a luxury asset-backed cryptocurrency designed for discerning investors. Experience premium decentralized finance with MineChain." />
       </Helmet>
       <div className="min-h-screen bg-mine-dark text-white">
         <Navbar />
         <TokenHero />
-        <TokenWhitepaper />
         <TokenSupply />
         <TokenFeatures />
+        <TokenWhitepaper />
         <TokenEcosystem />
         <TokenCTA />
         <Footer />

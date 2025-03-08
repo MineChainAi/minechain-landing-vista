@@ -10,7 +10,7 @@ export const TokenDescription = () => {
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
       >
         <span className="mr-2 h-2 w-2 rounded-full bg-[#F97316] animate-pulse"></span>
-        <span className="text-sm font-medium text-white/80">Fair Launch Mining Token</span>
+        <span className="text-sm font-medium text-white/80">Premium Crypto Experience</span>
       </motion.div>
       
       <motion.h1 
@@ -19,7 +19,7 @@ export const TokenDescription = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.8 }}
       >
-        <span className="text-gradient-orange">$MINE Token</span> – The Backbone of Decentralized Compute
+        <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-500 via-yellow-300 to-amber-500">$MINE Token</span> – Luxurious Decentralized Finance
       </motion.h1>
       
       <motion.p 
@@ -28,9 +28,9 @@ export const TokenDescription = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.8 }}
       >
-        A <span className="text-white font-medium">real asset-backed</span> cryptocurrency designed to power 
-        <span className="text-white font-medium"> AI workloads, decentralized mining, </span> 
-        and compute infrastructure.
+        A <span className="text-amber-400 font-medium">premium asset-backed</span> cryptocurrency designed for the 
+        <span className="text-amber-400 font-medium"> discerning investor</span>, 
+        powering the future of luxury in the blockchain space.
       </motion.p>
     </>
   );
