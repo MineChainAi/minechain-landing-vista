@@ -7,6 +7,7 @@ import { ExpertiseAreas } from "@/components/realestate/ExpertiseAreas";
 import { PropertyShowcase } from "@/components/realestate/PropertyShowcase";
 import { ClientTestimonials } from "@/components/realestate/ClientTestimonials";
 import { ContactSection } from "@/components/realestate/ContactSection";
+import { RealEstateAIAgent } from "@/components/realestate/RealEstateAIAgent";
 
 const RealEstateHub = () => {
   return (
@@ -22,6 +23,7 @@ const RealEstateHub = () => {
         </div>
         <NewsletterSignup />
       </div>
+      <RealEstateAIAgent />
       <Footer />
     </div>
   );
