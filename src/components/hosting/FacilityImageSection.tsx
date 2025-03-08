@@ -22,7 +22,7 @@ export const FacilityImageSection = () => {
         <motion.img 
           src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80" 
           alt="Modern GPU Hosting Facility" 
-          className="w-full h-auto object-cover" 
+          className="w-full h-[400px] object-cover" 
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.7 }}
         />
