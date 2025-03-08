@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -9,6 +8,7 @@ import { ProfileSettings } from "@/components/profile/ProfileSettings";
 import { ProfileCreation } from "@/components/profile/ProfileCreation";
 import { ContributionHistory } from "@/components/profile/ContributionHistory";
 import { MiningOverview } from "@/components/profile/MiningOverview";
+import { TokenHoldings } from "@/components/profile/TokenHoldings";
 
 // Default mock user data
 const defaultUserData = {
@@ -113,6 +113,7 @@ const UserProfile = () => {
                 
                 {activeTab === "overview" && <MiningOverview />}
                 {activeTab === "contributions" && <ContributionHistory />}
+                {activeTab === "tokens" && <TokenHoldings />}
                 {activeTab === "settings" && (
                   <ProfileSettings 
                     userData={userData} 
