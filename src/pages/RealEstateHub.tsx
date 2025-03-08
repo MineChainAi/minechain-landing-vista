@@ -5,6 +5,7 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { RealEstateHero } from "@/components/realestate/RealEstateHero";
 import { ExpertiseAreas } from "@/components/realestate/ExpertiseAreas";
 import { PropertyShowcase } from "@/components/realestate/PropertyShowcase";
+import { MarketInsights } from "@/components/realestate/MarketInsights";
 import { ClientTestimonials } from "@/components/realestate/ClientTestimonials";
 import { ContactSection } from "@/components/realestate/ContactSection";
 import { RealEstateAIAgent } from "@/components/realestate/RealEstateAIAgent";
@@ -18,6 +19,7 @@ const RealEstateHub = () => {
         <div className="container mx-auto px-4 py-16">
           <ExpertiseAreas />
           <PropertyShowcase />
+          <MarketInsights />
           <ClientTestimonials />
           <ContactSection />
         </div>
