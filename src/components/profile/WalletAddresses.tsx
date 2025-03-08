@@ -242,7 +242,7 @@ export const WalletAddresses = ({ wallets, onWalletsUpdate }: WalletAddressesPro
                 If you don't have a blockchain wallet yet, here are some recommended options:
               </p>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <a 
                   href="https://metamask.io/" 
                   target="_blank" 
@@ -260,6 +260,28 @@ export const WalletAddresses = ({ wallets, onWalletsUpdate }: WalletAddressesPro
                     <p className="text-white font-medium">Metamask</p>
                     <p className="text-xs text-mine-silver flex items-center gap-1">
                       For Ethereum & ERC-20 tokens
+                      <ExternalLink className="h-3 w-3 group-hover:text-[#F97316] transition-colors" />
+                    </p>
+                  </div>
+                </a>
+                
+                <a 
+                  href="https://tangem.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center p-3 rounded-lg border border-[#1E293B] hover:border-[#F97316] transition-colors group"
+                >
+                  <div className="mr-3 p-2 rounded-md bg-[#0F172A]">
+                    <img 
+                      src="https://tangem.com/media/favicon/favicon.svg" 
+                      alt="Tangem Wallet" 
+                      className="w-8 h-8"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-white font-medium">Tangem</p>
+                    <p className="text-xs text-mine-silver flex items-center gap-1">
+                      Hardware wallet with NFC cards
                       <ExternalLink className="h-3 w-3 group-hover:text-[#F97316] transition-colors" />
                     </p>
                   </div>
