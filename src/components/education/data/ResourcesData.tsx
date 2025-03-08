@@ -17,56 +17,64 @@ export const getRegularResources = (): RegularResource[] => [
     type: "document",
     category: "blockchain",
     icon: <FileText className="h-5 w-5 text-[#F97316]" />,
-    link: "#"
+    link: "#",
+    difficulty: "advanced"
   },
   {
     title: "AI Agent Architecture Design Principles",
     type: "document",
     category: "ai",
     icon: <FileText className="h-5 w-5 text-[#0EA5E9]" />,
-    link: "#"
+    link: "#",
+    difficulty: "advanced"
   },
   {
     title: "Mining Pool Setup Guide",
     type: "guide",
     category: "mining",
     icon: <BookOpen className="h-5 w-5 text-[#F97316]" />,
-    link: "#"
+    link: "#",
+    difficulty: "advanced"
   },
   {
     title: "GPU Hosting Optimization Techniques",
     type: "guide",
     category: "hosting",
     icon: <BookOpen className="h-5 w-5 text-[#0EA5E9]" />,
-    link: "#"
+    link: "#",
+    difficulty: "advanced"
   },
   {
     title: "KawPow Mining Algorithm Overview",
     type: "document",
     category: "mining",
     icon: <FileText className="h-5 w-5 text-[#F97316]" />,
-    link: "#"
+    link: "#",
+    difficulty: "advanced"
   },
   {
     title: "Custom AI Agent API Documentation",
     type: "code",
     category: "ai",
     icon: <FileCode className="h-5 w-5 text-[#0EA5E9]" />,
-    link: "#"
+    link: "#",
+    difficulty: "advanced"
   },
   {
     title: "Energy-Efficient Mining Webinar",
     type: "video",
     category: "mining",
     icon: <Video className="h-5 w-5 text-[#F97316]" />,
-    link: "#"
+    link: "#",
+    difficulty: "advanced"
   },
   {
     title: "AI Model Training Best Practices",
     type: "guide",
     category: "ai",
     icon: <BookOpen className="h-5 w-5 text-[#0EA5E9]" />,
-    link: "#"
+    link: "#",
+    difficulty: "advanced"
   }
 ];
 
