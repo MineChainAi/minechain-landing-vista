@@ -9,7 +9,7 @@ export const Logo = () => {
       />
       <div className="mt-4 border-t border-white/10 pt-4">
         <p className="text-mine-silver text-sm font-semibold">
-          🚀 Full Stack Miner | AI Compute | Web3 Infrastructure
+          🚀 Full Stake Miners | AI Compute | Web3 Infrastructure
         </p>
         <p className="mt-2 text-mine-silver text-sm">
           <a 
