@@ -69,7 +69,7 @@ export const Navbar = () => {
           
           <div className="hidden md:flex items-center gap-8">
             <a href="#features" className="text-mine-silver hover:text-[#F97316] transition-colors">Features</a>
-            <Link to="/knowledge-hub" className="text-mine-silver hover:text-[#F97316] transition-colors">Knowledge Hub</Link>
+            <Link to="/real-estate-hub" className="text-mine-silver hover:text-[#F97316] transition-colors">Real Estate Hub</Link>
             <Link to="/profile" className="text-mine-silver hover:text-[#0EA5E9] transition-colors">My Profile</Link>
             
             {isLoggedIn ? <ProfileButton /> : <LoginButton />}
@@ -99,11 +99,11 @@ export const Navbar = () => {
                 Features
               </a>
               <Link 
-                to="/knowledge-hub" 
+                to="/real-estate-hub" 
                 className="text-mine-silver hover:text-[#F97316] transition-colors px-4 py-2 rounded-md hover:bg-white/5"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Knowledge Hub
+                Real Estate Hub
               </Link>
               <Link 
                 to="/profile" 
