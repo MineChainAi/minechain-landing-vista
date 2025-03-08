@@ -432,22 +432,22 @@ export const WalletAddresses = ({ wallets, onWalletsUpdate }: WalletAddressesPro
                 </a>
                 
                 <a 
-                  href="https://trustwallet.com/" 
+                  href="https://www.coinbase.com/wallet" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center p-3 rounded-lg border border-[#1E293B] hover:border-[#F97316] transition-colors group"
                 >
                   <div className="mr-3 p-2 rounded-md bg-[#0F172A]">
                     <img 
-                      src="https://trustwallet.com/assets/images/media/assets/trust_platform.svg" 
-                      alt="Trust Wallet" 
+                      src="https://www.coinbase.com/assets/favicon/favicon-256.png" 
+                      alt="Coinbase Wallet" 
                       className="w-8 h-8"
                     />
                   </div>
                   <div>
-                    <p className="text-white font-medium">Trust Wallet</p>
+                    <p className="text-white font-medium">Coinbase Wallet</p>
                     <p className="text-xs text-mine-silver flex items-center gap-1">
-                      Multi-chain wallet
+                      Self-custody multi-chain wallet
                       <ExternalLink className="h-3 w-3 group-hover:text-[#F97316] transition-colors" />
                     </p>
                   </div>
