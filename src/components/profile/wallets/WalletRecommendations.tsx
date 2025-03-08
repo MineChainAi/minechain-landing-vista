@@ -1,4 +1,3 @@
-
 import { ExternalLink } from "lucide-react";
 
 export const WalletRecommendations = () => {
@@ -34,7 +33,12 @@ export const WalletRecommendations = () => {
         <WalletRecommendationCard 
           name="Coinbase Wallet"
           description="Self-custody multi-chain wallet"
-          imageUrl="https://www.coinbase.com/assets/favicon/favicon-256.png"
+          imageContent={
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 0C7.163 0 0 7.163 0 16C0 24.837 7.163 32 16 32C24.837 32 32 24.837 32 16C32 7.163 24.837 0 16 0Z" fill="#0052FF"/>
+              <path d="M16.0006 21.6C19.0831 21.6 21.6006 19.0825 21.6006 16C21.6006 12.9175 19.0831 10.4 16.0006 10.4C12.9181 10.4 10.4006 12.9175 10.4006 16C10.4006 19.0825 12.9181 21.6 16.0006 21.6Z" fill="white"/>
+            </svg>
+          }
           link="https://www.coinbase.com/wallet"
         />
       </div>
