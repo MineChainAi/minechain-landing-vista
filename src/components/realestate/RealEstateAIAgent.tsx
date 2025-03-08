@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { 
   MessageSquare, 
@@ -8,7 +8,10 @@ import {
   Bot,
   Home,
   MapPin,
-  Search
+  Search,
+  Brain,
+  MoveRight,
+  Cpu
 } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -17,6 +20,7 @@ import { useToast } from '@/components/ui/use-toast';
 export const RealEstateAIAgent = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [message, setMessage] = useState('');
+  const messagesEndRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
   
   // Sample predefined responses for demo purposes
@@ -29,6 +33,16 @@ export const RealEstateAIAgent = () => {
     }
   ]);
 
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    if (isChatOpen) {
+      scrollToBottom();
+    }
+  }, [messages, isChatOpen]);
+
   const toggleChat = () => {
     setIsChatOpen(!isChatOpen);
     
@@ -38,6 +52,36 @@ export const RealEstateAIAgent = () => {
         description: "Ask me about industrial properties, power infrastructure, or site selection!",
       });
     }
+  };
+
+  const redirectToChat = (chatType: string) => {
+    // Close current chat
+    setIsChatOpen(false);
+    
+    // Simulate clicking on the appropriate chat button
+    setTimeout(() => {
+      let chatElement;
+      
+      if (chatType === 'ai') {
+        // Find and click AI Agent chat button
+        chatElement = document.querySelector('[aria-label="Chat with our AI assistant"]');
+        toast({
+          title: "Switching to AI Agent Chat",
+          description: "Redirecting you to our AI expertise assistant",
+        });
+      } else if (chatType === 'zoho') {
+        // Find and click Zoho chat button
+        chatElement = document.querySelector('[aria-label="Open chat"]');
+        toast({
+          title: "Switching to Innovation Hub Chat",
+          description: "Redirecting you to our customer support team",
+        });
+      }
+      
+      if (chatElement && chatElement instanceof HTMLElement) {
+        chatElement.click();
+      }
+    }, 300);
   };
 
   const handleSendMessage = (e: React.FormEvent) => {
@@ -68,6 +112,12 @@ export const RealEstateAIAgent = () => {
           responseText = "We have premium industrial sites across North America, with particular expertise in Texas, New York, and Wyoming markets. These locations offer favorable regulation and power infrastructure. Do any of these regions interest you?";
         } else if (message.toLowerCase().includes('cost') || message.toLowerCase().includes('price')) {
           responseText = "Investment opportunities vary based on location, power capacity, and infrastructure needs. Our properties range from $5M to $50M+. Would you like to speak with one of our investment specialists about your budget requirements?";
+        } else if (message.toLowerCase().includes('ai') || message.toLowerCase().includes('intelligence')) {
+          responseText = "For questions about our AI solutions and custom AI agents, I recommend speaking with our AI specialist. Would you like me to connect you?";
+          responseText += " <ai-redirect>";
+        } else if (message.toLowerCase().includes('support') || message.toLowerCase().includes('help')) {
+          responseText = "For technical support or general inquiries about MineChain services, our customer success team is ready to help. Would you like me to connect you with them?";
+          responseText += " <zoho-redirect>";
         }
         
         const aiResponse = {
@@ -87,11 +137,11 @@ export const RealEstateAIAgent = () => {
       {/* Chat toggle button */}
       <Button
         onClick={toggleChat}
-        className="fixed bottom-6 right-6 rounded-full p-4 z-40 bg-gradient-to-r from-[#F97316] to-[#0EA5E9] shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-        aria-label="Chat with our AI agent"
+        className="fixed bottom-24 right-6 rounded-full p-4 z-40 bg-gradient-to-r from-[#F97316] to-[#0EA5E9] shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+        aria-label="Chat with our real estate AI agent"
       >
         <div className="relative">
-          <Bot className="w-6 h-6 text-white" />
+          <Home className="w-6 h-6 text-white" />
           <span className="absolute -top-1 -right-1 flex h-3 w-3">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
             <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
@@ -104,7 +154,7 @@ export const RealEstateAIAgent = () => {
         <Card className="fixed bottom-24 right-6 w-[350px] max-w-[calc(100vw-48px)] h-[500px] max-h-[calc(100vh-200px)] z-40 bg-black/90 border border-[#F97316]/30 flex flex-col shadow-lg shadow-[#F97316]/20 animate-fade-in">
           <CardHeader className="bg-gradient-to-r from-[#F97316]/20 to-[#0EA5E9]/20 border-b border-white/10 flex flex-row items-center justify-between p-3">
             <div className="flex items-center">
-              <Bot className="w-5 h-5 text-[#F97316] mr-2" />
+              <Home className="w-5 h-5 text-[#F97316] mr-2" />
               <h3 className="font-semibold text-white">Real Estate Assistant</h3>
             </div>
             <Button 
@@ -138,23 +188,85 @@ export const RealEstateAIAgent = () => {
               </div>
             </div>
             
-            {messages.map((msg) => (
-              <div 
-                key={msg.id} 
-                className={`flex flex-col ${msg.user === 'You' ? 'items-end' : 'items-start'}`}
+            <div className="flex flex-wrap gap-2 mb-3">
+              <Button 
+                size="sm" 
+                variant="outline" 
+                onClick={() => redirectToChat('ai')}
+                className="flex items-center gap-1 border-[#0EA5E9]/30 hover:bg-[#0EA5E9]/10 text-xs py-1 h-auto"
               >
-                <div className="text-xs text-mine-silver mb-1">
-                  {msg.user} • {msg.timestamp}
+                <Brain className="h-3 w-3 text-[#0EA5E9]" />
+                <span>AI Solutions</span>
+                <MoveRight className="h-3 w-3" />
+              </Button>
+              <Button 
+                size="sm" 
+                variant="outline" 
+                onClick={() => redirectToChat('zoho')}
+                className="flex items-center gap-1 border-[#F97316]/30 hover:bg-[#F97316]/10 text-xs py-1 h-auto"
+              >
+                <MessageSquare className="h-3 w-3 text-[#F97316]" />
+                <span>Support</span>
+                <MoveRight className="h-3 w-3" />
+              </Button>
+            </div>
+            
+            {messages.map((msg) => {
+              // Check if the message contains redirect tags and render appropriate buttons
+              const hasAiRedirect = msg.text.includes('<ai-redirect>');
+              const hasZohoRedirect = msg.text.includes('<zoho-redirect>');
+              
+              // Clean the message text for display
+              const cleanText = msg.text
+                .replace('<ai-redirect>', '')
+                .replace('<zoho-redirect>', '');
+              
+              return (
+                <div 
+                  key={msg.id} 
+                  className={`flex flex-col ${msg.user === 'You' ? 'items-end' : 'items-start'}`}
+                >
+                  <div className="text-xs text-mine-silver mb-1">
+                    {msg.user} • {msg.timestamp}
+                  </div>
+                  <div className={`px-3 py-2 rounded-lg max-w-[80%] ${
+                    msg.user === 'You' 
+                      ? 'bg-[#F97316]/20 text-white' 
+                      : 'bg-[#0EA5E9]/20 text-white'
+                  }`}>
+                    {cleanText}
+                    
+                    {/* Render redirect buttons if needed */}
+                    {(hasAiRedirect || hasZohoRedirect) && (
+                      <div className="mt-2 flex gap-2">
+                        {hasAiRedirect && (
+                          <Button 
+                            size="sm" 
+                            className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/80 text-white text-xs py-1 h-auto flex items-center gap-1"
+                            onClick={() => redirectToChat('ai')}
+                          >
+                            <Brain className="h-3 w-3" />
+                            <span>Connect with AI Specialist</span>
+                          </Button>
+                        )}
+                        
+                        {hasZohoRedirect && (
+                          <Button 
+                            size="sm" 
+                            className="bg-[#F97316] hover:bg-[#F97316]/80 text-white text-xs py-1 h-auto flex items-center gap-1"
+                            onClick={() => redirectToChat('zoho')}
+                          >
+                            <MessageSquare className="h-3 w-3" />
+                            <span>Connect with Support</span>
+                          </Button>
+                        )}
+                      </div>
+                    )}
+                  </div>
                 </div>
-                <div className={`px-3 py-2 rounded-lg max-w-[80%] ${
-                  msg.user === 'You' 
-                    ? 'bg-[#F97316]/20 text-white' 
-                    : 'bg-[#0EA5E9]/20 text-white'
-                }`}>
-                  {msg.text}
-                </div>
-              </div>
-            ))}
+              );
+            })}
+            <div ref={messagesEndRef} />
           </CardContent>
           
           <CardFooter className="border-t border-white/10 p-3">
@@ -180,4 +292,3 @@ export const RealEstateAIAgent = () => {
     </>
   );
 };
-

@@ -13,6 +13,8 @@ import { VideoCallButton } from "@/components/VideoCallButton";
 import { CollaborativeWorkspace } from "@/components/CollaborativeWorkspace";
 import { ZohoChat } from "@/components/ZohoChat";
 import { CommunityEngagement } from "@/components/CommunityEngagement";
+import { RealEstateAIAgent } from "@/components/realestate/RealEstateAIAgent";
+import { AIAgentChat } from "@/components/ai/AIAgentChat";
 
 const Index = () => {
   return (
@@ -59,6 +61,8 @@ const Index = () => {
         <Footer />
         <VideoCallButton />
         <ZohoChat />
+        <RealEstateAIAgent />
+        <AIAgentChat />
       </div>
     </>
   );
