@@ -87,15 +87,21 @@ export const RealEstateAIAgent = () => {
       {/* Chat toggle button */}
       <Button
         onClick={toggleChat}
-        className="fixed bottom-6 right-6 rounded-full p-4 z-40 bg-gradient-to-r from-[#F97316] to-[#0EA5E9] shadow-lg"
+        className="fixed bottom-6 right-6 rounded-full p-4 z-40 bg-gradient-to-r from-[#F97316] to-[#0EA5E9] shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
         aria-label="Chat with our AI agent"
       >
-        <Bot className="w-6 h-6" />
+        <div className="relative">
+          <Bot className="w-6 h-6 text-white" />
+          <span className="absolute -top-1 -right-1 flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+          </span>
+        </div>
       </Button>
 
       {/* Chat window */}
       {isChatOpen && (
-        <Card className="fixed bottom-24 right-6 w-[350px] max-w-[calc(100vw-48px)] h-[500px] max-h-[calc(100vh-200px)] z-40 bg-black/90 border border-[#F97316]/30 flex flex-col shadow-lg shadow-[#F97316]/20">
+        <Card className="fixed bottom-24 right-6 w-[350px] max-w-[calc(100vw-48px)] h-[500px] max-h-[calc(100vh-200px)] z-40 bg-black/90 border border-[#F97316]/30 flex flex-col shadow-lg shadow-[#F97316]/20 animate-fade-in">
           <CardHeader className="bg-gradient-to-r from-[#F97316]/20 to-[#0EA5E9]/20 border-b border-white/10 flex flex-row items-center justify-between p-3">
             <div className="flex items-center">
               <Bot className="w-5 h-5 text-[#F97316] mr-2" />
@@ -174,3 +180,4 @@ export const RealEstateAIAgent = () => {
     </>
   );
 };
+
