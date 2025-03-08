@@ -5,8 +5,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useState } from "react";
+import { PaymentProcessor } from "./PaymentProcessor";
 
 export const FeaturedListings = () => {
+  const [selectedProduct, setSelectedProduct] = useState<{
+    id: number;
+    name: string;
+    price: string;
+  } | null>(null);
+
   const featuredProducts = [
     {
       id: 1,
@@ -77,8 +85,14 @@ export const FeaturedListings = () => {
   ];
 
   const handleViewDeal = (productId: number) => {
-    console.log(`Viewing deal for product ${productId}`);
-    // In a real application, this would navigate to the product detail page
+    const product = featuredProducts.find(p => p.id === productId);
+    if (product) {
+      setSelectedProduct({
+        id: product.id,
+        name: product.name,
+        price: product.price
+      });
+    }
   };
 
   return (
@@ -134,6 +148,16 @@ export const FeaturedListings = () => {
           </Tabs>
         </div>
       </div>
+
+      {selectedProduct && (
+        <PaymentProcessor
+          productId={selectedProduct.id}
+          productName={selectedProduct.name}
+          price={selectedProduct.price}
+          isOpen={!!selectedProduct}
+          onClose={() => setSelectedProduct(null)}
+        />
+      )}
     </section>
   );
 };

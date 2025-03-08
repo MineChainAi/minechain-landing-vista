@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Bitcoin, CreditCard, DollarSign } from "lucide-react";
+import { Bitcoin, CreditCard, DollarSign, Shield } from "lucide-react";
 
 export const CryptoPayments = () => {
   const paymentMethods = [
@@ -48,7 +48,7 @@ export const CryptoPayments = () => {
             transition={{ delay: 0.1 }}
             className="text-lg text-mine-silver"
           >
-            Transact with confidence using these supported cryptocurrencies and tokens
+            Transact with confidence using Coinbase Commerce payment processing
           </motion.p>
         </div>
         
@@ -71,6 +71,23 @@ export const CryptoPayments = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="flex justify-center mt-12"
+        >
+          <div className="flex items-center bg-[#0052FF]/10 border border-[#0052FF]/30 rounded-full px-6 py-3">
+            <img 
+              src="https://www.coinbase.com/assets/press/coinbase-logos/coinbase-commerce-horizontal-01.svg" 
+              alt="Coinbase Commerce" 
+              className="h-6 mr-3" 
+            />
+            <span className="text-white">Powered by Coinbase Commerce</span>
+          </div>
+        </motion.div>
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -79,9 +96,10 @@ export const CryptoPayments = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="mt-16 bg-gradient-to-r from-[#F97316]/20 to-[#0EA5E9]/20 border border-[#F97316]/30 rounded-lg p-8 text-center"
         >
-          <h3 className="text-xl font-semibold text-white mb-4">On-Chain Escrow Protection</h3>
+          <Shield className="h-8 w-8 text-[#F97316] mx-auto mb-4" />
+          <h3 className="text-xl font-semibold text-white mb-4">Secure Escrow Protection</h3>
           <p className="text-mine-silver max-w-3xl mx-auto">
-            All marketplace transactions are protected by our smart contract escrow system.
+            All marketplace transactions are protected by our smart contract escrow system and processed through Coinbase Commerce.
             Funds are only released when both parties confirm successful delivery of hardware.
           </p>
         </motion.div>
