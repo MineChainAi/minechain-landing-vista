@@ -50,7 +50,7 @@ export const TangemWalletConnector = ({ onWalletsImport }: TangemWalletConnector
             />
           </div>
           <div>
-            <h3 className="text-white font-medium">Tangem Hardware Wallet</h3>
+            <h3 className="text-white font-medium text-base">Tangem Hardware Wallet</h3>
             <p className="text-xs text-mine-silver mt-1 max-w-md">
               {tangemLinked 
                 ? "Your Tangem wallet is connected. All relevant addresses have been imported." 
