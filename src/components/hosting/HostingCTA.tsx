@@ -4,10 +4,30 @@ import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { PropertyRequestDialog } from "@/components/realestate/PropertyRequestDialog";
 import { motion } from "framer-motion";
+import { useToast } from "@/hooks/use-toast";
+import { sendNotificationEmail } from "@/utils/notificationService";
 
 export const HostingCTA = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const { toast } = useToast();
+  
+  const handleReserveHosting = () => {
+    // Open the dialog for detailed information
+    setDialogOpen(true);
+    
+    // Also send a notification email to the team
+    try {
+      sendNotificationEmail({
+        username: "Hosting Slot Reservation",
+        email: "dm@minechain.ai"
+      });
+      
+      console.log("Notification sent to dm@minechain.ai about hosting slot reservation");
+    } catch (error) {
+      console.error("Error sending notification:", error);
+    }
+  };
   
   return (
     <section className="py-20">
@@ -63,7 +83,7 @@ export const HostingCTA = () => {
               <Button 
                 size="lg" 
                 className="bg-[#F97316] hover:bg-[#F97316]/90 text-white group relative overflow-hidden"
-                onClick={() => setDialogOpen(true)}
+                onClick={handleReserveHosting}
               >
                 <motion.span 
                   className="relative z-10 flex items-center"

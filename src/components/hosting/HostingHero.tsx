@@ -4,10 +4,30 @@ import { ArrowRight, Server, Cpu } from "lucide-react";
 import { useState } from "react";
 import { PropertyRequestDialog } from "@/components/realestate/PropertyRequestDialog";
 import { motion } from "framer-motion";
+import { useToast } from "@/hooks/use-toast";
+import { sendNotificationEmail } from "@/utils/notificationService";
 
 export const HostingHero = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [isButtonHovered, setIsButtonHovered] = useState(false);
+  const { toast } = useToast();
+  
+  const handleReserveHosting = () => {
+    // Open the dialog for detailed information
+    setDialogOpen(true);
+    
+    // Also send a notification email to the team
+    try {
+      sendNotificationEmail({
+        username: "Hosting Space Inquiry",
+        email: "dm@minechain.ai"
+      });
+      
+      console.log("Notification sent to dm@minechain.ai about hosting inquiry");
+    } catch (error) {
+      console.error("Error sending notification:", error);
+    }
+  };
   
   return (
     <section className="pt-32 pb-16 relative overflow-hidden">
@@ -89,7 +109,7 @@ export const HostingHero = () => {
               <Button 
                 size="lg"
                 className="bg-[#F97316] hover:bg-[#F97316]/90 text-white group relative overflow-hidden"
-                onClick={() => setDialogOpen(true)}
+                onClick={handleReserveHosting}
                 onMouseEnter={() => setIsButtonHovered(true)}
                 onMouseLeave={() => setIsButtonHovered(false)}
               >
