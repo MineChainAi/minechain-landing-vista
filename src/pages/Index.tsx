@@ -11,7 +11,7 @@ import { CommunityUpdates } from "@/components/CommunityUpdates";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { VideoCallButton } from "@/components/VideoCallButton";
 import { CollaborativeWorkspace } from "@/components/CollaborativeWorkspace";
-import { ZohoChat } from "@/components/ZohoChat";
+import { ZohoChat } from "@/components/chat/ZohoChat";
 import { CommunityEngagement } from "@/components/CommunityEngagement";
 import { RealEstateAIAgent } from "@/components/realestate/RealEstateAIAgent";
 import { AIAgentChat } from "@/components/ai/AIAgentChat";
