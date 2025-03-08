@@ -53,6 +53,14 @@ export const getFallbackEvents = (): Event[] => {
   return [
     { 
       id: 1, 
+      title: 'Mining Disrupt Conference 2025', 
+      date: 'July 28, 2025', 
+      participants: 275,
+      coin: 'BTC',
+      source: 'Mining Disrupt'
+    },
+    { 
+      id: 2, 
       title: 'Ethereum ETF Decision Deadline', 
       date: 'July 2, 2025', 
       participants: 215,
@@ -60,7 +68,7 @@ export const getFallbackEvents = (): Event[] => {
       source: 'SEC'
     },
     { 
-      id: 2, 
+      id: 3, 
       title: 'XRP Protocol Upgrade 2.0', 
       date: 'July 15, 2025', 
       participants: 167,
@@ -68,7 +76,7 @@ export const getFallbackEvents = (): Event[] => {
       source: 'Ripple'
     },
     { 
-      id: 3, 
+      id: 4, 
       title: 'Bitcoin Halving Conference', 
       date: 'August 3, 2025', 
       participants: 324,
@@ -76,7 +84,7 @@ export const getFallbackEvents = (): Event[] => {
       source: 'Bitcoin Foundation'
     },
     {
-      id: 4,
+      id: 5,
       title: 'Solana DevCon 2025',
       date: 'August 12, 2025',
       participants: 186,
