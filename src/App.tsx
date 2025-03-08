@@ -11,6 +11,7 @@ import UserProfile from "./pages/UserProfile";
 import MineBlocksPage from "./pages/MineBlocksPage";
 import EducationHub from "./pages/EducationHub";
 import LoginPage from "./pages/LoginPage";
+import MarketplacePage from "./pages/MarketplacePage";
 
 function App() {
   const [hydrated, setHydrated] = React.useState(false);
@@ -35,6 +36,7 @@ function App() {
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/education" element={<EducationHub />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/marketplace" element={<MarketplacePage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

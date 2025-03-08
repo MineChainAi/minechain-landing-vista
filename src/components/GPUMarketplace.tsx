@@ -2,6 +2,7 @@
 import { ShoppingCart, CreditCard, DollarSign } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export const GPUMarketplace = () => {
   const gpuProducts = [
@@ -65,6 +66,19 @@ export const GPUMarketplace = () => {
               </div>
             </Card>
           ))}
+        </div>
+        
+        <div className="flex justify-center mt-12">
+          <Button 
+            variant="default"
+            className="bg-[#F97316] hover:bg-[#F97316]/90"
+            asChild
+          >
+            <Link to="/marketplace">
+              <ShoppingCart className="w-4 h-4 mr-2" />
+              Browse Full Marketplace
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
