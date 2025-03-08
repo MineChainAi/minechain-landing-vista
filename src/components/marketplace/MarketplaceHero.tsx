@@ -1,6 +1,5 @@
-
 import { motion } from "framer-motion";
-import { ShoppingCart, Server, Chip, Zap } from "lucide-react";
+import { ShoppingCart, Server, Cpu, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const MarketplaceHero = () => {
@@ -96,7 +95,7 @@ export const MarketplaceHero = () => {
       
       {/* Hardware icons floating animation */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[Chip, Server, Zap].map((Icon, i) => (
+        {[Cpu, Server, Zap].map((Icon, i) => (
           <motion.div
             key={i}
             className="absolute text-[#F97316]/20"

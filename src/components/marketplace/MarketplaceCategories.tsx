@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Chip, Server, Zap, Database, Network, CreditCard } from "lucide-react";
+import { Cpu, Server, Zap, Database, Network, CreditCard } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 export const MarketplaceCategories = () => {
@@ -8,7 +8,7 @@ export const MarketplaceCategories = () => {
     {
       title: "GPUs & AI Workstations",
       description: "High-performance 4090s, H100s, Radeon VIIs, and mining-optimized rigs",
-      icon: <Chip className="h-6 w-6 text-[#0EA5E9]" />,
+      icon: <Cpu className="h-6 w-6 text-[#0EA5E9]" />,
       color: "#0EA5E9"
     },
     {

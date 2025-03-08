@@ -1,6 +1,5 @@
-
 import { motion } from "framer-motion";
-import { ShoppingCart, Server, Chip, Zap } from "lucide-react";
+import { ShoppingCart, Server, Cpu, Zap } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
