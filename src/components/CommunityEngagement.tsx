@@ -1,10 +1,13 @@
 
 import { useEffect, useState } from 'react';
-import { Users, Globe, Award } from 'lucide-react';
+import { Users, Globe, Award, Newspaper, MessageSquare, Link } from 'lucide-react';
 import { CommunityStats } from './community/CommunityStats';
 import { TrendingTopics } from './community/TrendingTopics';
 import { UpcomingEvents } from './community/UpcomingEvents';
 import { CommunityCallToAction } from './community/CommunityCallToAction';
+import { Button } from './ui/button';
+import { CommunityBlogSection } from './community/CommunityBlogSection';
+import { CommunityForumHighlights } from './community/CommunityForumHighlights';
 
 export const CommunityEngagement = () => {
   // Mock engagement data
@@ -37,6 +40,32 @@ export const CommunityEngagement = () => {
           </p>
         </div>
         
+        {/* Community Navigation */}
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <Button 
+            variant="outline" 
+            className="bg-black/40 border-[#F97316]/20 hover:border-[#F97316] text-white hover:bg-[#F97316]/10"
+            onClick={() => window.open('https://discord.gg/CmTXH8ejf4', '_blank')}
+          >
+            <MessageSquare className="mr-2 h-4 w-4 text-[#F97316]" />
+            Community Forum
+          </Button>
+          <Button 
+            variant="outline" 
+            className="bg-black/40 border-[#0EA5E9]/20 hover:border-[#0EA5E9] text-white hover:bg-[#0EA5E9]/10"
+          >
+            <Newspaper className="mr-2 h-4 w-4 text-[#0EA5E9]" />
+            MineChain Blog
+          </Button>
+          <Button 
+            variant="outline" 
+            className="bg-black/40 border-[#F97316]/20 hover:border-[#F97316] text-white hover:bg-[#F97316]/10"
+          >
+            <Link className="mr-2 h-4 w-4 text-[#F97316]" />
+            Resource Library
+          </Button>
+        </div>
+        
         {/* Community Stats */}
         <CommunityStats stats={communityStats} />
         
@@ -46,6 +75,12 @@ export const CommunityEngagement = () => {
           
           {/* Upcoming Events - Now connected to CoinMarketCal API */}
           <UpcomingEvents />
+        </div>
+
+        {/* Blog Section and Forum Highlights */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+          <CommunityBlogSection />
+          <CommunityForumHighlights />
         </div>
         
         {/* Join Community CTA */}
