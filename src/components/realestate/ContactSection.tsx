@@ -1,8 +1,12 @@
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MessageSquare } from "lucide-react";
+import { PropertyRequestDialog } from "./PropertyRequestDialog";
 
 export const ContactSection = () => {
+  const [dialogOpen, setDialogOpen] = useState(false);
+
   return (
     <section className="mb-20">
       <div className="bg-gradient-to-r from-[#F97316]/10 to-[#0EA5E9]/10 border border-[#1E293B] rounded-lg p-8 md:p-10">
@@ -50,11 +54,21 @@ export const ContactSection = () => {
         
         <div className="text-center">
           <p className="text-lg text-white font-medium mb-4">Explore exclusive opportunities in the AI, crypto mining, and energy space</p>
-          <Button size="lg" className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white">
+          <Button 
+            size="lg" 
+            className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white"
+            onClick={() => setDialogOpen(true)}
+          >
             Request Property Information
           </Button>
         </div>
       </div>
+
+      <PropertyRequestDialog 
+        isOpen={dialogOpen} 
+        onClose={() => setDialogOpen(false)} 
+        propertyTitle="General Property Information" 
+      />
     </section>
   );
 };

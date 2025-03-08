@@ -1,8 +1,12 @@
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MapPin, Zap, Calendar, Building } from "lucide-react";
+import { PropertyRequestDialog } from "./PropertyRequestDialog";
 
 export const PropertyShowcase = () => {
+  const [selectedProperty, setSelectedProperty] = useState<string | null>(null);
+  
   const properties = [
     {
       title: "Data Center Campus - Houston, TX",
@@ -29,6 +33,14 @@ export const PropertyShowcase = () => {
       image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
     }
   ];
+
+  const handleRequestInfo = (propertyTitle: string) => {
+    setSelectedProperty(propertyTitle);
+  };
+
+  const handleCloseDialog = () => {
+    setSelectedProperty(null);
+  };
 
   return (
     <section className="mb-20">
@@ -81,7 +93,11 @@ export const PropertyShowcase = () => {
                 <span className="text-xs text-mine-silver flex items-center">
                   <Calendar className="h-3 w-3 mr-1" /> Available Now
                 </span>
-                <Button size="sm" className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white">
+                <Button 
+                  size="sm" 
+                  className="bg-[#0EA5E9] hover:bg-[#0EA5E9]/90 text-white"
+                  onClick={() => handleRequestInfo(property.title)}
+                >
                   Request Info
                 </Button>
               </div>
@@ -89,6 +105,14 @@ export const PropertyShowcase = () => {
           </div>
         ))}
       </div>
+
+      {selectedProperty && (
+        <PropertyRequestDialog 
+          isOpen={!!selectedProperty} 
+          onClose={handleCloseDialog} 
+          propertyTitle={selectedProperty}
+        />
+      )}
     </section>
   );
 };
