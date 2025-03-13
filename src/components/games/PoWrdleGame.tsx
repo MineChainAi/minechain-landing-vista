@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -19,28 +18,29 @@ const getRandomWord = () => {
   return WORDS[Math.floor(Math.random() * WORDS.length)];
 };
 
-// Function to generate the initial game state
-const generateInitialState = () => {
-  return {
-    secretWord: getRandomWord(),
-    attempts: [],
-    currentAttempt: "",
-    gameStatus: "playing", // playing, won, lost
-    usedLetters: {} // track which letters have been used and their status
-  };
-};
-
 type LetterStatus = "correct" | "present" | "absent" | "unused";
+type GameStatusType = "playing" | "won" | "lost";
 
 interface GameState {
   secretWord: string;
   attempts: string[];
   currentAttempt: string;
-  gameStatus: "playing" | "won" | "lost";
+  gameStatus: GameStatusType;
   usedLetters: {
     [key: string]: LetterStatus;
   };
 }
+
+// Function to generate the initial game state
+const generateInitialState = (): GameState => {
+  return {
+    secretWord: getRandomWord(),
+    attempts: [],
+    currentAttempt: "",
+    gameStatus: "playing" as GameStatusType,
+    usedLetters: {}
+  };
+};
 
 export const PoWrdleGame = () => {
   const [gameState, setGameState] = useState<GameState>(generateInitialState());
@@ -73,16 +73,6 @@ export const PoWrdleGame = () => {
       return;
     }
 
-    // Check if the word is in our list (optional - we're being lenient here)
-    // if (!WORDS.includes(gameState.currentAttempt)) {
-    //   toast({
-    //     title: "Not in word list",
-    //     description: "Please try another word",
-    //     variant: "destructive"
-    //   });
-    //   return;
-    // }
-
     const newAttempts = [...gameState.attempts, gameState.currentAttempt];
     const newUsedLetters = { ...gameState.usedLetters };
     
@@ -100,7 +90,7 @@ export const PoWrdleGame = () => {
       }
     });
 
-    let newGameStatus = gameState.gameStatus;
+    let newGameStatus: GameStatusType = gameState.gameStatus;
     
     // Check if the player won
     if (gameState.currentAttempt === gameState.secretWord) {

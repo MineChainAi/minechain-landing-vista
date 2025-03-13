@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Backspace } from "lucide-react";
+import { Delete } from "lucide-react";
 
 type LetterStatus = "correct" | "present" | "absent" | "unused";
 
@@ -40,7 +40,7 @@ export const KeyboardButton: React.FC<KeyboardButtonProps> = ({
       disabled={disabled}
       className={`${getBgColor(status)} ${getWidth()} h-10 rounded text-white font-medium text-sm flex items-center justify-center transition-colors ${disabled ? 'opacity-50' : ''}`}
     >
-      {letter === "BACKSPACE" ? <Backspace size={16} /> : letter}
+      {letter === "BACKSPACE" ? <Delete size={16} /> : letter}
     </button>
   );
 };
