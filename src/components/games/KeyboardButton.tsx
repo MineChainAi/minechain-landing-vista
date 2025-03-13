@@ -38,7 +38,7 @@ export const KeyboardButton: React.FC<KeyboardButtonProps> = ({
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`${getBgColor(status)} ${getWidth()} h-10 rounded text-white font-medium text-sm flex items-center justify-center transition-colors ${disabled ? 'opacity-50' : ''} shadow-sm`}
+      className={`${getBgColor(status)} ${getWidth()} h-10 rounded text-white font-medium text-sm flex items-center justify-center transition-colors ${disabled ? 'opacity-50' : ''} shadow-md`}
     >
       {letter === "BACKSPACE" ? <Delete size={16} /> : letter}
     </button>

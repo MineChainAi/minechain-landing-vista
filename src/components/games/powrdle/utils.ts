@@ -1,4 +1,3 @@
-
 import { WORD_HINTS } from "./constants";
 import { GameState, LetterStatus } from "./types";
 
@@ -42,6 +41,6 @@ export const getBgColorClass = (status: LetterStatus): string => {
     case "correct": return "bg-green-600";
     case "present": return "bg-yellow-500";
     case "absent": return "bg-gray-800";
-    default: return "bg-black/50";
+    default: return "bg-black/60";
   }
 };
