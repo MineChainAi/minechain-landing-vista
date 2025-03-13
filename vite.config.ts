@@ -29,6 +29,12 @@ export default defineConfig(({ mode }) => ({
     },
     rollupOptions: {
       external: [],
+      // Add output configuration to prevent the zod resolution error
+      output: {
+        manualChunks: {
+          vendor: ['zod', 'react', 'react-dom'],
+        },
+      }
     }
   }
 }));
