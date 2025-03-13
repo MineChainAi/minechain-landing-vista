@@ -1,14 +1,21 @@
 
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { PoWrdleGame } from "../games/PoWrdleGame";
 import { GameIntroduction } from "./GameIntroduction";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Sparkles } from "lucide-react";
 
 export const GameSection = () => {
-  const [isActive] = useState(true); // Keep game active by default, remove unused setter
+  const [isActive, setIsActive] = useState(true); // Keep game active by default
   const isMobile = useIsMobile();
+
+  // Ensure game is activated when component mounts
+  useEffect(() => {
+    if (!isActive) {
+      setIsActive(true);
+    }
+  }, [isActive]);
 
   return (
     <motion.div
