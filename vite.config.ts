@@ -21,7 +21,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   optimizeDeps: {
-    include: ['zod'], // Explicitly include zod in optimization
+    include: ['zod'], // Ensure zod is explicitly included in optimization
   },
   build: {
     commonjsOptions: {
