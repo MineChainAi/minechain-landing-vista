@@ -9,7 +9,7 @@ interface GuessRowProps {
   isCurrentAttempt: boolean;
   rowIndex: number;
   secretWord: string;
-  currentAttempt?: string; // Add this to pass current attempt
+  currentAttempt?: string;
 }
 
 export const GuessRow: React.FC<GuessRowProps> = ({ 

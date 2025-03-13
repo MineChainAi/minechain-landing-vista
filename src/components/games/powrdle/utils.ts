@@ -10,8 +10,11 @@ export const getRandomWord = () => {
 
 // Function to generate the initial game state
 export const generateInitialState = (): GameState => {
+  const secretWord = getRandomWord();
+  console.log("New game started with word:", secretWord);
+  
   return {
-    secretWord: getRandomWord(),
+    secretWord,
     attempts: [],
     currentAttempt: "",
     gameStatus: "playing",
@@ -22,6 +25,8 @@ export const generateInitialState = (): GameState => {
 
 // Check a letter's status (correct, present, absent)
 export const getLetterStatus = (secretWord: string, letter: string, position: number): LetterStatus => {
+  if (!secretWord || !letter) return "unused";
+  
   if (secretWord[position] === letter) {
     return "correct";
   } else if (secretWord.includes(letter)) {

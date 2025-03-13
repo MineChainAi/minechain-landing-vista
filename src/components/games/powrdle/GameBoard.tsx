@@ -8,9 +8,12 @@ interface GameBoardProps {
 }
 
 export const GameBoard: React.FC<GameBoardProps> = ({ gameState }) => {
+  // Create an array to represent all rows (both completed and future attempts)
+  const rowsToRender = Array(3).fill(null);
+
   return (
     <div className="my-6">
-      {[...Array(3)].map((_, rowIndex) => (
+      {rowsToRender.map((_, rowIndex) => (
         <GuessRow
           key={`row-${rowIndex}`}
           attempt={gameState.attempts[rowIndex]}
