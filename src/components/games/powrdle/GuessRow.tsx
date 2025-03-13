@@ -38,7 +38,7 @@ export const GuessRow: React.FC<GuessRowProps> = ({
   
   // If this is the current row (where user is typing)
   if (isCurrentAttempt) {
-    const currentAttempt = attempt || "";
+    const currentAttempt = "";
     const paddedAttempt = currentAttempt.padEnd(5, " ");
     
     return (

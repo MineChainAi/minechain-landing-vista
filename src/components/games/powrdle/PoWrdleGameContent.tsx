@@ -126,7 +126,7 @@ export const PoWrdleGameContent: React.FC = () => {
   }, [handleKeyPress]);
 
   return (
-    <Card className="bg-black/60 border-white/10 p-6 rounded-xl max-w-md mx-auto">
+    <Card className="bg-black/80 border-white/10 p-6 rounded-xl max-w-md mx-auto shadow-2xl">
       <div className="mb-6">
         <div className="text-center mb-2">
           <h2 className="text-white text-xl font-bold">PoWrdle</h2>
