@@ -1,21 +1,41 @@
+
 import React, { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { RefreshCw, AlertCircle } from "lucide-react";
+import { RefreshCw, AlertCircle, Lightbulb } from "lucide-react";
 import { motion } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
 import { KeyboardButton } from "./KeyboardButton";
 
-// List of 5-letter blockchain-related words
-const WORDS = [
-  "BLOCK", "CHAIN", "TOKEN", "MINER", "NODES", "CRYPT", "COINS", "STAKE", "LEDGE", "DEBIT", 
-  "TRADE", "WHALES", "NONCE", "SMART", "VAULT", "ASSET", "SHARD", "PROOF", "YIELD", "FORKS"
-];
+// List of 5-letter blockchain-related words with their hints
+const WORD_HINTS = {
+  "BLOCK": "The foundation of a blockchain",
+  "CHAIN": "Links digital records together",
+  "TOKEN": "A digital asset on the blockchain",
+  "MINER": "Validates transactions and secures the network",
+  "NODES": "Network participants that maintain the blockchain",
+  "CRYPT": "Related to securing data through encoding",
+  "COINS": "Digital currency units",
+  "STAKE": "Locking up tokens to support network operations",
+  "LEDGE": "A record of financial transactions",
+  "DEBIT": "A type of payment that reduces balance",
+  "TRADE": "Exchange of assets between parties",
+  "WHALES": "Entities holding large amounts of crypto",
+  "NONCE": "Number used once in crypto mining",
+  "SMART": "Self-executing contracts with code",
+  "VAULT": "Secure storage for digital assets",
+  "ASSET": "Item of value owned by an individual",
+  "SHARD": "Database partitioning in blockchain",
+  "PROOF": "Verification method in blockchain",
+  "YIELD": "Returns generated from crypto investments",
+  "FORKS": "Blockchain protocol upgrades or splits"
+};
 
 // Get a random word from our list
 const getRandomWord = () => {
-  return WORDS[Math.floor(Math.random() * WORDS.length)];
+  const words = Object.keys(WORD_HINTS);
+  return words[Math.floor(Math.random() * words.length)];
 };
 
 type LetterStatus = "correct" | "present" | "absent" | "unused";
@@ -29,6 +49,7 @@ interface GameState {
   usedLetters: {
     [key: string]: LetterStatus;
   };
+  showHint: boolean;
 }
 
 // Function to generate the initial game state
@@ -38,7 +59,8 @@ const generateInitialState = (): GameState => {
     attempts: [],
     currentAttempt: "",
     gameStatus: "playing" as GameStatusType,
-    usedLetters: {}
+    usedLetters: {},
+    showHint: false
   };
 };
 
@@ -120,6 +142,14 @@ export const PoWrdleGame = () => {
     });
   }, [gameState, getLetterStatus, toast]);
 
+  // Toggle hint visibility
+  const toggleHint = useCallback(() => {
+    setGameState(prevState => ({
+      ...prevState,
+      showHint: !prevState.showHint
+    }));
+  }, []);
+
   // Handle keyboard input
   const handleKeyPress = useCallback((key: string) => {
     if (gameState.gameStatus !== "playing") return;
@@ -166,6 +196,11 @@ export const PoWrdleGame = () => {
       default: return "bg-black/40";
     }
   };
+
+  // Get hint for current secret word
+  const getHint = useCallback(() => {
+    return WORD_HINTS[gameState.secretWord as keyof typeof WORD_HINTS] || "No hint available";
+  }, [gameState.secretWord]);
 
   // Define the rows we need to display (3 attempts + current attempt)
   const guessRows = [...Array(3)].map((_, rowIndex) => {
@@ -240,6 +275,37 @@ export const PoWrdleGame = () => {
           <p className="text-mine-silver text-sm">
             Guess the 5-letter blockchain word in 3 tries
           </p>
+        </div>
+        
+        {/* Hint section */}
+        <div className="my-4">
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ 
+              opacity: gameState.showHint ? 1 : 0,
+              height: gameState.showHint ? "auto" : 0 
+            }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <div className="bg-[#1A2138] p-3 rounded-lg border border-orange-500/30 mb-3">
+              <p className="text-mine-silver text-sm">
+                <span className="text-orange-400 font-medium">Hint:</span> {getHint()}
+              </p>
+            </div>
+          </motion.div>
+          
+          <div className="flex justify-center">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={toggleHint}
+              className="bg-transparent border-orange-500/30 text-orange-400 hover:bg-orange-500/10 text-xs flex items-center gap-1"
+            >
+              <Lightbulb className="h-3 w-3" />
+              {gameState.showHint ? "Hide Hint" : "Show Hint"}
+            </Button>
+          </div>
         </div>
         
         {/* Game board */}
