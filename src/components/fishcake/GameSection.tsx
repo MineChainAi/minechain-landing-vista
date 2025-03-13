@@ -5,7 +5,7 @@ import { PoWrdleGame } from "../games/PoWrdleGame";
 import { GameIntroduction } from "./GameIntroduction";
 
 export const GameSection = () => {
-  const [isActive, setIsActive] = useState(true); // Keep game active by default
+  const [isActive] = useState(true); // Keep game active by default, remove unused setter
 
   return (
     <motion.div

@@ -2,7 +2,7 @@
 import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
+import * as z from "zod"; // Change import pattern to avoid resolution issues
 import { useToast } from "@/hooks/use-toast";
 import { Send, X } from "lucide-react";
 import {
