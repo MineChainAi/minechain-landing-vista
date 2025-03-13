@@ -9,7 +9,7 @@ interface GameBoardProps {
 
 export const GameBoard: React.FC<GameBoardProps> = ({ gameState }) => {
   return (
-    <div className="my-6">
+    <div className="my-6 p-4 bg-black/60 rounded-lg shadow-inner border border-white/10">
       {Array(3).fill(null).map((_, rowIndex) => {
         // Check if this row is for a completed attempt
         const isCompletedAttempt = rowIndex < gameState.attempts.length;
