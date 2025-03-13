@@ -3,7 +3,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Lightbulb } from "lucide-react";
 import { motion } from "framer-motion";
-import { WORD_HINTS } from "./constants";
+import { getHint } from "./utils";
 
 interface HintSectionProps {
   secretWord: string;
@@ -16,6 +16,9 @@ export const HintSection: React.FC<HintSectionProps> = ({
   showHint, 
   toggleHint 
 }) => {
+  // Get the hint text using the utility function
+  const hintText = getHint(secretWord);
+  
   return (
     <div className="my-4">
       <motion.div
@@ -29,7 +32,7 @@ export const HintSection: React.FC<HintSectionProps> = ({
       >
         <div className="bg-[#1A2138] p-3 rounded-lg border border-orange-500/30 mb-3">
           <p className="text-mine-silver text-sm">
-            <span className="text-orange-400 font-medium">Hint:</span> {WORD_HINTS[secretWord as keyof typeof WORD_HINTS] || "No hint available"}
+            <span className="text-orange-400 font-medium">Hint:</span> {hintText}
           </p>
         </div>
       </motion.div>

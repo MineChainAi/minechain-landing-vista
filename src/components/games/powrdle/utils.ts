@@ -1,3 +1,4 @@
+
 import { WORD_HINTS } from "./constants";
 import { GameState, LetterStatus } from "./types";
 
@@ -32,7 +33,8 @@ export const getLetterStatus = (secretWord: string, letter: string, position: nu
 
 // Get hint for the given secret word
 export const getHint = (secretWord: string): string => {
-  return WORD_HINTS[secretWord as keyof typeof WORD_HINTS] || "No hint available";
+  // Make sure we're accessing the hints object correctly
+  return WORD_HINTS[secretWord] || "No hint available";
 };
 
 // Get background color class based on letter status
