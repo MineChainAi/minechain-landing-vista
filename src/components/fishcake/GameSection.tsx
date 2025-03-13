@@ -1,10 +1,12 @@
 
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useState } from "react";
 import { PoWrdleGame } from "../games/PoWrdleGame";
 import { GameIntroduction } from "./GameIntroduction";
 
 export const GameSection = () => {
+  const [isActive, setIsActive] = useState(true); // Set to true to activate the game by default
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -13,9 +15,16 @@ export const GameSection = () => {
       className="mt-4 mb-12"
     >
       <GameIntroduction />
-      <div className="max-w-4xl mx-auto transform origin-top">
-        <PoWrdleGame />
-      </div>
+      {isActive && (
+        <motion.div 
+          className="max-w-4xl mx-auto transform origin-top"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <PoWrdleGame />
+        </motion.div>
+      )}
     </motion.div>
   );
 };
