@@ -28,6 +28,25 @@ const FishcakePage = () => {
               transition={{ duration: 0.5 }}
               className="text-center max-w-3xl mx-auto"
             >
+              <div className="flex justify-center mb-6">
+                <motion.div 
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ 
+                    duration: 0.6,
+                    ease: [0.22, 1, 0.36, 1]
+                  }}
+                  className="relative w-32 h-32"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#F97316]/30 to-[#0EA5E9]/30 rounded-full blur-xl opacity-70"></div>
+                  <img
+                    src="/lovable-uploads/8037cb9d-08bc-4fb1-a49b-bf1eeb793a8e.png"
+                    alt="Fishcake Logo"
+                    className="w-full h-full object-contain relative z-10"
+                  />
+                </motion.div>
+              </div>
+              
               <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
                 Welcome to <span className="text-[#F97316]">Fishcake</span>
               </h1>
