@@ -20,10 +20,10 @@ export const KeyboardButton: React.FC<KeyboardButtonProps> = ({
   // Get background color based on status
   const getBgColor = (status: LetterStatus): string => {
     switch (status) {
-      case "correct": return "bg-green-500 hover:bg-green-600";
+      case "correct": return "bg-green-600 hover:bg-green-700";
       case "present": return "bg-yellow-500 hover:bg-yellow-600";
-      case "absent": return "bg-gray-700 hover:bg-gray-800";
-      default: return "bg-gray-600 hover:bg-gray-700";
+      case "absent": return "bg-gray-800 hover:bg-gray-900";
+      default: return "bg-gray-700 hover:bg-gray-800";
     }
   };
 
@@ -38,7 +38,7 @@ export const KeyboardButton: React.FC<KeyboardButtonProps> = ({
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`${getBgColor(status)} ${getWidth()} h-10 rounded text-white font-medium text-sm flex items-center justify-center transition-colors ${disabled ? 'opacity-50' : ''}`}
+      className={`${getBgColor(status)} ${getWidth()} h-10 rounded text-white font-medium text-sm flex items-center justify-center transition-colors ${disabled ? 'opacity-50' : ''} shadow-sm`}
     >
       {letter === "BACKSPACE" ? <Delete size={16} /> : letter}
     </button>

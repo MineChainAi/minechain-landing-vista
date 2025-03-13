@@ -39,9 +39,9 @@ export const getHint = (secretWord: string): string => {
 // Get background color class based on letter status
 export const getBgColorClass = (status: LetterStatus): string => {
   switch (status) {
-    case "correct": return "bg-green-500";
+    case "correct": return "bg-green-600";
     case "present": return "bg-yellow-500";
-    case "absent": return "bg-gray-700";
-    default: return "bg-black/40";
+    case "absent": return "bg-gray-800";
+    default: return "bg-black/50";
   }
 };

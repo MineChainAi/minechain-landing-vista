@@ -22,7 +22,7 @@ export const LetterTile: React.FC<LetterTileProps> = ({
   if (isEmpty) {
     return (
       <div
-        className="flex items-center justify-center w-12 h-12 border border-white/10 rounded bg-black/20"
+        className="flex items-center justify-center w-12 h-12 border border-white/10 rounded bg-black/30"
       ></div>
     );
   }
@@ -33,7 +33,7 @@ export const LetterTile: React.FC<LetterTileProps> = ({
         initial={{ scale: letter !== " " ? 1.1 : 1 }}
         animate={{ scale: 1 }}
         transition={{ duration: 0.2 }}
-        className={`flex items-center justify-center w-12 h-12 border border-white/20 ${letter !== " " ? "border-white/40" : ""} rounded text-white font-bold text-xl bg-black/40`}
+        className={`flex items-center justify-center w-12 h-12 border ${letter !== " " ? "border-white/50" : "border-white/20"} rounded text-white font-bold text-2xl bg-black/50 shadow-inner`}
       >
         {letter !== " " ? letter : ""}
       </motion.div>
@@ -45,7 +45,7 @@ export const LetterTile: React.FC<LetterTileProps> = ({
       initial={{ rotateX: -90 }}
       animate={{ rotateX: 0 }}
       transition={{ duration: 0.3, delay: index * 0.1 }}
-      className={`${getBgColorClass(status)} flex items-center justify-center w-12 h-12 border border-white/20 rounded text-white font-bold text-xl`}
+      className={`${getBgColorClass(status)} flex items-center justify-center w-12 h-12 border border-white/20 rounded text-white font-bold text-2xl shadow-md`}
     >
       {letter}
     </motion.div>
