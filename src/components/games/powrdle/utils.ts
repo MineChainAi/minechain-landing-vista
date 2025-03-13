@@ -25,7 +25,7 @@ export const generateInitialState = (): GameState => {
 
 // Check a letter's status (correct, present, absent)
 export const getLetterStatus = (secretWord: string, letter: string, position: number): LetterStatus => {
-  if (!secretWord || !letter) return "unused";
+  if (!letter) return "unused";
   
   if (secretWord[position] === letter) {
     return "correct";
@@ -38,7 +38,6 @@ export const getLetterStatus = (secretWord: string, letter: string, position: nu
 
 // Get hint for the given secret word
 export const getHint = (secretWord: string): string => {
-  // Make sure we're accessing the hints object correctly
   return WORD_HINTS[secretWord] || "No hint available";
 };
 
@@ -48,6 +47,6 @@ export const getBgColorClass = (status: LetterStatus): string => {
     case "correct": return "bg-green-600";
     case "present": return "bg-yellow-500";
     case "absent": return "bg-gray-800";
-    default: return "bg-black/60";
+    default: return "bg-gray-700";
   }
 };

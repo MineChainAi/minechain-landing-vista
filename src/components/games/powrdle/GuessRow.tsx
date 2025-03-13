@@ -22,15 +22,14 @@ export const GuessRow: React.FC<GuessRowProps> = ({
   // If we have a completed attempt
   if (attempt) {
     return (
-      <div key={rowIndex} className="flex justify-center gap-2 mb-2">
-        {[...attempt].map((letter, colIndex) => {
+      <div className="flex justify-center gap-2 mb-2">
+        {Array.from(attempt).map((letter, colIndex) => {
           const status = getLetterStatus(secretWord, letter, colIndex);
           return (
             <LetterTile 
               key={`${rowIndex}-${colIndex}`} 
               letter={letter} 
               status={status} 
-              index={colIndex}
             />
           );
         })}
@@ -40,16 +39,18 @@ export const GuessRow: React.FC<GuessRowProps> = ({
   
   // If this is the current row (where user is typing)
   if (isCurrentAttempt) {
-    const paddedAttempt = currentAttempt.padEnd(5, " ");
+    const currentLetters = currentAttempt.split('');
+    const emptySpaces = Array(5 - currentLetters.length).fill('');
+    const displayLetters = [...currentLetters, ...emptySpaces];
     
     return (
       <div className="flex justify-center gap-2 mb-2">
-        {[...paddedAttempt].map((letter, colIndex) => (
+        {displayLetters.map((letter, colIndex) => (
           <LetterTile
             key={`current-${colIndex}`}
             letter={letter}
+            status="unused"
             isCurrentGuess={true}
-            index={colIndex}
           />
         ))}
       </div>
@@ -59,11 +60,11 @@ export const GuessRow: React.FC<GuessRowProps> = ({
   // Empty future rows
   return (
     <div className="flex justify-center gap-2 mb-2">
-      {[...Array(5)].map((_, colIndex) => (
+      {Array(5).fill(null).map((_, colIndex) => (
         <LetterTile
           key={`empty-${rowIndex}-${colIndex}`}
           letter=""
-          isEmpty={true}
+          status="unused"
         />
       ))}
     </div>
