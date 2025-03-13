@@ -21,11 +21,14 @@ export default defineConfig(({ mode }) => ({
     },
   },
   optimizeDeps: {
-    include: ['zod'] // Explicitly include zod in optimization
+    include: ['zod'], // Explicitly include zod in optimization
   },
   build: {
     commonjsOptions: {
       include: [/node_modules/], // Include all node_modules for commonjs conversion
     },
+    rollupOptions: {
+      external: [],
+    }
   }
 }));
