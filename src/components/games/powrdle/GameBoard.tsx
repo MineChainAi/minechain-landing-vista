@@ -17,6 +17,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({ gameState }) => {
           isCurrentAttempt={rowIndex === gameState.attempts.length && gameState.gameStatus === "playing"}
           rowIndex={rowIndex}
           secretWord={gameState.secretWord}
+          currentAttempt={rowIndex === gameState.attempts.length ? gameState.currentAttempt : ""}
         />
       ))}
     </div>
