@@ -9,13 +9,15 @@ interface GuessRowProps {
   isCurrentAttempt: boolean;
   rowIndex: number;
   secretWord: string;
+  currentAttempt?: string;
 }
 
 export const GuessRow: React.FC<GuessRowProps> = ({ 
   attempt, 
   isCurrentAttempt, 
   rowIndex,
-  secretWord
+  secretWord,
+  currentAttempt = ""
 }) => {
   // If we have a completed attempt
   if (attempt) {
@@ -38,7 +40,6 @@ export const GuessRow: React.FC<GuessRowProps> = ({
   
   // If this is the current row (where user is typing)
   if (isCurrentAttempt) {
-    const currentAttempt = "";
     const paddedAttempt = currentAttempt.padEnd(5, " ");
     
     return (
