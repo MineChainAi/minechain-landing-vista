@@ -5,7 +5,7 @@ import { PoWrdleGame } from "../games/PoWrdleGame";
 import { GameIntroduction } from "./GameIntroduction";
 
 export const GameSection = () => {
-  const [isActive, setIsActive] = useState(true); // Set to true to activate the game by default
+  const [isActive, setIsActive] = useState(true); // Keep game active by default
 
   return (
     <motion.div

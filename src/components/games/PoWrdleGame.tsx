@@ -65,7 +65,8 @@ const generateInitialState = (): GameState => {
 };
 
 export const PoWrdleGame = () => {
-  const [gameState, setGameState] = useState<GameState>(generateInitialState());
+  // Use useState with a function to ensure it's only evaluated once during initial render
+  const [gameState, setGameState] = useState<GameState>(() => generateInitialState());
   const { toast } = useToast();
   
   // Reset the game
@@ -157,15 +158,15 @@ export const PoWrdleGame = () => {
     if (key === "ENTER") {
       submitGuess();
     } else if (key === "BACKSPACE") {
-      setGameState({
-        ...gameState,
-        currentAttempt: gameState.currentAttempt.slice(0, -1)
-      });
+      setGameState(prevState => ({
+        ...prevState,
+        currentAttempt: prevState.currentAttempt.slice(0, -1)
+      }));
     } else if (/^[A-Z]$/.test(key) && gameState.currentAttempt.length < 5) {
-      setGameState({
-        ...gameState,
-        currentAttempt: gameState.currentAttempt + key
-      });
+      setGameState(prevState => ({
+        ...prevState,
+        currentAttempt: prevState.currentAttempt + key
+      }));
     }
   }, [gameState, submitGuess]);
 
@@ -290,7 +291,7 @@ export const PoWrdleGame = () => {
           >
             <div className="bg-[#1A2138] p-3 rounded-lg border border-orange-500/30 mb-3">
               <p className="text-mine-silver text-sm">
-                <span className="text-orange-400 font-medium">Hint:</span> {getHint()}
+                <span className="text-orange-400 font-medium">Hint:</span> {WORD_HINTS[gameState.secretWord as keyof typeof WORD_HINTS] || "No hint available"}
               </p>
             </div>
           </motion.div>
@@ -299,7 +300,10 @@ export const PoWrdleGame = () => {
             <Button
               variant="outline"
               size="sm"
-              onClick={toggleHint}
+              onClick={() => setGameState(prevState => ({
+                ...prevState,
+                showHint: !prevState.showHint
+              }))}
               className="bg-transparent border-orange-500/30 text-orange-400 hover:bg-orange-500/10 text-xs flex items-center gap-1"
             >
               <Lightbulb className="h-3 w-3" />
