@@ -1,7 +1,7 @@
 
-import { motion } from "framer-motion";
 import React from "react";
 import { Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
 
 export const GameIntroduction = () => {
   return (
@@ -63,7 +63,7 @@ export const GameIntroduction = () => {
           <span className="inline-block w-5 h-5 bg-gray-700 mr-2 rounded"></span>
           <span className="text-white">Gray = Not in the word.</span>
         </motion.div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 };
