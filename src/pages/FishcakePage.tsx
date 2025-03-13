@@ -63,8 +63,9 @@ const FishcakePage = () => {
             >
               <div className="max-w-3xl mx-auto bg-gradient-to-r from-black/60 to-black/80 p-6 rounded-xl border border-[#F97316]/20 mb-8">
                 <h2 className="text-2xl font-bold text-white mb-3 flex items-center justify-center">
-                  <span className="text-[#F97316] mr-2">PoWrdle</span> – The Blockchain Word Game
+                  <span className="text-[#F97316]">PoWrdle</span>
                 </h2>
+                <p className="text-white text-center mb-4">The Blockchain Word Game</p>
                 <p className="text-mine-silver mb-4 text-center italic">🔥 Think you know crypto? Prove it. 🔥</p>
                 <p className="text-mine-silver mb-4">
                   Welcome to PoWrdle, the ultimate blockchain-themed word challenge powered by Fishcake.ai.
