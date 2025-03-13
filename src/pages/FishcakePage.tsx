@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Helmet } from "react-helmet";
 import { Navbar } from "@/components/Navbar";
@@ -118,26 +117,26 @@ const FishcakePage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-8 mb-12"
+              className="mt-4 mb-12"
             >
               <motion.div 
-                className="max-w-3xl mx-auto bg-gradient-to-r from-black/60 to-black/80 p-6 rounded-xl border border-[#F97316]/20 mb-8"
+                className="max-w-4xl mx-auto bg-gradient-to-r from-black/60 to-black/80 p-8 rounded-xl border border-[#F97316]/20 mb-8"
                 whileHover={{ borderColor: "rgba(249, 115, 22, 0.4)", transition: { duration: 0.3 } }}
                 animate={{ boxShadow: ["0 0 10px 0px rgba(249, 115, 22, 0.1)", "0 0 20px 0px rgba(249, 115, 22, 0.2)", "0 0 10px 0px rgba(249, 115, 22, 0.1)"] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
-                <h2 className="text-2xl font-bold text-white mb-3 flex items-center justify-center">
+                <h2 className="text-3xl font-bold text-white mb-3 flex items-center justify-center">
                   <motion.span 
                     className="text-[#F97316] flex items-center"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <Sparkles className="w-5 h-5 mr-2 text-yellow-400" />
+                    <Sparkles className="w-6 h-6 mr-2 text-yellow-400" />
                     PoWrdle
                   </motion.span>
                 </h2>
-                <p className="text-white text-center mb-4">The Blockchain Word Game</p>
+                <p className="text-white text-center text-xl mb-4">The Blockchain Word Game</p>
                 <motion.p 
-                  className="text-mine-silver mb-4 text-center italic"
+                  className="text-mine-silver mb-6 text-center italic text-lg"
                   animate={{ 
                     color: ['#94A3B8', '#F97316', '#94A3B8'] 
                   }}
@@ -149,17 +148,17 @@ const FishcakePage = () => {
                 >
                   🔥 Think you know crypto? Prove it. 🔥
                 </motion.p>
-                <p className="text-mine-silver mb-4">
+                <p className="text-mine-silver mb-6 text-lg">
                   Welcome to PoWrdle, the ultimate blockchain-themed word challenge powered by Fishcake.ai.
                   You've got 3 tries to guess a 5-letter word straight from the world of crypto, mining, and Web3.
                 </p>
-                <div className="flex flex-col md:flex-row justify-center gap-4 mb-4">
+                <div className="flex flex-col md:flex-row justify-center gap-6 mb-6">
                   <motion.div 
                     className="flex items-center"
                     whileHover={{ scale: 1.05, x: 5 }}
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   >
-                    <span className="inline-block w-4 h-4 bg-green-500 mr-2 rounded"></span>
+                    <span className="inline-block w-5 h-5 bg-green-500 mr-2 rounded"></span>
                     <span className="text-white">Green = Right letter, right place.</span>
                   </motion.div>
                   <motion.div 
@@ -167,7 +166,7 @@ const FishcakePage = () => {
                     whileHover={{ scale: 1.05, x: 5 }}
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   >
-                    <span className="inline-block w-4 h-4 bg-yellow-500 mr-2 rounded"></span>
+                    <span className="inline-block w-5 h-5 bg-yellow-500 mr-2 rounded"></span>
                     <span className="text-white">Yellow = Right letter, wrong place.</span>
                   </motion.div>
                   <motion.div 
@@ -175,33 +174,18 @@ const FishcakePage = () => {
                     whileHover={{ scale: 1.05, x: 5 }}
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   >
-                    <span className="inline-block w-4 h-4 bg-gray-700 mr-2 rounded"></span>
+                    <span className="inline-block w-5 h-5 bg-gray-700 mr-2 rounded"></span>
                     <span className="text-white">Gray = Not in the word.</span>
                   </motion.div>
                 </div>
-                <motion.p 
-                  className="text-mine-silver text-center font-semibold"
-                  initial={{ opacity: 0.8 }}
-                  whileInView={{ 
-                    opacity: [0.8, 1, 0.8],
-                    scale: [1, 1.02, 1],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                  viewport={{ once: false }}
-                >
-                  Are you a real PoW OG, or just another paper-handed trader?<br/>
-                  Play now and test your blockchain knowledge! 🚀💎
-                </motion.p>
               </motion.div>
 
-              <PoWrdleGame />
+              <div className="max-w-2xl mx-auto scale-110 transform origin-top">
+                <PoWrdleGame />
+              </div>
             </motion.div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
