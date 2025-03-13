@@ -13,7 +13,7 @@ export const GameSection = () => {
       className="mt-4 mb-12"
     >
       <GameIntroduction />
-      <div className="max-w-2xl mx-auto scale-110 transform origin-top">
+      <div className="max-w-4xl mx-auto transform origin-top">
         <PoWrdleGame />
       </div>
     </motion.div>
