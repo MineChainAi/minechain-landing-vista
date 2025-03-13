@@ -32,13 +32,9 @@ export const GameSection = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <motion.div 
-            className="relative z-10"
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            <div className="absolute -inset-1 bg-gradient-to-r from-mine-orange/20 to-mine-blue/20 rounded-xl blur-md z-0"></div>
+          <div className="relative z-10">
             <PoWrdleGame />
-          </motion.div>
+          </div>
         </motion.div>
       )}
     </motion.div>
