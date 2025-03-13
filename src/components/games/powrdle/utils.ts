@@ -1,4 +1,3 @@
-
 import { WORD_HINTS } from "./constants";
 import { GameState, LetterStatus } from "./types";
 
@@ -10,11 +9,8 @@ export const getRandomWord = () => {
 
 // Function to generate the initial game state
 export const generateInitialState = (): GameState => {
-  const secretWord = getRandomWord();
-  console.log("New game started with word:", secretWord);
-  
   return {
-    secretWord,
+    secretWord: getRandomWord(),
     attempts: [],
     currentAttempt: "",
     gameStatus: "playing",
@@ -25,8 +21,6 @@ export const generateInitialState = (): GameState => {
 
 // Check a letter's status (correct, present, absent)
 export const getLetterStatus = (secretWord: string, letter: string, position: number): LetterStatus => {
-  if (!letter) return "unused";
-  
   if (secretWord[position] === letter) {
     return "correct";
   } else if (secretWord.includes(letter)) {
@@ -38,15 +32,15 @@ export const getLetterStatus = (secretWord: string, letter: string, position: nu
 
 // Get hint for the given secret word
 export const getHint = (secretWord: string): string => {
-  return WORD_HINTS[secretWord] || "No hint available";
+  return WORD_HINTS[secretWord as keyof typeof WORD_HINTS] || "No hint available";
 };
 
 // Get background color class based on letter status
 export const getBgColorClass = (status: LetterStatus): string => {
   switch (status) {
     case "correct": return "bg-green-600";
-    case "present": return "bg-yellow-600";
-    case "absent": return "bg-gray-900";
-    default: return "bg-gray-800";
+    case "present": return "bg-yellow-500";
+    case "absent": return "bg-gray-800";
+    default: return "bg-black/60";
   }
 };

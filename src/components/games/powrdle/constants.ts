@@ -1,6 +1,6 @@
 
 // List of 5-letter blockchain-related words with their hints
-export const WORD_HINTS: Record<string, string> = {
+export const WORD_HINTS = {
   "BLOCK": "The foundation of a blockchain",
   "CHAIN": "Links digital records together",
   "TOKEN": "A digital asset on the blockchain",
@@ -12,7 +12,7 @@ export const WORD_HINTS: Record<string, string> = {
   "LEDGE": "A record of financial transactions",
   "DEBIT": "A type of payment that reduces balance",
   "TRADE": "Exchange of assets between parties",
-  "WHALE": "Entity holding large amounts of crypto",
+  "WHALES": "Entities holding large amounts of crypto",
   "NONCE": "Number used once in crypto mining",
   "SMART": "Self-executing contracts with code",
   "VAULT": "Secure storage for digital assets",
